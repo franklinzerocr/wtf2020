@@ -10,9 +10,9 @@ const getEvents = async () => {
   try {
     await fetch(backendURL + '/events')
       .then(response => response.json())
-      .then(data => setEvents({ loading: false, error: null, data: data }))
-      .catch(error => setEvents({ loading: false, error: error, data: events.data }));
-    console.log('DONE', events);
+      .then(async data => await setEvents({ loading: false, error: null, data: data }))
+      .catch(async error => await setEvents({ loading: false, error: error, data: events.data }));
+    console.log('getEvents', events);
   } catch (error) {
     setEvents({ loading: false, error: error, data: events.data });
   }

@@ -15,7 +15,7 @@ function Home(props) {
   if (events.loading === true) {
     return (
       <>
-        <Loader dots={9} />;{' '}
+        <Loader dots={9} />
       </>
     );
   } else if (events.error) {
@@ -34,9 +34,9 @@ function Home(props) {
     const firstEvent = sortList(events.data, 'DateInit');
     return (
       <>
-        <button onClick={getEvents}>hola</button>
+        <button onClick={getEvents}>getEvents</button>
         <EventTop event={firstEvent} />
-        <EventsList events={events.data} />;
+        <EventsList events={events.data} />
       </>
     );
   }

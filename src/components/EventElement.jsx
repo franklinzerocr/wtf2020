@@ -9,9 +9,9 @@ function EventElement(props) {
   const event = props.event;
   return (
     <li>
-      {event.Title}
+      Title= {event.Title}
       <ul className='EventStructure'>
-        <li className='Sinopsis'>Title= {event.Sinopsis}</li>
+        <li className='Sinopsis'>Sinopsis= {event.Sinopsis}</li>
         <li className='DateInit'>Date= {event.DateInit}</li>
         <li className='Location'>Location= {event.Location}</li>
         <li className='Keywords'>Keywords= {event.Keywords}</li>
