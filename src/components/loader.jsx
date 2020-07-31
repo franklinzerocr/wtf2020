@@ -1,21 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import '../assets/styles';
+import '../assets/styles/Loader.css';
 
-export default class Loader extends Component {
-  render() {
-    return (
-      <div className='lds-grid'>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-      </div>
-    );
+function Loader(props) {
+  const items = [];
+
+  for (let index = 0; index < props.dots; index++) {
+    items.push(<div key={index} />);
   }
+
+  return <div className='lds-grid'>{items}</div>;
 }
+
+export default Loader;
