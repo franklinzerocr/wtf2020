@@ -1,9 +1,13 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+
+import useEvents from '../hooks/useEvents';
 
 function Home(props) {
+  const events = useEvents();
+  console.log(events);
   document.title = props.title;
-  return <div>Hello world from REACT</div>;
+  if (events.data) return <div>{events.data[0].Title}</div>;
+  else return <div>Nothing</div>;
 }
 
 export default Home;
