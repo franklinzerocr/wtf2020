@@ -8,14 +8,14 @@ import '../assets/styles/EventElement.css';
 function EventElement(props) {
   const event = props.event;
   return (
-    <li key={event.id}>
+    <li>
       {event.Title}
       <ul className='EventStructure'>
         <li className='Sinopsis'>Title= {event.Sinopsis}</li>
         <li className='DateInit'>Date= {event.DateInit}</li>
         <li className='Location'>Location= {event.Location}</li>
         <li className='Keywords'>Keywords= {event.Keywords}</li>
-        <li className='FeaturedImagen'>
+        <li className='FeaturedImage'>
           FeaturedImage=
           <Link to={{ pathname: backendURL + event.FeaturedImage.url }} target='_blank'>
             <img src={backendURL + event.FeaturedImage.formats.small.url} alt={event.Keywords} />
@@ -24,7 +24,7 @@ function EventElement(props) {
         <li className='Memes'>
           Memes=
           {event.Memes.map(meme => (
-            <Link to={{ pathname: backendURL + meme.url }} target='_blank'>
+            <Link to={{ pathname: backendURL + meme.url }} target='_blank' key={meme.id}>
               <img src={backendURL + meme.formats.small.url} alt={event.Keywords} />
             </Link>
           ))}
