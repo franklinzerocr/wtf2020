@@ -1,5 +1,4 @@
 export function sortList(list, key) {
-  console.log(list);
   list.sort(function (a, b) {
     var keyA = new Date(a[key]),
       keyB = new Date(b[key]);

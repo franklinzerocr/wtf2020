@@ -1,28 +1,30 @@
 import { useEffect, useState } from 'react';
 
-const baseUrl = 'https://back.wtf2020.help/events';
+import { backendURL } from '../globals';
 
-let events, setEvents;
+let events = {},
+  setEvents;
 
-async function getEvents() {
+const getEvents = async () => {
   setEvents({ loading: true, error: null, data: events.data });
   try {
-    await fetch(baseUrl)
+    await fetch(backendURL + '/events')
       .then(response => response.json())
       .then(data => setEvents({ loading: false, error: null, data: data }))
       .catch(error => setEvents({ loading: false, error: error, data: events.data }));
+    console.log('DONE', events);
   } catch (error) {
     setEvents({ loading: false, error: error, data: events.data });
   }
-}
+};
 
 const useEvents = () => {
-  [events, setEvents] = useState({ loading: true, error: null, data: undefined });
+  [events, setEvents] = useState({ loading: true, error: null, data: events.data });
   useEffect(() => {
     getEvents();
     return;
   }, []);
-  return events;
+  return [events, getEvents, setEvents];
 };
 
 export default useEvents;
