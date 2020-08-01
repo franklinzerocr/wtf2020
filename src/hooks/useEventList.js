@@ -3,9 +3,25 @@ import { useEffect, useState } from 'react';
 import { backendURL } from '../globals';
 import { setEventTop } from './useEventTop';
 import { sortList } from '../utils';
+import { getNews } from '../externalApis/news';
 
 let events = {},
   setEvents;
+
+async function checkEventNewsList(eventList) {
+  let flag = false;
+
+  await Promise.all(
+    eventList.map(async (event, index) => {
+      if (event.event_news.length < 10) {
+        flag = true;
+        await getNews(event, loaderList, 'List');
+      }
+    })
+  );
+
+  return flag;
+}
 
 export const fetchEventList = async (loading = true) => {
   let eventsAux = Object.assign({}, events);
@@ -30,6 +46,7 @@ export const fetchEventList = async (loading = true) => {
   await setEvents(eventsAux);
   setEventTop(sortList(events.data, 'DatePublished'));
   console.log('fetchEventList', events);
+  if (await checkEventNewsList(events.data)) await fetchEventList();
 };
 
 export const loaderList = value => {

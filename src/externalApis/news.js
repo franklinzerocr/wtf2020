@@ -87,7 +87,7 @@ async function fetchNewsPage(event, maxNewsCountDifference, i) {
   return newsPage;
 }
 
-export const getNews = async (event, elementLoader) => {
+export const getNews = async (event, elementLoader, recursive) => {
   let unsortedNews = event.event_news;
   let news = [];
   let maxNewsCountDifference = 10 - event.event_news.length;
@@ -102,7 +102,7 @@ export const getNews = async (event, elementLoader) => {
     );
     news = sortList(unsortedNews, 'DatePublished');
     await postNewsToBackend(news);
-    await fetchEventList(false);
+    if (!recursive) await fetchEventList(false);
     elementLoader(false);
   } else news = sortList(unsortedNews, 'DatePublished');
   return news;
