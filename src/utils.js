@@ -40,3 +40,9 @@ export const getEncodedString = data => {
   }
   return encodedString;
 };
+
+export function sleep(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}

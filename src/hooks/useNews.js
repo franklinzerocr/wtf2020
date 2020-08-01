@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { newsAPIURL, xRapidapiHost, xRapidapiKey, backendURL } from '../globals';
 import { addDays, getDateTimeYMD, getEncodedString, sortList } from '../utils';
+// import { getEvents } from './useEventList';
 
 let news = {},
   setNews;
@@ -93,23 +94,24 @@ async function getNewsPage(event, maxNewsCountDifference, i) {
 }
 
 const getNews = async event => {
-  await setNews({ loading: true, error: null, data: news.data });
+  await setNews({ loading: true, error: null, data: event.event_news });
   let unsortedNews = news.data;
   let error = news.error;
-  let eventNewsCount = event.event_news.length;
-  console.log('eventNewsCount', eventNewsCount);
-  let maxNewsCountDifference = 10 - eventNewsCount;
-  if (maxNewsCountDifference > 0)
+  let maxNewsCountDifference = 10 - event.event_news.length;
+  if (maxNewsCountDifference > 0) {
     await Promise.all(
       [1, 3, 5, 7, 9].map(async (i, index) => {
         let newsPage = await getNewsPage(event, maxNewsCountDifference, i);
         if (!('error' in newsPage) && unsortedNews !== undefined) unsortedNews = unsortedNews.concat(newsPage);
         else if (!('error' in newsPage)) unsortedNews = newsPage;
         else error = newsPage;
+        // getEvents();
       })
     );
+  }
   let sortedNews = sortList(unsortedNews, 'DatePublished');
   setNews({ loading: false, error: error, data: sortedNews });
+
   console.log('getNews', news);
 };
 
