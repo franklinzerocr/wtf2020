@@ -7,7 +7,7 @@ export function sortList(list, key) {
     if (keyA > keyB) return 1;
     return 0;
   });
-  return list[0];
+  return list;
 }
 
 export function addDays(dateFrom, days) {

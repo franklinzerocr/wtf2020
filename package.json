@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://wtf2020.help",
+  "proxy": "http://localhost:80",
   "scripts": {
     "start": "react-scripts start",
     "client": "react-scripts start",

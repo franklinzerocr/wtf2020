@@ -31,7 +31,7 @@ function Home(props) {
       </>
     );
   } else {
-    const firstEvent = sortList(events.data, 'DateInit');
+    const firstEvent = sortList(events.data, 'DateInit')[0];
     return (
       <>
         <button onClick={getEvents}>getEvents</button>
