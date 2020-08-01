@@ -15,7 +15,7 @@ async function checkEventNewsList(eventList) {
     eventList.map(async (event, index) => {
       if (event.event_news.length < 10) {
         flag = true;
-        await getNews(event, loaderList, 'List');
+        await getNews(event, loaderList, false);
       }
     })
   );
@@ -32,21 +32,19 @@ export const fetchEventList = async (loading = true) => {
     await fetch(backendURL + '/events?_limit=-1')
       .then(response => response.json())
       .then(async function (data) {
-        eventsAux.loading = false;
         eventsAux.data = data;
       })
       .catch(async function (error) {
-        eventsAux.loading = false;
         eventsAux.error = error;
       });
   } catch (error) {
-    eventsAux.loading = false;
     eventsAux.error = error;
   }
+  eventsAux.loading = false;
   await setEvents(eventsAux);
   setEventTop(sortList(events.data, 'DatePublished'));
   console.log('fetchEventList', events);
-  if (await checkEventNewsList(events.data)) await fetchEventList();
+  if (await checkEventNewsList(events.data)) await fetchEventList(false);
 };
 
 export const loaderList = value => {

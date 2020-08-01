@@ -45,8 +45,8 @@ async function postNewsToBackend(eventNews) {
       })
         .then(res2 => res2.json())
         .then(async function (data2) {
-          if (!('error' in data2)) console.log('POST event-news', data2);
-          else {
+          //console.log('POST event-news', data2);
+          if ('error' in data2) {
             errorPOST.ok = false;
             errorPOST.messages.push([data2.message, eventNewsItem]);
           }
@@ -87,7 +87,7 @@ async function fetchNewsPage(event, maxNewsCountDifference, i) {
   return newsPage;
 }
 
-export const getNews = async (event, elementLoader, recursive) => {
+export const getNews = async (event, elementLoader, recursive = true) => {
   let unsortedNews = event.event_news;
   let news = [];
   let maxNewsCountDifference = 10 - event.event_news.length;
@@ -102,7 +102,7 @@ export const getNews = async (event, elementLoader, recursive) => {
     );
     news = sortList(unsortedNews, 'DatePublished');
     await postNewsToBackend(news);
-    if (!recursive) await fetchEventList(false);
+    if (recursive) await fetchEventList(false);
     elementLoader(false);
   } else news = sortList(unsortedNews, 'DatePublished');
   return news;
