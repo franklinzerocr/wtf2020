@@ -7,9 +7,9 @@ import { sortList } from '../utils';
 let events = {},
   setEvents;
 
-export const fetchEventList = async () => {
+export const fetchEventList = async (loading = true) => {
   let eventsAux = Object.assign({}, events);
-  eventsAux.loading = true;
+  eventsAux.loading = loading;
   await setEvents(eventsAux);
   eventsAux = Object.assign({}, events);
   try {
@@ -30,6 +30,10 @@ export const fetchEventList = async () => {
   await setEvents(eventsAux);
   setEventTop(sortList(events.data, 'DatePublished'));
   console.log('fetchEventList', events);
+};
+
+export const loaderList = value => {
+  setEvents({ loading: value, error: null, data: events.data });
 };
 
 export const getEventList = () => {

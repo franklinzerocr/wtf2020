@@ -1,11 +1,6 @@
-import { useEffect, useState } from 'react';
-
 import { newsAPIURL, xRapidapiHost, xRapidapiKey, backendURL } from '../globals';
 import { addDays, getDateTimeYMD, getEncodedString, sortList } from '../utils';
-// import { getEvents } from './useEventList';
-
-let news = {},
-  setNews;
+import { fetchEventList } from '../hooks/useEventList';
 
 function constructEncodedEvent(event, i = 1) {
   let encodedEvent = {};
@@ -67,7 +62,7 @@ async function postNewsToBackend(eventNews) {
   }
 }
 
-async function getNewsPage(event, maxNewsCountDifference, i) {
+async function fetchNewsPage(event, maxNewsCountDifference, i) {
   let encodedEvent = constructEncodedEvent(event, i);
   let newsPage = {};
   try {
@@ -81,7 +76,6 @@ async function getNewsPage(event, maxNewsCountDifference, i) {
       .then(res => res.json())
       .then(async function (data) {
         let eventNews = constructEventNews(data.value, event);
-        await postNewsToBackend(eventNews);
         newsPage = eventNews;
       })
       .catch(async error => {
@@ -93,34 +87,23 @@ async function getNewsPage(event, maxNewsCountDifference, i) {
   return newsPage;
 }
 
-const getNews = async event => {
-  await setNews({ loading: true, error: null, data: event.event_news });
-  let unsortedNews = news.data;
-  let error = news.error;
+export const getNews = async (event, elementLoader) => {
+  let unsortedNews = event.event_news;
+  let news = [];
   let maxNewsCountDifference = 10 - event.event_news.length;
   if (maxNewsCountDifference > 0) {
+    elementLoader(true);
     await Promise.all(
       [1, 3, 5, 7, 9].map(async (i, index) => {
-        let newsPage = await getNewsPage(event, maxNewsCountDifference, i);
+        let newsPage = await fetchNewsPage(event, maxNewsCountDifference, i);
         if (!('error' in newsPage) && unsortedNews !== undefined) unsortedNews = unsortedNews.concat(newsPage);
         else if (!('error' in newsPage)) unsortedNews = newsPage;
-        else error = newsPage;
-        // getEvents();
       })
     );
-  }
-  let sortedNews = sortList(unsortedNews, 'DatePublished');
-  setNews({ loading: false, error: error, data: sortedNews });
-
-  console.log('getNews', news);
+    news = sortList(unsortedNews, 'DatePublished');
+    await postNewsToBackend(news);
+    await fetchEventList(false);
+    elementLoader(false);
+  } else news = sortList(unsortedNews, 'DatePublished');
+  return news;
 };
-
-const useNews = () => {
-  [news, setNews] = useState({ loading: false, error: null, data: news.data });
-  useEffect(() => {
-    return;
-  }, []);
-  return [news, getNews, setNews];
-};
-
-export default useNews;

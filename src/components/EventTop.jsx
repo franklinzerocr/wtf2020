@@ -1,15 +1,14 @@
 import React from 'react';
 
 import { backendURL } from '../globals';
-import useNews from '../hooks/useNews';
+import { getNews } from '../externalApis/news';
 import Loader from './Loader';
 import Error from './Error';
-import useEventTop from '../hooks/useEventTop';
+import useEventTop, { loaderTop } from '../hooks/useEventTop';
 
 function EventTop(props) {
   let [event] = useEventTop();
-  const [news, getNews] = useNews();
-  if (event.loading === true || news.loading) {
+  if (event.loading === true) {
     return (
       <>
         <Loader dots={3} />
@@ -31,7 +30,14 @@ function EventTop(props) {
     event = event.data[0];
     return (
       <div className='EventTop'>
-        <button onClick={() => getNews(event)}>Get News From {event.Title}</button>
+        <button
+          onClick={async () => {
+            let list = await getNews(event, loaderTop);
+            console.log(list);
+          }}
+        >
+          Get News From {event.Title}
+        </button>
         <h1>{event.Title}</h1>
         <img src={backendURL + event.FeaturedImage.formats.medium.url} alt={event.Keywords} />
       </div>
