@@ -17,9 +17,17 @@ function CalendarSection() {
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
     <section className='calendar'>
-      <h1>Calendar</h1>
-      <CalendarList events={filteredEvents} />
-      <Calendar onChange={setCalendar} value={calendarState} />
+      <h1 className='text-center'>Calendar</h1>
+      <div className='container '>
+        <div className='row'>
+          <div className='calendarList-container col-md-6'>
+            <CalendarList events={filteredEvents} />
+          </div>
+          <div className='calendar-container col-md-6'>
+            <Calendar onChange={setCalendar} value={calendarState} />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

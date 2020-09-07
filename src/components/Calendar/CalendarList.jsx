@@ -22,10 +22,10 @@ function checkState(calendarList) {
 
 function CalendarList(props) {
   return (
-    <div className='calendarList-container '>
-      <h2>News of that Day</h2>
+    <>
+      <h2 className='text-center'>News of that Day</h2>
       <table className='calendarList table'>{checkState(props.events)}</table>
-    </div>
+    </>
   );
 }
 
