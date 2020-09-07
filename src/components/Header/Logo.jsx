@@ -7,7 +7,7 @@ import logoImage from '../../assets/images/logowtf.png';
 function Logo() {
   return (
     <Link to='/'>
-      <img src={logoImage} alt='WTF2020 Logo' title='WTF2020' />
+      <img src={logoImage} alt='WTF2020 Logo' title='WTF2020' className='logo' />
     </Link>
   );
 }

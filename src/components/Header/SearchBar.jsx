@@ -3,8 +3,8 @@ import React from 'react';
 function SearchBar() {
   return (
     <div className='search_bar'>
-      <input name='search' id='event_search'></input>
-      <span className='search-icon'>
+      <input name='search' id='search_event' placeholder='Search News by Keywords/Date'></input>
+      <span className='search_icon'>
         <i className='fa fa-search'></i>
       </span>
     </div>

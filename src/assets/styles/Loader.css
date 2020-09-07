@@ -10,7 +10,7 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #000;
+  background: white;
   animation: lds-grid 1.2s linear infinite;
 }
 
@@ -69,7 +69,6 @@
 }
 
 @keyframes lds-grid {
-
   0%,
   100% {
     opacity: 1;

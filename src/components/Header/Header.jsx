@@ -5,15 +5,17 @@ import SearchBar from './SearchBar';
 import Rrss from './Rrss';
 import Menu from './Menu';
 
-import '../../assets/styles/header.css';
+import '../../assets/styles/Header.css';
 
 function Header() {
   return (
-    <header className='main-header'>
-      <Logo />
-      <SearchBar />
-      <Rrss />
-      <Menu />
+    <header className='main-header .container-fluid'>
+      <div className='container'>
+        <Logo />
+        <SearchBar />
+        <Rrss />
+        <Menu />
+      </div>
     </header>
   );
 }
