@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import Rrss from './Rrss';
 import Menu from './Menu';
 
-import '../assets/styles/header.css';
+import '../../assets/styles/header.css';
 
 function Header() {
   return (

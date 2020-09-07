@@ -1,8 +1,9 @@
 import React from 'react';
 
-import EventsList from '../components/EventsList';
-import EventTop from '../components/EventTop';
-import Header from '../components/Header';
+import EventsList from '../components/List/EventsList';
+import EventTop from '../components/Hotline/EventTop';
+import Header from '../components/Header/Header';
+
 import { updateLayout } from '../hooks/useLayout';
 
 function Home(props) {

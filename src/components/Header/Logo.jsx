@@ -1,7 +1,8 @@
 import React from 'react';
 
-import logoImage from '../assets/images/logowtf.png';
 import { Link } from 'react-router-dom';
+
+import logoImage from '../../assets/images/logowtf.png';
 
 function Logo() {
   return (

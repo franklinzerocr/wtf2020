@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { backendURL } from '../globals';
-import { getNews } from '../externalApis/news';
-import Loader from './Loader';
-import Error from './Error';
-import useEventTop, { loaderTop } from '../hooks/useEventTop';
+import Loader from '../Layout/Loader';
+import Error from '../Layout/Error';
+
+import { getNews } from '../../externalApis/news';
+import useEventTop, { loaderTop } from '../../hooks/useEventTop';
 
 function EventTop(props) {
   let [event] = useEventTop();

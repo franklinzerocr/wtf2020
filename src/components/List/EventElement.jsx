@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { backendURL } from '../globals';
+import { backendURL } from '../../globals';
 
-import '../assets/styles/EventElement.css';
+import '../../assets/styles/EventElement.css';
 
 function EventElement(props) {
   const event = props.event;

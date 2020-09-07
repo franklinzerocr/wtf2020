@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Layout from '../components/Layout';
-import NotFound from '../components/NotFound';
+import Layout from '../components/Layout/Layout';
+import NotFound from '../components/Layout/NotFound';
 import Home from '../pages/Home';
 import Donate from '../pages/Donate';
 

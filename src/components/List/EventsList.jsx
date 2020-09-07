@@ -1,12 +1,12 @@
 import React from 'react';
 
-import EventElement from './EventElement';
-import Loader from './Loader';
-import Error from './Error';
-import useEventList from '../hooks/useEventList';
+// import Loader from '../Layout/Loader';
+// import Error from '../Layout/Error';
+// import EventElement from '../List/EventElement';
+import useEventList from '../../hooks/useEventList';
 
 function EventsList(props) {
-  const [events] = useEventList();
+  /* const [events] =  */ useEventList();
   return <></>;
   /* if (events.loading === true) {
     return (

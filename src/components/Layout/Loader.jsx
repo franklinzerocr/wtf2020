@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../assets/styles/Loader.css';
+import '../../assets/styles/Loader.css';
 
 function Loader(props) {
   const items = [];
