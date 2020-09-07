@@ -9,7 +9,8 @@ function Loader(props) {
     items.push(<div key={index} />);
   }
 
-  return <div className='lds-grid'>{items}</div>;
+  if (props.color === 'black') return <div className='lds-grid black'>{items}</div>;
+  else return <div className='lds-grid'>{items}</div>;
 }
 
 export default Loader;
