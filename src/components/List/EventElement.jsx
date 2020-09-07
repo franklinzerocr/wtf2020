@@ -3,35 +3,36 @@ import React from 'react';
 import '../../assets/styles/EventElement.css';
 
 function renderListElement(event) {
-  // return (
-  //   <>
-  //     <td className='location'>{event ? event.Location : null}</td>
-  //     <td className='date'>{event ? event.DateInit : null}</td>
-  //     <td className='actions'>
-  //       {event ? (
-  //         <>
-  //           <span className='pictures open_popup'>Pictures</span>/<span className='links open_popup'>Links</span>
-  //         </>
-  //       ) : null}
-  //     </td>
-  //   </>
-  // );
+  return (
+    <>
+      <td className='location'>{event ? event.Location : null}</td>
+      <td className='date'>{event ? event.DateInit : null}</td>
+      <td className='actions'>
+        {event ? (
+          <>
+            <span className='pictures open_popup'>Pictures</span>/<span className='links open_popup'>Links</span>
+          </>
+        ) : null}
+      </td>
+    </>
+  );
 }
 
 function renderCalendarElement(event) {
   return (
     <tr className='eventElement-meta'>
       {event ? (
-        <td colSpan='2'>
-          <span className='location'>{event.Location}</span>
-          <span className='date'>{event.DateInit}</span>
-          <div className='actions'>
-            <>
-              <span className='pictures open_popup'>Pictures</span> / <span className='links open_popup'>Links</span>
-            </>
-          </div>
-        </td>
-      ) : null}
+        <>
+          <td className='none' colSpan='1'></td>
+          <td className='location'>{event.Location}</td>
+          <td className='date'>{event.DateInit}</td>
+          <td className='actions'>
+            <span className='pictures open_popup'>Pictures</span> / <span className='links open_popup'>Links</span>
+          </td>
+        </>
+      ) : (
+        <td className='none' colSpan='4'></td>
+      )}
     </tr>
   );
 }
@@ -41,8 +42,12 @@ function EventElement(props) {
   return (
     <>
       <tr className='eventElement'>
-        <td className='index'>{props.i}</td>
-        <td className='title'>{event ? event.Title : null}</td>
+        <td className='index'>
+          <span className='offtop'>{props.i}</span>
+        </td>
+        <td className='title' colSpan={props.parent === 'calendar' ? 3 : 1}>
+          {event ? event.Title : null}
+        </td>
         {props.parent === 'list' ? renderListElement(event) : null}
       </tr>
       {props.parent === 'calendar' ? (

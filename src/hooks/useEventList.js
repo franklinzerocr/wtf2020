@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 import { backendURL } from '../globals';
-import { setEventTop } from './useEventTop';
-import { sortList } from '../utils';
+// import { setEventTop } from './useEventTop';
+// import { sortList } from '../utils';
 import { getNews } from '../externalApis/news';
 
 let events = {},
@@ -52,7 +52,7 @@ export const fetchEventList = async (loading = true) => {
   }
   eventsAux.loading = false;
   await setEvents(eventsAux);
-  setEventTop(sortList(events.data, 'DatePublished'));
+  // setEventTop(sortList(events.data, 'DatePublished'));
   console.log('fetchEventList', events);
   if (await checkEventNewsList(events.data)) await fetchEventList(false);
 };
