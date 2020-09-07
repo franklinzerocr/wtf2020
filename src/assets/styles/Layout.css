@@ -33,6 +33,10 @@ h5,
   font-family: HelveticaNeue;
 }
 
+h1 {
+  font-weight: bold;
+}
+
 .slogan {
   font-family: SensationAndQualities;
 }

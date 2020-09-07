@@ -14,7 +14,7 @@ function checkState(calendarList) {
         <EventElement event={event} i={i++} key={event.id} parent='calendar' />
       ))}
       {difArray.map(index => (
-        <EventElement event={null} i={i++} key={index} parent='calendar' />
+        <EventElement event={false} i={i++} key={index} parent='calendar' />
       ))}
     </>
   );
@@ -24,7 +24,9 @@ function CalendarList(props) {
   return (
     <>
       <h2 className='text-center'>News of that Day</h2>
-      <table className='calendarList table'>{checkState(props.events)}</table>
+      <table className='calendarList table table-striped'>
+        <tbody>{checkState(props.events)}</tbody>
+      </table>
     </>
   );
 }

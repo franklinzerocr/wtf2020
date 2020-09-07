@@ -2,35 +2,37 @@ import React from 'react';
 
 import '../../assets/styles/EventElement.css';
 
+function renderListElement(event) {
+  // return (
+  //   <>
+  //     <td className='location'>{event ? event.Location : null}</td>
+  //     <td className='date'>{event ? event.DateInit : null}</td>
+  //     <td className='actions'>
+  //       {event ? (
+  //         <>
+  //           <span className='pictures open_popup'>Pictures</span>/<span className='links open_popup'>Links</span>
+  //         </>
+  //       ) : null}
+  //     </td>
+  //   </>
+  // );
+}
+
 function renderCalendarElement(event) {
   return (
     <tr className='eventElement-meta'>
-      <span className='location'>{event ? event.Location : null}</span>
-      <span className='date'>{event ? event.DateInit : null}</span>
-      <div className='actions'>
-        {event ? (
-          <>
-            <span className='pictures open_popup'>Pictures</span> / <span className='links open_popup'>Links</span>
-          </>
-        ) : null}
-      </div>
+      {event ? (
+        <td colSpan='2'>
+          <span className='location'>{event.Location}</span>
+          <span className='date'>{event.DateInit}</span>
+          <div className='actions'>
+            <>
+              <span className='pictures open_popup'>Pictures</span> / <span className='links open_popup'>Links</span>
+            </>
+          </div>
+        </td>
+      ) : null}
     </tr>
-  );
-}
-
-function renderListElement(event) {
-  return (
-    <>
-      <td className='location'>{event ? event.Location : null}</td>
-      <td className='date'>{event ? event.DateInit : null}</td>
-      <td className='actions'>
-        {event ? (
-          <>
-            <span className='pictures open_popup'>Pictures</span>/<span className='links open_popup'>Links</span>
-          </>
-        ) : null}
-      </td>
-    </>
   );
 }
 
@@ -43,7 +45,11 @@ function EventElement(props) {
         <td className='title'>{event ? event.Title : null}</td>
         {props.parent === 'list' ? renderListElement(event) : null}
       </tr>
-      {props.parent === 'calendar' ? renderCalendarElement(event) : null}
+      {props.parent === 'calendar' ? (
+        <>
+          <tr className='none'></tr> {renderCalendarElement(event)}
+        </>
+      ) : null}
     </>
   );
 }

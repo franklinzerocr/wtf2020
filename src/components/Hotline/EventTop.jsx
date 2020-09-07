@@ -8,6 +8,7 @@ import useEventTop from '../../hooks/useEventTop';
 import '../../assets/styles/HotLine.css';
 
 function checkState(event) {
+  console.log('event', event);
   if (event.loading === true) return <Loader dots={3} />;
   else if (event.error) return <Error error={event.error} />;
   else if (!event.data || !event.data.length) return <Error error='EMPTY' />;
