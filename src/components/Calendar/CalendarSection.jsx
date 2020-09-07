@@ -9,7 +9,7 @@ import CalendarList from './CalendarList';
 import { filterEventsByCalendarDate } from '../../hooks/useEventList';
 
 import 'react-calendar/dist/Calendar.css';
-// import { updateCalendarList } from '../../hooks/useCalendarList';
+import '../../assets/styles/Calendar.css';
 
 function CalendarSection() {
   let [calendarState, setCalendar] = useCalendar();
@@ -17,6 +17,7 @@ function CalendarSection() {
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
     <section className='calendar'>
+      <h1>Calendar</h1>
       <CalendarList events={filteredEvents} />
       <Calendar onChange={setCalendar} value={calendarState} />
     </section>

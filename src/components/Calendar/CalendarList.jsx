@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarEventElement from './CalendarEventElement';
+import EventElement from '../List/EventElement';
 
 function checkState(calendarList) {
   let dif = 3 - calendarList.length;
@@ -7,14 +7,14 @@ function checkState(calendarList) {
   for (let i = 0; i < dif; i++) {
     difArray.push(i + calendarList.length);
   }
-  let index = 1;
+  let i = 1;
   return (
     <>
       {calendarList.map(event => (
-        <CalendarEventElement event={'event'} i={index++} key={event.id} />
+        <EventElement event={event} i={i++} key={event.id} parent='calendar' />
       ))}
-      {difArray.map(i => (
-        <CalendarEventElement event={null} i={index++} key={i} />
+      {difArray.map(index => (
+        <EventElement event={null} i={i++} key={index} parent='calendar' />
       ))}
     </>
   );
@@ -23,10 +23,8 @@ function checkState(calendarList) {
 function CalendarList(props) {
   return (
     <div className='calendarList-container '>
-      <h2>News of Selected Day</h2>
-      <div className='calendarList-box'>
-        <ul className='calendarList'>{checkState(props.events)}</ul>
-      </div>
+      <h2>News of that Day</h2>
+      <table className='calendarList table'>{checkState(props.events)}</table>
     </div>
   );
 }

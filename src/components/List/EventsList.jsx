@@ -7,6 +7,7 @@ import useEventList from '../../hooks/useEventList';
 
 function EventsList(props) {
   /* const [events] =  */ useEventList();
+  // let i = 0;
   return <></>;
   /* if (events.loading === true) {
     return (
@@ -30,7 +31,7 @@ function EventsList(props) {
     return (
       <ul className='EventsList'>
         {events.data.map(event => (
-          <EventElement event={event} key={event.id} />
+          <EventElement event={event} key={event.id} i={i++} />
         ))}
       </ul>
     );
