@@ -9,7 +9,7 @@ import '../assets/styles/header.css';
 
 function Header() {
   return (
-    <header>
+    <header className='main-header'>
       <Logo />
       <SearchBar />
       <Rrss />

@@ -4,15 +4,14 @@ let Layout = {},
   setLayout;
 
 export function updateLayout(title, bodyClass) {
-  setLayout({ title: title, bodyClass: bodyClass });
+  if (title) document.title = title;
+  if (bodyClass) document.querySelector('body').setAttribute('class', bodyClass);
 }
 
 function useLayout(title = '', bodyClass = '') {
-  [Layout, setLayout] = useState({ title: title, bodyClass: bodyClass });
+  [Layout, setLayout] = useState();
 
   useEffect(() => {
-    if (Layout.title) document.title = Layout.title;
-    if (Layout.bodyClass) document.querySelector('body').setAttribute('class', Layout.bodyClass);
     return;
   }, []);
 

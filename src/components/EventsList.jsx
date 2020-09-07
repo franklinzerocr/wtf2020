@@ -7,7 +7,8 @@ import useEventList from '../hooks/useEventList';
 
 function EventsList(props) {
   const [events] = useEventList();
-  if (events.loading === true) {
+  return <></>;
+  /* if (events.loading === true) {
     return (
       <>
         <Loader dots={9} />
@@ -33,7 +34,7 @@ function EventsList(props) {
         ))}
       </ul>
     );
-  }
+  } */
 }
 
 export default EventsList;
