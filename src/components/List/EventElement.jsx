@@ -1,4 +1,5 @@
 import React from 'react';
+import { getMonthName } from '../../utils';
 
 function renderListElement(event) {
   return (
@@ -39,7 +40,7 @@ function EventElement(props) {
   const event = props.event;
   return (
     <>
-      <tr className='eventElement'>
+      <tr className='eventElement' month={props.i >= 3 ? 'February' : getMonthName(event.DateInit)}>
         <td className='index'>
           <span className='offtop'>{event ? props.i : null}</span>
         </td>

@@ -6,15 +6,23 @@ import EventElement from '../List/EventElement';
 import useEventList from '../../hooks/useEventList';
 
 import '../../assets/styles/List.css';
+import MonthTag from './MonthTag';
 
 function checkState(events) {
   if (events.loading) return <Loader dots={3} color='black' />;
   else if (events.error) return <Error error={events.error} />;
   else if (!events.data || !events.data.length) return <Error error='EMPTY' />;
   else {
-    let i = 3;
+    // let i = events.length;
+    let i = 5;
     return (
       <>
+        {events.data.map(event => (
+          <EventElement event={event} key={event.id} i={i--} parent='list' />
+        ))}
+        {events.data.map(event => (
+          <EventElement event={event} key={event.id} i={i--} parent='list' />
+        ))}
         {events.data.map(event => (
           <EventElement event={event} key={event.id} i={i--} parent='list' />
         ))}
@@ -40,6 +48,7 @@ function EventsList(props) {
             <tbody>{checkState(events)}</tbody>
           </table>
         </div>
+        {!events.loading && !events.error && events.data && events.data.length ? <MonthTag /> : null}
       </div>
     </section>
   );

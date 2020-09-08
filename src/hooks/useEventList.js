@@ -4,6 +4,7 @@ import { backendURL } from '../globals';
 // import { setEventTop } from './useEventTop';
 // import { sortList } from '../utils';
 import { getNews } from '../externalApis/news';
+import { updateMonthTags } from './usetMonthTags';
 
 let events = {},
   setEvents;
@@ -53,8 +54,9 @@ export const fetchEventList = async (loading = true) => {
   eventsAux.loading = false;
   await setEvents(eventsAux);
   // setEventTop(sortList(events.data, 'DatePublished'));
-  console.log('fetchEventList', events);
+  // console.log('fetchEventList', events);
   if (await checkEventNewsList(events.data)) await fetchEventList(false);
+  updateMonthTags();
 };
 
 export const loaderList = value => {

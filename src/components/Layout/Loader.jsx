@@ -10,7 +10,9 @@ function Loader(props) {
   }
   return (
     <tr>
-      <div className={props.color === 'black' ? 'lds-grid black' : 'lds-grid'}>{items}</div>
+      <td colSpan='5'>
+        <div className={props.color === 'black' ? 'lds-grid black' : 'lds-grid'}>{items}</div>
+      </td>
     </tr>
   );
 }
