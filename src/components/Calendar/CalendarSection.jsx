@@ -25,6 +25,13 @@ function CalendarSection() {
           </div>
           <div className='calendar-container col-md-7'>
             <div className='calendar_inner_container'>
+              <div className='spring spring1' />
+              <div className='spring spring2' />
+              <div className='spring spring3' />
+              <div className='spring spring4' />
+              <div className='spring spring5' />
+              <div className='spring spring6' />
+              <div className='spring spring7' />
               <Calendar onChange={setCalendar} value={calendarState} />
             </div>
           </div>

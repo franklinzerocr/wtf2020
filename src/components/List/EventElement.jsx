@@ -41,7 +41,7 @@ function EventElement(props) {
     <>
       <tr className='eventElement'>
         <td className='index'>
-          <span className='offtop'>{props.i}</span>
+          <span className='offtop'>{event ? props.i : null}</span>
         </td>
         <td className='title' colSpan={props.parent === 'calendar' ? 3 : 1}>
           {event ? event.Title : null}

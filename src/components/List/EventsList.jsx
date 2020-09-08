@@ -1,15 +1,14 @@
 import React from 'react';
 
-// import Loader from '../Layout/Loader';
-// import Error from '../Layout/Error';
-// import EventElement from '../List/EventElement';
+import Loader from '../Layout/Loader';
+import Error from '../Layout/Error';
+import EventElement from '../List/EventElement';
 import useEventList from '../../hooks/useEventList';
 
 function EventsList(props) {
-  /* const [events] =  */ useEventList();
-  // let i = 0;
-  return <></>;
-  /* if (events.loading === true) {
+  const [events] = useEventList();
+  let i = 0;
+  if (events.loading === true) {
     return (
       <>
         <Loader dots={9} />
@@ -31,11 +30,11 @@ function EventsList(props) {
     return (
       <ul className='EventsList'>
         {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i++} />
+          <EventElement event={event} key={event.id} i={i++} parent='list' />
         ))}
       </ul>
     );
-  } */
+  }
 }
 
 export default EventsList;

@@ -13,7 +13,7 @@ function Home(props) {
     <>
       {/* <Header /> */}
       {/* <EventTop /> */}
-      <CalendarSection />
+      {/* <CalendarSection /> */}
       <EventsList />
     </>
   );
