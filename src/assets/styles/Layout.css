@@ -46,3 +46,7 @@ section {
   height: 56.25vw;
   max-height: 700px;
 }
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background: #fef1e8;
+}

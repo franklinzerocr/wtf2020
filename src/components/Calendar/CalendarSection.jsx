@@ -20,11 +20,13 @@ function CalendarSection() {
       <h1 className='text-center'>CALENDAR</h1>
       <div className='container '>
         <div className='row'>
-          <div className='calendarList-container col-md-6'>
+          <div className='calendarList-container col-md-5'>
             <CalendarList events={filteredEvents} />
           </div>
-          <div className='calendar-container col-md-6'>
-            <Calendar onChange={setCalendar} value={calendarState} />
+          <div className='calendar-container col-md-7'>
+            <div className='calendar_inner_container'>
+              <Calendar onChange={setCalendar} value={calendarState} />
+            </div>
           </div>
         </div>
       </div>

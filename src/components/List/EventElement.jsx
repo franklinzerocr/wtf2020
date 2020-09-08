@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../../assets/styles/EventElement.css';
-
 function renderListElement(event) {
   return (
     <>
