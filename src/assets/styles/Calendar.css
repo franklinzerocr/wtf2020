@@ -73,11 +73,12 @@ section.calendar {
   background: #f87f06;
   color: white;
   font-weight: bold;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   text-align: center;
   border-radius: 100%;
-  line-height: 25px;
+  font-size: 12px;
+  line-height: 30px;
 }
 
 .calendarList .eventElement-meta td.none {

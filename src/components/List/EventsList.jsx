@@ -5,36 +5,44 @@ import Error from '../Layout/Error';
 import EventElement from '../List/EventElement';
 import useEventList from '../../hooks/useEventList';
 
-function EventsList(props) {
-  const [events] = useEventList();
-  let i = 0;
-  if (events.loading === true) {
+import '../../assets/styles/List.css';
+
+function checkState(events) {
+  if (events.loading) return <Loader dots={3} color='black' />;
+  else if (events.error) return <Error error={events.error} />;
+  else if (!events.data || !events.data.length) return <Error error='EMPTY' />;
+  else {
+    let i = 3;
     return (
       <>
-        <Loader dots={9} />
-      </>
-    );
-  } else if (events.error) {
-    return (
-      <>
-        <Error error={events.error} />
-      </>
-    );
-  } else if (!events.data || !events.data.length) {
-    return (
-      <>
-        <Error error='EMPTY' />
-      </>
-    );
-  } else {
-    return (
-      <ul className='EventsList'>
         {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i++} parent='list' />
+          <EventElement event={event} key={event.id} i={i--} parent='list' />
         ))}
-      </ul>
+        {events.data.map(event => (
+          <EventElement event={event} key={event.id} i={i--} parent='list' />
+        ))}
+        {events.data.map(event => (
+          <EventElement event={event} key={event.id} i={i--} parent='list' />
+        ))}
+      </>
     );
   }
+}
+
+function EventsList(props) {
+  const [events] = useEventList();
+  return (
+    <section className='list'>
+      <h1 className='text-center'>List</h1>
+      <div className='container'>
+        <div className='list_inner_container'>
+          <table className='table table-striped eventsList'>
+            <tbody>{checkState(events)}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default EventsList;

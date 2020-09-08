@@ -8,9 +8,11 @@ function Loader(props) {
   for (let index = 0; index < props.dots; index++) {
     items.push(<div key={index} />);
   }
-
-  if (props.color === 'black') return <div className='lds-grid black'>{items}</div>;
-  else return <div className='lds-grid'>{items}</div>;
+  return (
+    <tr>
+      <div className={props.color === 'black' ? 'lds-grid black' : 'lds-grid'}>{items}</div>
+    </tr>
+  );
 }
 
 export default Loader;

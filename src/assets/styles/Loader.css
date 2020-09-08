@@ -1,8 +1,9 @@
 .lds-grid {
-  display: inline-block;
   position: relative;
   width: 64px;
-  height: 64px;
+  height: 30px;
+  display: block;
+  margin: 0px auto;
 }
 
 .lds-grid div {

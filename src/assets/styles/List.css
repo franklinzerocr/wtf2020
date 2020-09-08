@@ -1,0 +1,96 @@
+section.list {
+  padding-top: 100px;
+  background-image: url(../images/Fondo\ 1.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 150px;
+}
+
+section.list:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  background-image: url(../images/Fondo\ 1.png);
+  background-position: 30px 225px;
+  background-repeat: no-repeat;
+}
+
+section.list:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  background-image: url(../images/Fondo\ 1.png);
+  background-position: right 110%;
+  background-repeat: no-repeat;
+}
+
+.list h1 {
+  margin-bottom: 30px;
+}
+
+.eventsList td {
+  border: none !important;
+  padding: 10px 10px;
+  height: 30px !important;
+}
+
+.eventsList tr {
+  line-height: 25px;
+  min-height: 40px;
+}
+
+.eventsList .eventElement .index,
+.eventsList .eventElement .none {
+  width: 50px;
+  text-align: right;
+  vertical-align: middle;
+  position: relative;
+}
+
+.eventsList .eventElement .index .offtop,
+.eventsList .eventElement .none .offtop {
+  position: relative;
+  display: inline-block;
+  background: #f87f06;
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 100%;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.eventsList .eventElement-meta td.none {
+  padding-left: 40px;
+}
+
+.eventsList .eventElement-meta .location,
+.eventsList .eventElement-meta .date,
+.eventsList .eventElement-meta .actions {
+  text-align: left;
+  font-size: 13px;
+  vertical-align: top;
+  padding-top: 0px;
+}
+
+.eventsList .eventElement .title {
+  font-weight: bold;
+}
+
+.list_inner_container {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 7px 7px 15px 0px rgba(0, 0, 0, 0.75);
+  background: white;
+  max-width: 950px;
+}
