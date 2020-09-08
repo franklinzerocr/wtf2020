@@ -3,8 +3,16 @@ import useMonthTags from '../../hooks/usetMonthTags';
 
 function MonthTag() {
   let [monthTags] = useMonthTags();
-  if (monthTags.length > 0) console.log('monthTags', monthTags);
-  return <div className='month_tags'>hola</div>;
+
+  return (
+    <div className='month_tags'>
+      {monthTags.map(tag => (
+        <div key={tag.index} className='monthTag' data-bottom={tag.offsetBottom} data-top={tag.offsetTop}>
+          {tag.month}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default MonthTag;

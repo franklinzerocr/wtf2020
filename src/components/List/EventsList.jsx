@@ -42,13 +42,13 @@ function EventsList(props) {
   return (
     <section className='list'>
       <h1 className='text-center'>List</h1>
-      <div className='container'>
+      <div className='container '>
         <div className='list_inner_container'>
           <table className='table table-striped eventsList'>
             <tbody>{checkState(events)}</tbody>
           </table>
+          {!events.loading && !events.error && events.data && events.data.length ? <MonthTag /> : null}
         </div>
-        {!events.loading && !events.error && events.data && events.data.length ? <MonthTag /> : null}
       </div>
     </section>
   );

@@ -56,6 +56,7 @@ export const fetchEventList = async (loading = true) => {
   // setEventTop(sortList(events.data, 'DatePublished'));
   // console.log('fetchEventList', events);
   if (await checkEventNewsList(events.data)) await fetchEventList(false);
+
   updateMonthTags();
 };
 

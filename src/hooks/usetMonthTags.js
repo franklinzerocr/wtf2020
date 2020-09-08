@@ -3,6 +3,16 @@ import { useEffect, useState } from 'react';
 let monthTags = {},
   setMonthTags;
 
+function setPositionOfMonthTags() {
+  for (let tag of document.querySelectorAll('.month_tags .monthTag')) {
+    let height = tag.getAttribute('data-bottom') - tag.getAttribute('data-top') - 4;
+    let top = parseInt(tag.getAttribute('data-top')) + 1;
+
+    tag.style.height = height + 'px';
+    tag.style.top = top + 'px';
+  }
+}
+
 export async function updateMonthTags() {
   let finalMonthTags = [];
   let trEventElements = document.querySelectorAll('.eventsList .eventElement');
@@ -11,26 +21,29 @@ export async function updateMonthTags() {
   let previousSeparatedMonthTag = {};
 
   for (let tr of trEventElements) {
-    let separatedMonthTag = { index: index, month: tr.getAttribute('month'), offSetTop: tr.offsetTop, offSetDown: tr.offsetTop + tr.offsetHeight };
+    let finalMonthTag = {};
+    let separatedMonthTag = { index: index, month: tr.getAttribute('month'), offSetTop: tr.offsetTop, offsetBottom: tr.offsetTop + tr.offsetHeight };
     index--;
 
     if (finalMonthTags.length === 0) {
-      let finalMonthTag = { index: index2, month: separatedMonthTag.month, offsetTop: separatedMonthTag.offSetTop, offSetDown: 0 };
-      index2++;
+      finalMonthTag = { index: index2, month: separatedMonthTag.month, offsetTop: separatedMonthTag.offSetTop, offsetBottom: 0 };
       finalMonthTags.push(finalMonthTag);
+      index2++;
     } else if (finalMonthTags[finalMonthTags.length - 1].month !== separatedMonthTag.month) {
-      finalMonthTags[finalMonthTags.length - 1].offSetDown = previousSeparatedMonthTag.offSetDown;
+      finalMonthTags[finalMonthTags.length - 1].offsetBottom = previousSeparatedMonthTag.offsetBottom;
 
-      let finalMonthTag = { index: index2, month: separatedMonthTag.month, offsetTop: separatedMonthTag.offSetTop, offSetDown: 0 };
-      index2++;
+      finalMonthTag = { index: index2, month: separatedMonthTag.month, offsetTop: separatedMonthTag.offSetTop, offsetBottom: 0 };
       finalMonthTags.push(finalMonthTag);
+      index2++;
     }
     previousSeparatedMonthTag = separatedMonthTag;
   }
 
-  finalMonthTags[finalMonthTags.length - 1].offSetDown = previousSeparatedMonthTag.offSetDown;
+  finalMonthTags[finalMonthTags.length - 1].offsetBottom = previousSeparatedMonthTag.offsetBottom;
 
-  setMonthTags(finalMonthTags);
+  await setMonthTags(finalMonthTags);
+
+  setPositionOfMonthTags();
 }
 
 export const useMonthTags = () => {
