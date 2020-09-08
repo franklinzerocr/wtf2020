@@ -4,6 +4,8 @@ section.list {
   background-position: right top;
   background-repeat: no-repeat;
   background-size: 150px;
+  position: relative;
+  min-height: 56.25vw;
 }
 
 section.list:before {

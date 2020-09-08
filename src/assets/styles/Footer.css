@@ -1,0 +1,28 @@
+footer {
+  background: #4d002a;
+  color: white;
+}
+
+.footer-logo {
+  /* width: 100%; */
+  max-width: 250px;
+  max-height: 150px;
+}
+
+footer .col-md-4 {
+  padding: 30px 15px;
+}
+
+footer .rrss i {
+  font-size: 30px;
+  margin: 10px 12px;
+  color: white;
+}
+
+footer .menu {
+  display: block !important;
+}
+
+footer .menu a {
+  color: white;
+}

@@ -1,9 +1,11 @@
-.eventTop {
+section.eventTop {
   position: relative;
   background-attachment: scroll;
   background-repeat: no-repeat;
   background-image: url('../images/hotline.png');
   background-size: contain;
+  height: 56.25vw;
+  max-height: 700px;
 }
 
 .title-container {

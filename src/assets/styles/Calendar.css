@@ -1,5 +1,7 @@
 section.calendar {
   padding-top: 100px;
+  height: 56.25vw;
+  max-height: 700px;
 }
 
 .react-calendar {
