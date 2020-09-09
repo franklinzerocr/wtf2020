@@ -7,6 +7,10 @@ import Menu from './Menu';
 
 import '../../assets/styles/Header.css';
 
+function stickyMenu() {
+  console.log(document.querySelector('.main-header'));
+}
+
 function Header() {
   return (
     <header className='main-header .container-fluid'>
@@ -15,6 +19,7 @@ function Header() {
         <SearchBar />
         <Rrss />
         <Menu />
+        {stickyMenu()}
       </div>
     </header>
   );

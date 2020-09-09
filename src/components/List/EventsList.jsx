@@ -9,7 +9,7 @@ import '../../assets/styles/List.css';
 import MonthTag from './MonthTag';
 
 function checkState(events) {
-  if (events.loading) return <Loader dots={3} color='black' />;
+  if (events.loading) return <Loader dots={3} color='black' parent='tbody' />;
   else if (events.error) return <Error error={events.error} />;
   else if (!events.data || !events.data.length) return <Error error='EMPTY' />;
   else {

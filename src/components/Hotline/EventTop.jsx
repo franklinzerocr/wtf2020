@@ -8,7 +8,6 @@ import useEventTop from '../../hooks/useEventTop';
 import '../../assets/styles/HotLine.css';
 
 function checkState(event) {
-  console.log('event', event);
   if (event.loading === true) return <Loader dots={3} />;
   else if (event.error) return <Error error={event.error} />;
   else if (!event.data || !event.data.length) return <Error error='EMPTY' />;
@@ -17,7 +16,21 @@ function checkState(event) {
     return (
       <>
         <p className='eventTop-title'>{event.Title}</p>
-        <p className='eventTop-meta'>{event.DateInit}</p>
+        <p className='eventTop-meta'>
+          {event.Location}
+          &nbsp;&nbsp;&nbsp;
+          {event.DateInit}
+          <br />
+          <span className='actions'>
+            <span className='pictures open_popup' data-id={event.id}>
+              Memes
+            </span>{' '}
+            /{' '}
+            <span className='links open_popup' data-id={event.id}>
+              Coverage
+            </span>
+          </span>
+        </p>
       </>
     );
   }

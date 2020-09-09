@@ -13,7 +13,7 @@ function Footer() {
   return (
     <footer>
       <div className='container'>
-        <div className='row align-items-end'>
+        <div className='row '>
           <div className='col-md-4 text-center'>
             <Link to='/'>
               <img src={logoImage} alt='WTF2020 Logo' title='WTF2020' className='footer-logo' />

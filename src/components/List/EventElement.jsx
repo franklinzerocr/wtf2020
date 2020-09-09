@@ -9,7 +9,13 @@ function renderListElement(event) {
       <td className='actions'>
         {event ? (
           <>
-            <span className='pictures open_popup'>Pictures</span>/<span className='links open_popup'>Links</span>
+            <span className='pictures open_popup' data-id={event.id}>
+              Memes
+            </span>{' '}
+            /{' '}
+            <span className='links open_popup' data-id={event.id}>
+              Coverage
+            </span>
           </>
         ) : null}
       </td>
@@ -26,7 +32,13 @@ function renderCalendarElement(event) {
           <td className='location'>{event.Location}</td>
           <td className='date'>{event.DateInit}</td>
           <td className='actions'>
-            <span className='pictures open_popup'>Pictures</span> / <span className='links open_popup'>Links</span>
+            <span className='pictures open_popup' data-id={event.id}>
+              Memes
+            </span>{' '}
+            /{' '}
+            <span className='links open_popup' data-id={event.id}>
+              Coverage
+            </span>
           </td>
         </>
       ) : (
@@ -51,9 +63,14 @@ function EventElement(props) {
       </tr>
       {props.parent === 'calendar' ? (
         <>
-          <tr className='none'></tr> {renderCalendarElement(event)}
+          <tr className='none'>
+            <td></td>
+          </tr>
+          {renderCalendarElement(event)}
         </>
-      ) : null}
+      ) : (
+        <></>
+      )}
     </>
   );
 }
