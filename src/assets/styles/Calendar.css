@@ -22,9 +22,10 @@ section.calendar {
 .calendarList-container {
   background: url(../images/Fondo\ 1.png);
   background-repeat: no-repeat;
-  background-size: auto;
-  background-position: 15px 230px;
-  height: 460px;
+  background-size: 175px;
+  background-position: 0px bottom;
+  height: 450px;
+  padding-top: 100px;
 }
 
 .calendar h1 {
@@ -32,7 +33,7 @@ section.calendar {
 }
 
 .calendar_subtitle {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 20px;
 }
 

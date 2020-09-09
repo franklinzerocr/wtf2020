@@ -23,7 +23,6 @@ function checkState(calendarList) {
 function CalendarList(props) {
   return (
     <>
-      <p className='text-center calendar_subtitle'>Selected day News</p>
       <div className='calendarList_inner_container'>
         <table className='calendarList table table-striped'>
           <tbody>{checkState(props.events)}</tbody>

@@ -20,10 +20,8 @@ function CalendarSection() {
       <h1 className='text-center'>CALENDAR</h1>
       <div className='container '>
         <div className='row'>
-          <div className='calendarList-container col-md-5'>
-            <CalendarList events={filteredEvents} />
-          </div>
           <div className='calendar-container col-md-7'>
+            <p className='text-center calendar_subtitle'>Select a day</p>
             <div className='calendar_inner_container'>
               <div className='spring spring1' />
               <div className='spring spring2' />
@@ -34,6 +32,9 @@ function CalendarSection() {
               <div className='spring spring7' />
               <Calendar onChange={setCalendar} value={calendarState} />
             </div>
+          </div>
+          <div className='calendarList-container col-md-5'>
+            <CalendarList events={filteredEvents} />
           </div>
         </div>
       </div>
