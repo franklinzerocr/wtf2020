@@ -63,9 +63,7 @@ function EventElement(props) {
       </tr>
       {props.parent === 'calendar' ? (
         <>
-          <tr className='none'>
-            <td></td>
-          </tr>
+          <tr className='none'></tr>
           {renderCalendarElement(event)}
         </>
       ) : (

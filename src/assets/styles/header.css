@@ -67,3 +67,87 @@
 .menu {
   display: none;
 }
+
+.sticky-menu {
+  height: 60px;
+  background-color: #f87f06;
+}
+
+.fixed-menu {
+  width: calc(100vw - 15px);
+}
+.fixed-menu .container {
+  padding: 0px 22px;
+}
+
+.fixed-menu.sticky-menu .search_bar {
+  transform: translateX(-57.5%);
+}
+
+.static-menu,
+.absolute-menu {
+  transition: top 0.1s;
+}
+
+.sticky-menu .logo {
+  width: auto;
+  min-width: auto;
+  height: 55px;
+  margin: 2.5px auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.sticky-menu .search_bar {
+  position: relative;
+  display: inline-block;
+  right: 0px;
+  top: 0px;
+  left: calc(50% - 160px);
+  transform: translateX(-60%);
+  /* margin-left: 40px; */
+  vertical-align: middle;
+}
+.sticky-menu .search_bar #search_event {
+  border: 2px solid white;
+}
+
+.sticky-menu .search_bar .search_icon {
+  background-color: white;
+  color: #f87f06;
+  border: 1px solid white;
+}
+.sticky-menu .rrss {
+  position: relative;
+  display: inline-block;
+  right: 0px;
+  top: 0px;
+  margin-left: 20px;
+  margin-top: 0px;
+  width: auto;
+  vertical-align: middle;
+}
+
+.sticky-menu .rrss i {
+  display: inline-block;
+  margin: 10px 10px;
+  font-size: 25px;
+  color: white;
+}
+
+.sticky-menu .menu {
+  display: inline-block;
+  float: right;
+}
+.sticky-menu .menu .hidden {
+  display: none;
+}
+
+.sticky-menu .menu li {
+  line-height: 60px;
+  list-style: none;
+  font-size: 20px;
+}
+.sticky-menu .menu li a {
+  color: white;
+}
