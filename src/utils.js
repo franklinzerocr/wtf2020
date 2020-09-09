@@ -30,45 +30,46 @@ export function getDateTimeYMD(date_ob) {
 
 export function getMonthName(date) {
   let monthName = parseInt(date.split('-')[1]);
+  let year = parseInt(date.split('-')[0]);
   switch (monthName) {
     case 1:
-      monthName = 'January';
+      monthName = 'January ' + year;
       break;
     case 2:
-      monthName = 'February';
+      monthName = 'February ' + year;
       break;
     case 3:
-      monthName = 'March';
+      monthName = 'March ' + year;
       break;
     case 4:
-      monthName = 'April';
+      monthName = 'April ' + year;
       break;
     case 5:
-      monthName = 'May';
+      monthName = 'May ' + year;
       break;
     case 6:
-      monthName = 'June';
+      monthName = 'June ' + year;
       break;
     case 7:
-      monthName = 'July';
+      monthName = 'July ' + year;
       break;
     case 8:
-      monthName = 'August';
+      monthName = 'August ' + year;
       break;
     case 9:
-      monthName = 'September';
+      monthName = 'September ' + year;
       break;
     case 10:
-      monthName = 'October';
+      monthName = 'October ' + year;
       break;
     case 11:
-      monthName = ' November';
+      monthName = ' November ' + year;
       break;
     case 12:
-      monthName = 'December';
+      monthName = 'December ' + year;
       break;
     default:
-      monthName = 'ERROR';
+      monthName = 'NONE';
   }
   return monthName;
 }

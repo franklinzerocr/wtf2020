@@ -41,7 +41,7 @@ function EventsList(props) {
   const [events] = useEventList();
   return (
     <section className='list'>
-      <h1 className='text-center'>LIST</h1>
+      <h1 className='text-center'>CHECK THE WTF EVENTS</h1>
       <div className='container '>
         <div className='list_inner_container'>
           <table className='table table-striped eventsList'>

@@ -52,7 +52,7 @@ function EventElement(props) {
   const event = props.event;
   return (
     <>
-      <tr className='eventElement' month={props.i >= 3 || !event ? 'February' : getMonthName(event.DateInit)}>
+      <tr className='eventElement' month={event ? getMonthName(event.DateInit) : null}>
         <td className='index'>
           <span className='offtop'>{event ? props.i : null}</span>
         </td>

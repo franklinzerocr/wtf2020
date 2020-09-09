@@ -17,11 +17,10 @@ function CalendarSection() {
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
     <section className='calendar'>
-      <h1 className='text-center'>CALENDAR</h1>
+      <h1 className='text-center'>PICK A DATE</h1>
       <div className='container '>
         <div className='row'>
           <div className='calendar-container col-md-7'>
-            <p className='text-center calendar_subtitle'>Select a day</p>
             <div className='calendar_inner_container'>
               <div className='spring spring1' />
               <div className='spring spring2' />
