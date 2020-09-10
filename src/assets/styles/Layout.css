@@ -65,3 +65,9 @@ a:hover {
 .col-md-4 > a:hover {
   opacity: 1;
 }
+
+.popup_container {
+}
+
+.popup_close {
+}

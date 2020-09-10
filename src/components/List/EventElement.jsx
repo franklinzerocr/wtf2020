@@ -1,10 +1,6 @@
 import React from 'react';
 import { getMonthName } from '../../utils';
 
-// function memesPopup(event) {
-//   console.log(event);
-// }
-
 function memesPopup(event) {
   console.log(event);
 }
@@ -17,15 +13,25 @@ function renderListElement(event) {
       <td className='actions'>
         {event ? (
           <>
-            <button
-              className='pictures open_popup'
-              onClick={() => {
-                memesPopup(event);
-              }}
-            >
-              Memes
-            </button>{' '}
-            / <button className='links open_popup'>Coverage</button>
+            <div className='actions_container'>
+              <button
+                className='pictures open_popup'
+                onClick={() => {
+                  memesPopup(event.Memes);
+                }}
+              >
+                Memes
+              </button>{' '}
+              /{' '}
+              <button
+                className='links open_popup'
+                onClick={() => {
+                  memesPopup(event.event_news);
+                }}
+              >
+                Coverage
+              </button>
+            </div>
           </>
         ) : null}
       </td>
@@ -42,7 +48,25 @@ function renderCalendarElement(event) {
           <td className='location'>{event.Location}</td>
           <td className='date'>{event.DateInit}</td>
           <td className='actions'>
-            <span className='pictures open_popup'>Memes</span> / <span className='links open_popup'>Coverage</span>
+            <div className='actions_container'>
+              <button
+                className='pictures open_popup'
+                onClick={() => {
+                  memesPopup(event.Memes);
+                }}
+              >
+                Memes
+              </button>{' '}
+              /{' '}
+              <button
+                className='links open_popup'
+                onClick={() => {
+                  memesPopup(event.event_news);
+                }}
+              >
+                Coverage
+              </button>
+            </div>
           </td>
         </>
       ) : (

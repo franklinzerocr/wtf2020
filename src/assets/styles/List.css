@@ -125,3 +125,17 @@ section.list:after {
   /* transform: rotate(180deg); */
   transform: rotate(0deg);
 }
+
+.open_popup {
+  background: none;
+  border: none !important;
+}
+
+.actions_container {
+  display: flex;
+}
+
+.open_popup:active,
+.open_popup:focus {
+  border: none !important;
+}

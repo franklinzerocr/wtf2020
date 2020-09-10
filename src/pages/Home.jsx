@@ -5,6 +5,7 @@ import EventTop from '../components/Hotline/EventTop';
 import Header from '../components/Header/Header';
 import CalendarSection from '../components/Calendar/CalendarSection';
 import Footer from '../components/Footer/Footer';
+import Popup from '../components/Layout/Popup';
 
 import { updateLayout } from '../hooks/useLayout';
 
@@ -17,6 +18,7 @@ function Home(props) {
       <CalendarSection />
       <EventsList />
       <Footer />
+      <Popup />
     </>
   );
 }
