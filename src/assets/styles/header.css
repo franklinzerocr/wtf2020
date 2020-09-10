@@ -84,9 +84,8 @@
   transform: translateX(-57.5%);
 }
 
-.static-menu,
 .absolute-menu {
-  transition: top 0.1s;
+  /* transition: top 0.2s; */
 }
 
 .sticky-menu .logo {

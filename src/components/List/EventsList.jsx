@@ -13,22 +13,9 @@ function checkState(events) {
   else if (events.error) return <Error error={events.error} />;
   else if (!events.data || !events.data.length) return <Error error='EMPTY' />;
   else {
-    // let i = events.length;
-    let i = 5;
+    let i = events.data.length;
     return (
       <>
-        {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i--} parent='list' />
-        ))}
-        {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i--} parent='list' />
-        ))}
-        {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i--} parent='list' />
-        ))}
-        {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i--} parent='list' />
-        ))}
         {events.data.map(event => (
           <EventElement event={event} key={event.id} i={i--} parent='list' />
         ))}

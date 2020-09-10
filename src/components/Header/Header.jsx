@@ -17,7 +17,7 @@ function stickyMenu() {
       let headerElement = document.querySelector('header');
       if (!sectionEventTop || !headerElement) return;
       let limitOffSet = (sectionEventTop.offsetHeight * 55) / 100;
-      if (window.pageYOffset >= sectionEventTop.offsetHeight) {
+      if (window.pageYOffset > sectionEventTop.offsetHeight) {
         headerElement.style.position = 'fixed';
         headerElement.style.top = '0px';
         headerElement.classList.add('sticky-menu');

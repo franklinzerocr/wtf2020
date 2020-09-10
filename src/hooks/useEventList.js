@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { backendURL } from '../globals';
 import { setEventTop } from './useEventTop';
-import { sortList } from '../utils';
+import { sortList, sleep } from '../utils';
 import { getNews } from '../externalApis/news';
 import { updateMonthTags } from './usetMonthTags';
 
@@ -11,15 +11,14 @@ let events = {},
 
 async function checkEventNewsList(eventList) {
   let flag = false;
-
-  await Promise.all(
-    eventList.map(async (event, index) => {
-      if (event.event_news.length < 10) {
-        flag = true;
-        await getNews(event, loaderList, false);
-      }
-    })
-  );
+  for (let event of eventList) {
+    if (event.event_news.length < 10) {
+      console.log('Event News NOT FULL', event);
+      flag = true;
+      await getNews(event, loaderList, false);
+      await sleep(1000);
+    }
+  }
 
   return flag;
 }
@@ -55,7 +54,9 @@ export const fetchEventList = async (loading = true) => {
   await setEvents(eventsAux);
   setEventTop(sortList(events.data, 'DatePublished'));
   // console.log('fetchEventList', events);
-  if (await checkEventNewsList(events.data)) await fetchEventList(false);
+  await checkEventNewsList(events.data);
+  // if (await checkEventNewsList(events.data))
+  // await fetchEventList(false);
 
   updateMonthTags();
 };

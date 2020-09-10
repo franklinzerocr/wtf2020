@@ -8,7 +8,7 @@ function constructEncodedEvent(event, i = 1) {
   encodedEvent.toPublishedDate = getDateTimeYMD(addDays(event.DateInit, 4));
   encodedEvent.autoCorrect = false;
   encodedEvent.pageNumber = i;
-  encodedEvent.pageSize = 50;
+  encodedEvent.pageSize = 20;
   encodedEvent.q = event.Keywords;
   encodedEvent.safeSearch = false;
   encodedEvent = getEncodedString(encodedEvent);
@@ -45,7 +45,7 @@ async function postNewsToBackend(eventNews) {
       })
         .then(res2 => res2.json())
         .then(async function (data2) {
-          //console.log('POST event-news', data2);
+          // console.log('POST event-news', data2);
           if ('error' in data2) {
             errorPOST.ok = false;
             errorPOST.messages.push([data2.message, eventNewsItem]);
@@ -75,6 +75,7 @@ async function fetchNewsPage(event, maxNewsCountDifference, i) {
     })
       .then(res => res.json())
       .then(async function (data) {
+        // console.log('data API', encodedEvent, data);
         let eventNews = constructEventNews(data.value, event);
         newsPage = eventNews;
       })
@@ -94,7 +95,7 @@ export const getNews = async (event, elementLoader, recursive = true) => {
   if (maxNewsCountDifference > 0) {
     elementLoader(true);
     await Promise.all(
-      [1, 3, 5, 7, 9].map(async (i, index) => {
+      [1, 2, 3, 4, 5].map(async (i, index) => {
         let newsPage = await fetchNewsPage(event, maxNewsCountDifference, i);
         if (!('error' in newsPage) && unsortedNews !== undefined) unsortedNews = unsortedNews.concat(newsPage);
         else if (!('error' in newsPage)) unsortedNews = newsPage;
