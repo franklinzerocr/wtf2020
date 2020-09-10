@@ -38,12 +38,11 @@ export async function updateMonthTags() {
     }
     previousSeparatedMonthTag = separatedMonthTag;
   }
-
-  finalMonthTags[finalMonthTags.length - 1].offsetBottom = previousSeparatedMonthTag.offsetBottom;
-
-  await setMonthTags(finalMonthTags);
-
-  setPositionOfMonthTags();
+  if (previousSeparatedMonthTag && finalMonthTags && finalMonthTags.length > 0) {
+    finalMonthTags[finalMonthTags.length - 1].offsetBottom = previousSeparatedMonthTag.offsetBottom;
+    await setMonthTags(finalMonthTags);
+    setPositionOfMonthTags();
+  }
 }
 
 export const useMonthTags = () => {

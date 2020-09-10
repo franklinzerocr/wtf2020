@@ -11,14 +11,15 @@ let events = {},
 
 async function checkEventNewsList(eventList) {
   let flag = false;
-  for (let event of eventList) {
-    if (event.event_news.length < 10) {
-      console.log('Event News NOT FULL', event);
-      flag = true;
-      await getNews(event, loaderList, false);
-      await sleep(1000);
+  if (eventList)
+    for (let event of eventList) {
+      if (event.event_news.length < 10) {
+        console.log('Event News NOT FULL', event);
+        flag = true;
+        await getNews(event, loaderList, false);
+        await sleep(1000);
+      }
     }
-  }
 
   return flag;
 }

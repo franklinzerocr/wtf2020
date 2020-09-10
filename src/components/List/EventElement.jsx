@@ -1,6 +1,14 @@
 import React from 'react';
 import { getMonthName } from '../../utils';
 
+// function memesPopup(event) {
+//   console.log(event);
+// }
+
+function memesPopup(event) {
+  console.log(event);
+}
+
 function renderListElement(event) {
   return (
     <>
@@ -9,13 +17,15 @@ function renderListElement(event) {
       <td className='actions'>
         {event ? (
           <>
-            <span className='pictures open_popup' data-id={event.id}>
+            <button
+              className='pictures open_popup'
+              onClick={() => {
+                memesPopup(event);
+              }}
+            >
               Memes
-            </span>{' '}
-            /{' '}
-            <span className='links open_popup' data-id={event.id}>
-              Coverage
-            </span>
+            </button>{' '}
+            / <button className='links open_popup'>Coverage</button>
           </>
         ) : null}
       </td>
@@ -32,13 +42,7 @@ function renderCalendarElement(event) {
           <td className='location'>{event.Location}</td>
           <td className='date'>{event.DateInit}</td>
           <td className='actions'>
-            <span className='pictures open_popup' data-id={event.id}>
-              Memes
-            </span>{' '}
-            /{' '}
-            <span className='links open_popup' data-id={event.id}>
-              Coverage
-            </span>
+            <span className='pictures open_popup'>Memes</span> / <span className='links open_popup'>Coverage</span>
           </td>
         </>
       ) : (
