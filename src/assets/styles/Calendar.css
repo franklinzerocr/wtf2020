@@ -6,7 +6,7 @@ section.calendar {
 
 .react-calendar {
   margin: 0px auto;
-  width: 300px;
+  width: 350px;
 }
 
 .calendar_inner_container {
@@ -233,11 +233,11 @@ section.calendar {
   display: inline-block !important;
   padding: 0px;
   padding-bottom: 50px;
-  height: 80px;
+  height: 90px;
   /* background: rgba(0, 0, 0, 0.3); */
   background: url(../images/logowtf.png);
-  background-position: center 10px;
-  background-size: 75%;
+  background-position: center 15px;
+  background-size: 70%;
   background-repeat: no-repeat;
 }
 
@@ -245,8 +245,9 @@ section.calendar {
 .react-calendar__century-view .react-calendar__tile:hover,
 .react-calendar__decade-view .react-calendar__tile:hover {
   /* background: black !important; */
-  background-position: center 10px !important;
+  background-position: center 15px;
 }
+
 .react-calendar__year-view .react-calendar__tile:hover abbr,
 .react-calendar__century-view .react-calendar__tile:hover abbr,
 .react-calendar__decade-view .react-calendar__tile:hover abbr {

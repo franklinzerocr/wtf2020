@@ -22,8 +22,10 @@ export function changeBackgroundOfButtons() {
 
       for (let event of featuredEvents) {
         if (getMonthName(event.DateInit) === calendarMonth && event.FeaturedImage) {
-          button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "')";
+          console.log(backendURL + event.FeaturedImage.formats.small.url);
+          button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "') ";
           button.style.backgroundSize = 'cover';
+          button.style.backgroundPosition = 'center 0px';
         }
       }
     }
@@ -42,7 +44,7 @@ function CalendarSection() {
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
     <section id='calendarList' className='calendar'>
-      <h1 className='text-center'>PICK A DATE</h1>
+      <h1 className='text-center'>Pick a Date</h1>
       <div className='container '>
         <div className='row'>
           <div className='calendar-container col-md-7'>

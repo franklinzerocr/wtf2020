@@ -30,13 +30,18 @@ function EventsList(props) {
   let [filteredEvents] = useFilteredEvents();
   return (
     <section id='eventList' className='list'>
-      <h1 className='text-center'>CHECK THE WTF EVENTS</h1>
+      <h1 className='text-center'>Check WTF Happened</h1>
       <div className='container '>
         <div className='list_inner_container'>
           <table className='table table-striped eventsList'>
             <tbody>{checkState(filteredEvents)}</tbody>
           </table>
-          {!filteredEvents.loading && !filteredEvents.error && filteredEvents.data && filteredEvents.data.length ? <MonthTag /> : null}
+          {!filteredEvents.loading && !filteredEvents.error && filteredEvents.data && filteredEvents.data.length ? (
+            <>
+              {console.log('hola')}
+              <MonthTag />
+            </>
+          ) : null}
         </div>
       </div>
     </section>
