@@ -8,7 +8,7 @@ export function updateLayout(title, bodyClass) {
   if (bodyClass) document.querySelector('body').setAttribute('class', bodyClass);
 }
 
-function useLayout(title = '', bodyClass = '') {
+function useLayout() {
   [Layout, setLayout] = useState();
 
   useEffect(() => {

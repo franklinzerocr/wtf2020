@@ -3,7 +3,6 @@ import { backendURL } from '../../globals';
 import { Link } from 'react-router-dom';
 
 function MemeElement(props) {
-  console.log('props.meme', props.meme);
   return (
     <div className='single_news row'>
       <h5 className='title col-md-12 align-self-center'>

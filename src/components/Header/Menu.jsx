@@ -9,10 +9,10 @@ function Menu() {
           <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/donate'>Donate</Link>
+          <Link to='/Donate'>Donate</Link>
         </li>
         <li className='hidden'>
-          <Link to='/privacy'>Privacy Policy</Link>
+          <Link to='/Privacy'>Privacy Policy</Link>
         </li>
       </ul>
     </nav>

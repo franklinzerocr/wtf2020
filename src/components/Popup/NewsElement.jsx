@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function NewsElement(props) {
-  console.log('props.news', props.news);
   return (
     <div className='single_news row'>
       <div className='col-md-3 align-self-center'>{props.news.FeaturedImage ? <img src={props.news.FeaturedImage} alt={props.news.Title}></img> : null}</div>
