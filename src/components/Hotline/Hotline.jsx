@@ -8,7 +8,7 @@ import EventTop from './EventTop';
 function Hotline(props) {
   let [event] = useEventTop();
   return (
-    <section className='eventTop'>
+    <section id='hotline' className='eventTop'>
       <div className='container'>
         <div className='title-container row'>
           <div className='container align-self-center'>

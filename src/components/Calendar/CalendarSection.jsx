@@ -16,7 +16,7 @@ function CalendarSection() {
   let selectedDate = getDateTimeYMD(calendarState);
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
-    <section className='calendar'>
+    <section id='calendarList' className='calendar'>
       <h1 className='text-center'>PICK A DATE</h1>
       <div className='container '>
         <div className='row'>

@@ -9,8 +9,7 @@ let searchBar = {},
 export const updateSearchBar = async input => {
   await setSearchBar(input);
 
-  let searchInput = input.replace('  ', ' ');
-  searchInput = input.split(/,| |-|\/|;/);
+  let searchInput = input.split(/,| |-|\/|;/);
   //   console.log(searchInput);
   let events = Object.assign({}, getEventList());
   if (input && events && !events.loading && !events.error && events.data.length > 0) {
