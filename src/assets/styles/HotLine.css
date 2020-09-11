@@ -50,3 +50,7 @@ section.eventTop {
   margin-left: 10%;
   font-size: 60px;
 }
+
+.eventTop .open_popup {
+  color: white;
+}

@@ -1,8 +1,33 @@
 import React from 'react';
 import { getMonthName } from '../../utils';
+import { updatePopup } from '../../hooks/usePopup';
+import MemeElement from '../Popup/MemeElement';
+import NewsElement from '../Popup/NewsElement';
 
-function memesPopup(event) {
-  console.log(event);
+export function memeButton(event) {
+  return (
+    <button
+      className='pictures open_popup'
+      onClick={() => {
+        updatePopup(true, <>{event.Memes.length > 0 ? event.Memes.map(meme => <MemeElement key={meme.id} meme={meme}></MemeElement>) : <MemeElement meme={null}></MemeElement>}</>);
+      }}
+    >
+      Memes
+    </button>
+  );
+}
+
+export function newsButton(event) {
+  return (
+    <button
+      className='links open_popup'
+      onClick={() => {
+        updatePopup(true, <>{event.event_news.length > 0 ? event.event_news.map(news => <NewsElement key={news.id} news={news}></NewsElement>) : <NewsElement news={null}></NewsElement>}</>);
+      }}
+    >
+      News
+    </button>
+  );
 }
 
 function renderListElement(event) {
@@ -14,23 +39,7 @@ function renderListElement(event) {
         {event ? (
           <>
             <div className='actions_container'>
-              <button
-                className='pictures open_popup'
-                onClick={() => {
-                  memesPopup(event.Memes);
-                }}
-              >
-                Memes
-              </button>{' '}
-              /{' '}
-              <button
-                className='links open_popup'
-                onClick={() => {
-                  memesPopup(event.event_news);
-                }}
-              >
-                Coverage
-              </button>
+              {memeButton(event)}&nbsp;/&nbsp;{newsButton(event)}
             </div>
           </>
         ) : null}
@@ -49,23 +58,7 @@ function renderCalendarElement(event) {
           <td className='date'>{event.DateInit}</td>
           <td className='actions'>
             <div className='actions_container'>
-              <button
-                className='pictures open_popup'
-                onClick={() => {
-                  memesPopup(event.Memes);
-                }}
-              >
-                Memes
-              </button>{' '}
-              /{' '}
-              <button
-                className='links open_popup'
-                onClick={() => {
-                  memesPopup(event.event_news);
-                }}
-              >
-                Coverage
-              </button>
+              {memeButton(event)}&nbsp;/&nbsp;{newsButton(event)}
             </div>
           </td>
         </>

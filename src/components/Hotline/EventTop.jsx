@@ -2,6 +2,7 @@ import React from 'react';
 
 import Loader from '../Layout/Loader';
 import Error from '../Layout/Error';
+import { memeButton, newsButton } from '../List/EventElement';
 
 import useEventTop from '../../hooks/useEventTop';
 
@@ -21,14 +22,8 @@ function checkState(event) {
           &nbsp;&nbsp;&nbsp;
           {event.DateInit}
           <br />
-          <span className='actions'>
-            <span className='pictures open_popup' data-id={event.id}>
-              Memes
-            </span>{' '}
-            /{' '}
-            <span className='links open_popup' data-id={event.id}>
-              Coverage
-            </span>
+          <span className='actions_container'>
+            {memeButton(event)}&nbsp;/&nbsp;{newsButton(event)}
           </span>
         </p>
       </>
