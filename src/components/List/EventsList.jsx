@@ -7,11 +7,12 @@ import useEventList from '../../hooks/useEventList';
 
 import '../../assets/styles/List.css';
 import MonthTag from './MonthTag';
+import useFilteredEvents from '../../hooks/useFilteredEvents';
 
 function checkState(events) {
   if (events.loading) return <Loader dots={3} color='black' parent='tbody' />;
-  else if (events.error) return <Error error={events.error} />;
-  else if (!events.data || !events.data.length) return <Error error='EMPTY' />;
+  else if (events.error) return <Error error={events.error} parent='tbody' />;
+  else if (!events.data || !events.data.length) return <Error error='EMPTY' parent='tbody' />;
   else {
     let i = events.data.length;
     return (
@@ -25,16 +26,17 @@ function checkState(events) {
 }
 
 function EventsList(props) {
-  const [events] = useEventList();
+  useEventList();
+  let [filteredEvents] = useFilteredEvents();
   return (
     <section className='list'>
       <h1 className='text-center'>CHECK THE WTF EVENTS</h1>
       <div className='container '>
         <div className='list_inner_container'>
           <table className='table table-striped eventsList'>
-            <tbody>{checkState(events)}</tbody>
+            <tbody>{checkState(filteredEvents)}</tbody>
           </table>
-          {!events.loading && !events.error && events.data && events.data.length ? <MonthTag /> : null}
+          {!filteredEvents.loading && !filteredEvents.error && filteredEvents.data && filteredEvents.data.length ? <MonthTag /> : null}
         </div>
       </div>
     </section>

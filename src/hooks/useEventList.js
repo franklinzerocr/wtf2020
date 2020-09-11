@@ -5,6 +5,7 @@ import { setEventTop } from './useEventTop';
 import { sortList, sleep } from '../utils';
 import { getNews } from '../externalApis/news';
 import { updateMonthTags } from './usetMonthTags';
+import { updateFilteredEvents } from './useFilteredEvents';
 
 let events = {},
   setEvents;
@@ -55,11 +56,11 @@ export const fetchEventList = async (loading = true) => {
   eventsAux.data = await sortList(eventsAux.data, 'DateInit');
   await checkEventNewsList(eventsAux.data);
   await setEvents(eventsAux);
-  await setEventTop(events.data[0]);
+  if (events) await setEventTop(events.data[0]);
   // console.log('fetchEventList', events);
   // if (await checkEventNewsList(events.data))
   // await fetchEventList(false);
-
+  updateFilteredEvents(events);
   updateMonthTags();
 };
 

@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route path='/event/:eventTitle' render={props => <Home eventTitle={props.match.params.eventTitle} title='WTF 2020' bodyClass='Home' />} />
+          <Route path='/event/:eventTitle' render={props => <Home eventTitle={props.match.params.eventTitle} title=' - WTF 2020' bodyClass='Home' />} />
           <Route exact path='/Donate' render={props => <Donate title='Donate to WTF 2020' bodyClass='Donate' />} />
           <Route exact path='/Privacy' render={props => <Privacy title='Privacy Policy of WTF 2020' bodyClass='Privacy' />} />
           <Route exact path='/' render={props => <Home title='WTF 2020' bodyClass='Home' />} />
