@@ -260,9 +260,9 @@ section.calendar {
 
 .react-calendar__year-view .react-calendar__tile--now abbr {
   color: #4d002a !important;
-  text-shadow: 0px 0px 1px white !important;
+  text-shadow: 0px 0px 1px whitesmoke !important;
   font-weight: bolder !important;
-  background: rgba(255, 255, 255, 0.6) !important;
+  background: rgba(255, 255, 255) !important;
 }
 
 .react-calendar__tile--now abbr {

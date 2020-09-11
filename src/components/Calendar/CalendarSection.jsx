@@ -21,24 +21,14 @@ export function changeBackgroundOfButtons() {
       let calendarMonth = button.querySelector('abbr').getAttribute('aria-label');
 
       for (let event of featuredEvents) {
-        console.log(getMonthName(event.DateInit));
-        console.log(calendarMonth);
-        if (getMonthName(event.DateInit) === calendarMonth) console.log(event.FeaturedImage);
         if (getMonthName(event.DateInit) === calendarMonth && event.FeaturedImage) {
           button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "')";
           button.style.backgroundSize = 'cover';
         }
       }
     }
-  else if (reactCalendar.querySelector('.react-calendar__decade-view'))
-    for (let button of document.querySelectorAll('.react-calendar__decade-view .react-calendar__tile')) {
-      let abbr = document.createElement('abbr');
-      abbr.innerHTML = button.innerHTML;
-      button.innerHTML = '';
-      button.appendChild(abbr);
-    }
-  else if (reactCalendar.querySelector('.react-calendar__century-view'))
-    for (let button of document.querySelectorAll('.react-calendar__century-view .react-calendar__tile')) {
+  else if (reactCalendar.querySelector('.react-calendar__decade-view') || reactCalendar.querySelector('.react-calendar__century-view'))
+    for (let button of document.querySelectorAll('.react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile')) {
       let abbr = document.createElement('abbr');
       abbr.innerHTML = button.innerHTML;
       button.innerHTML = '';
