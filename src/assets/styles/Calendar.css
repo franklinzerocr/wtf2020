@@ -115,11 +115,11 @@ section.calendar {
 }
 
 .react-calendar__tile--now {
-  background: #4d002a !important;
+  background-color: #4d002a !important;
 }
 
 .react-calendar__tile--active {
-  background: #f87f06 !important;
+  background-color: #f87f06 !important;
 }
 
 .react-calendar__month-view__weekdays {
@@ -162,11 +162,11 @@ section.calendar {
 
 .react-calendar__tile:hover,
 .react-calendar__navigation button:hover {
-  background: #c6e4ff !important;
+  background-color: #c6e4ffa2 !important;
 }
 
 .react-calendar__tile.react-calendar__tile--now:hover {
-  background: #3190e9 !important;
+  background-color: #3190e98e !important;
 }
 
 .calendar_inner_container .spring {
@@ -211,4 +211,63 @@ section.calendar {
 }
 .calendar_inner_container .spring7 {
   transform: translateX(120px);
+}
+
+.react-calendar__century-view .react-calendar__tile abbr,
+.react-calendar__decade-view .react-calendar__tile abbr,
+.react-calendar__year-view .react-calendar__tile abbr {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: 0px 0px 3px black;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile {
+  position: relative;
+  background-repeat: no-repeat !important;
+  background-color: transparent;
+  display: inline-block !important;
+  padding: 0px;
+  padding-bottom: 50px;
+  height: 80px;
+  /* background: rgba(0, 0, 0, 0.3); */
+  background: url(../images/logowtf.png);
+  background-position: center 10px;
+  background-size: 75%;
+  background-repeat: no-repeat;
+}
+
+.react-calendar__year-view .react-calendar__tile:hover,
+.react-calendar__century-view .react-calendar__tile:hover,
+.react-calendar__decade-view .react-calendar__tile:hover {
+  /* background: black !important; */
+  background-position: center 10px !important;
+}
+.react-calendar__year-view .react-calendar__tile:hover abbr,
+.react-calendar__century-view .react-calendar__tile:hover abbr,
+.react-calendar__decade-view .react-calendar__tile:hover abbr {
+  /* background: black !important; */
+
+  background: rgba(0, 0, 0, 0.9);
+}
+/* .react-calendar__year-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile { */
+
+.react-calendar__year-view .react-calendar__tile--now abbr {
+  color: #4d002a !important;
+  text-shadow: 0px 0px 1px white !important;
+  font-weight: bolder !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.react-calendar__tile--now abbr {
+  color: white !important;
+  text-shadow: none !important;
+  font-weight: bolder !important;
+  background: none !important;
 }

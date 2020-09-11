@@ -3,16 +3,51 @@ import Calendar from 'react-calendar';
 
 import useCalendar from '../../hooks/useCalendar';
 
-import { getDateTimeYMD } from '../../utils';
+import { getDateTimeYMD, getMonthName } from '../../utils';
 import CalendarList from './CalendarList';
 
-import { filterEventsByCalendarDate } from '../../hooks/useEventList';
+import { filterEventsByCalendarDate, getFeaturedEvents } from '../../hooks/useEventList';
 
 import 'react-calendar/dist/Calendar.css';
 import '../../assets/styles/Calendar.css';
+import { backendURL } from '../../globals';
+
+export function changeBackgroundOfButtons() {
+  const reactCalendar = document.querySelector('.react-calendar');
+  const featuredEvents = getFeaturedEvents();
+
+  if (reactCalendar.querySelector('.react-calendar__year-view'))
+    for (let button of document.querySelectorAll('.react-calendar__year-view .react-calendar__tile')) {
+      let calendarMonth = button.querySelector('abbr').getAttribute('aria-label');
+
+      for (let event of featuredEvents) {
+        console.log(getMonthName(event.DateInit));
+        console.log(calendarMonth);
+        if (getMonthName(event.DateInit) === calendarMonth) console.log(event.FeaturedImage);
+        if (getMonthName(event.DateInit) === calendarMonth && event.FeaturedImage) {
+          button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "')";
+          button.style.backgroundSize = 'cover';
+        }
+      }
+    }
+  else if (reactCalendar.querySelector('.react-calendar__decade-view'))
+    for (let button of document.querySelectorAll('.react-calendar__decade-view .react-calendar__tile')) {
+      let abbr = document.createElement('abbr');
+      abbr.innerHTML = button.innerHTML;
+      button.innerHTML = '';
+      button.appendChild(abbr);
+    }
+  else if (reactCalendar.querySelector('.react-calendar__century-view'))
+    for (let button of document.querySelectorAll('.react-calendar__century-view .react-calendar__tile')) {
+      let abbr = document.createElement('abbr');
+      abbr.innerHTML = button.innerHTML;
+      button.innerHTML = '';
+      button.appendChild(abbr);
+    }
+}
 
 function CalendarSection() {
-  let [calendarState, setCalendar] = useCalendar();
+  let [calendarState, updateCalendar] = useCalendar();
   let selectedDate = getDateTimeYMD(calendarState);
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
@@ -29,7 +64,17 @@ function CalendarSection() {
               <div className='spring spring5' />
               <div className='spring spring6' />
               <div className='spring spring7' />
-              <Calendar onChange={setCalendar} value={calendarState} />
+              <Calendar
+                onChange={updateCalendar}
+                value={calendarState}
+                onViewChange={() => {
+                  changeBackgroundOfButtons();
+                }}
+                onActiveStartDateChange={() => {
+                  changeBackgroundOfButtons();
+                }}
+                defaultView='year'
+              />
             </div>
           </div>
           <div className='calendarList-container col-md-5'>

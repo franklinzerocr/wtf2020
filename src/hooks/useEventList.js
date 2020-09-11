@@ -6,9 +6,19 @@ import { sortList, sleep } from '../utils';
 import { getNews } from '../externalApis/news';
 import { updateMonthTags } from './usetMonthTags';
 import { updateFilteredEvents } from './useFilteredEvents';
+import { changeBackgroundOfButtons } from '../components/Calendar/CalendarSection';
 
 let events = {},
   setEvents;
+
+export function getFeaturedEvents() {
+  let featuredEvents = [];
+  if (events.data)
+    featuredEvents = events.data.filter(function (itm) {
+      return itm.Featured;
+    });
+  return featuredEvents;
+}
 
 async function checkEventNewsList(eventList) {
   let flag = false;
@@ -56,12 +66,13 @@ export const fetchEventList = async (loading = true) => {
   eventsAux.data = await sortList(eventsAux.data, 'DateInit');
   await checkEventNewsList(eventsAux.data);
   await setEvents(eventsAux);
-  if (events) await setEventTop(events.data[0]);
-  // console.log('fetchEventList', events);
-  // if (await checkEventNewsList(events.data))
-  // await fetchEventList(false);
-  updateFilteredEvents(events);
+  if (events && events.data) await setEventTop(events.data[0]);
+  await updateFilteredEvents(events);
+
   updateMonthTags();
+  changeBackgroundOfButtons();
+
+  // console.log(events);
 };
 
 export const loaderList = value => {

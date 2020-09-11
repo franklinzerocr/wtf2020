@@ -19,7 +19,6 @@ export const updateSearchBar = async input => {
         if (word === '') {
           continue;
         }
-        console.log(word);
         if (itm.Title.toUpperCase().includes(word.toUpperCase())) {
           found = true;
         } else if (itm.Keywords.toUpperCase().includes(word.toUpperCase())) {

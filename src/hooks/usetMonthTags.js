@@ -10,6 +10,9 @@ function setPositionOfMonthTags() {
 
     tag.style.height = height + 'px';
     tag.style.top = top + 'px';
+    if (height <= 70) tag.classList.add('smallest-tag-size');
+    else if (height <= 140) tag.classList.add('small-tag-size');
+    else if (height <= 200) tag.classList.add('medium-tag-size');
   }
 }
 
