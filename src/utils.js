@@ -1,6 +1,6 @@
 export function sortList(list, key) {
   if (list)
-    list.sort(function (a, b) {
+    list.sort(function (b, a) {
       var keyA = new Date(a[key]),
         keyB = new Date(b[key]);
       // Compare the 2 dates

@@ -12,7 +12,7 @@ export function memeButton(event) {
         updatePopup(true, <>{event.Memes.length > 0 ? event.Memes.map(meme => <MemeElement key={meme.id} meme={meme}></MemeElement>) : <MemeElement meme={null}></MemeElement>}</>);
       }}
     >
-      Memes
+      Check Memes
     </button>
   );
 }
@@ -25,7 +25,7 @@ export function newsButton(event) {
         updatePopup(true, <>{event.event_news.length > 0 ? event.event_news.map(news => <NewsElement key={news.id} news={news}></NewsElement>) : <NewsElement news={null}></NewsElement>}</>);
       }}
     >
-      News
+      Related News
     </button>
   );
 }

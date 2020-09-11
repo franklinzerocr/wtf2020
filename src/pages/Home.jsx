@@ -1,11 +1,11 @@
 import React from 'react';
 
 import EventsList from '../components/List/EventsList';
-import EventTop from '../components/Hotline/EventTop';
+import Hotline from '../components/Hotline/Hotline';
 import Header from '../components/Header/Header';
 import CalendarSection from '../components/Calendar/CalendarSection';
 import Footer from '../components/Footer/Footer';
-import Popup from '../components/Popup/Popup'
+import Popup from '../components/Popup/Popup';
 
 import { updateLayout } from '../hooks/useLayout';
 
@@ -14,7 +14,7 @@ function Home(props) {
   return (
     <>
       <Header />
-      <EventTop />
+      <Hotline />
       <CalendarSection />
       <EventsList />
       <Footer />

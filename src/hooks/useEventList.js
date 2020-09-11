@@ -52,10 +52,11 @@ export const fetchEventList = async (loading = true) => {
     eventsAux.error = error;
   }
   eventsAux.loading = false;
+  eventsAux.data = await sortList(eventsAux.data, 'DateInit');
+  await checkEventNewsList(eventsAux.data);
   await setEvents(eventsAux);
-  setEventTop(sortList(events.data, 'DatePublished'));
+  await setEventTop(events.data[0]);
   // console.log('fetchEventList', events);
-  await checkEventNewsList(events.data);
   // if (await checkEventNewsList(events.data))
   // await fetchEventList(false);
 
