@@ -6,7 +6,7 @@ import useCalendar from '../../hooks/useCalendar';
 import { getDateTimeYMD, getMonthName } from '../../utils';
 import CalendarList from './CalendarList';
 
-import { filterEventsByCalendarDate, getFeaturedEvents } from '../../hooks/useEventList';
+import { filterEventsByCalendarDate, getFeaturedEvents, getDaysWithEvents } from '../../hooks/useEventList';
 
 import 'react-calendar/dist/Calendar.css';
 import '../../assets/styles/Calendar.css';
@@ -15,32 +15,56 @@ import { backendURL } from '../../globals';
 export function changeBackgroundOfButtons() {
   const reactCalendar = document.querySelector('.react-calendar');
   const featuredEvents = getFeaturedEvents();
+  const daysWithEvents = getDaysWithEvents();
 
-  if (reactCalendar.querySelector('.react-calendar__year-view'))
-    for (let button of document.querySelectorAll('.react-calendar__year-view .react-calendar__tile')) {
-      let calendarMonth = button.querySelector('abbr').getAttribute('aria-label');
+  if (reactCalendar)
+    if (reactCalendar.querySelector('.react-calendar__year-view'))
+      for (let button of document.querySelectorAll('.react-calendar__year-view .react-calendar__tile')) {
+        let calendarMonth = button.querySelector('abbr').getAttribute('aria-label');
 
-      for (let event of featuredEvents) {
-        if (getMonthName(event.DateInit) === calendarMonth && event.FeaturedImage) {
-          console.log(backendURL + event.FeaturedImage.formats.small.url);
-          button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "') ";
-          button.style.backgroundSize = 'cover';
-          button.style.backgroundPosition = 'center 0px';
+        for (let event of featuredEvents) {
+          if (getMonthName(event.DateInit) === calendarMonth && event.FeaturedImage) {
+            button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "') ";
+            button.style.backgroundSize = 'cover';
+            button.style.backgroundPosition = 'center 0px';
+          }
         }
       }
-    }
-  else if (reactCalendar.querySelector('.react-calendar__decade-view') || reactCalendar.querySelector('.react-calendar__century-view'))
-    for (let button of document.querySelectorAll('.react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile')) {
-      let abbr = document.createElement('abbr');
-      abbr.innerHTML = button.innerHTML;
-      button.innerHTML = '';
-      button.appendChild(abbr);
+    else if (reactCalendar.querySelector('.react-calendar__decade-view') || reactCalendar.querySelector('.react-calendar__century-view'))
+      for (let button of document.querySelectorAll('.react-calendar__decade-view .react-calendar__tile, .react-calendar__century-view .react-calendar__tile')) {
+        let abbr = document.createElement('abbr');
+        abbr.innerHTML = button.innerHTML;
+        button.innerHTML = '';
+        button.appendChild(abbr);
+      }
+    else if (reactCalendar.querySelector('.react-calendar__month-view ')) {
+      for (let button of document.querySelectorAll('.react-calendar__month-view .react-calendar__tile')) {
+        let dayFound = daysWithEvents.filter(function (itm) {
+          return itm === button.querySelector('abbr').getAttribute('aria-label');
+        });
+        if (dayFound && dayFound.length > 0) button.setAttribute('has-event', 'true');
+
+        if (!button.getAttribute('watched')) {
+          button.setAttribute('watched', 'watched');
+          let observer = new MutationObserver(function (event) {
+            if (dayFound && dayFound.length > 0) button.setAttribute('has-event', 'true');
+          });
+
+          observer.observe(button, {
+            attributes: true,
+            attributeFilter: ['class'],
+            childList: false,
+            characterData: false,
+          });
+        }
+      }
     }
 }
 
 function CalendarSection() {
-  let [calendarState, updateCalendar] = useCalendar();
-  let selectedDate = getDateTimeYMD(calendarState);
+  let [calendarState, setCalendar] = useCalendar();
+  let selectedDate = null;
+  if (calendarState) selectedDate = getDateTimeYMD(calendarState);
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
     <section id='calendarList' className='calendar'>
@@ -57,15 +81,23 @@ function CalendarSection() {
               <div className='spring spring6' />
               <div className='spring spring7' />
               <Calendar
-                onChange={updateCalendar}
                 value={calendarState}
+                onChange={value => {
+                  setCalendar(value);
+                  changeBackgroundOfButtons();
+                }}
                 onViewChange={() => {
                   changeBackgroundOfButtons();
                 }}
                 onActiveStartDateChange={() => {
                   changeBackgroundOfButtons();
                 }}
+                onClickDay={() => {
+                  changeBackgroundOfButtons();
+                }}
                 defaultView='year'
+                minDetail='year'
+                minDate={new Date('2020-01-02')}
               />
             </div>
           </div>

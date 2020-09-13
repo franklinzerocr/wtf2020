@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { backendURL } from '../globals';
 import { setEventTop } from './useEventTop';
-import { sortList, sleep } from '../utils';
+import { sortList, sleep, getCalendarDate } from '../utils';
 import { getNews } from '../externalApis/news';
 import { updateMonthTags } from './usetMonthTags';
 import { updateFilteredEvents } from './useFilteredEvents';
@@ -18,6 +18,21 @@ export function getFeaturedEvents() {
       return itm.Featured;
     });
   return featuredEvents;
+}
+
+export function getDaysWithEvents() {
+  let daysWithEvents = [];
+  if (events.data)
+    for (let event of events.data) {
+      let calendarDate = getCalendarDate(event.DateInit);
+      let dayFound = daysWithEvents.filter(function (itm) {
+        return itm === calendarDate;
+      });
+
+      if (!dayFound || dayFound.length === 0) daysWithEvents.push(getCalendarDate(event.DateInit));
+    }
+
+  return daysWithEvents;
 }
 
 async function checkEventNewsList(eventList) {
@@ -37,7 +52,7 @@ async function checkEventNewsList(eventList) {
 
 export const filterEventsByCalendarDate = (date = null) => {
   let filteredEvents = [];
-  if (events && 'data' in events && events.data && events.data.length > 0) {
+  if (date && events && 'data' in events && events.data && events.data.length > 0) {
     filteredEvents = events.data.filter(function (itm) {
       return itm.DateInit === date;
     });

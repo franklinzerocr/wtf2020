@@ -166,7 +166,7 @@ section.calendar {
 }
 
 .react-calendar__tile.react-calendar__tile--now:hover {
-  background-color: #3190e98e !important;
+  background-color: #2387e4 !important;
 }
 
 .calendar_inner_container .spring {
@@ -247,7 +247,12 @@ section.calendar {
   /* background: black !important; */
   background-position: center 15px;
 }
-
+.react-calendar__year-view .react-calendar__tile.react-calendar__tile--now:hover {
+  background: url(../images/logowtf.png);
+  background-position: center 15px;
+  background-size: 70%;
+  background-repeat: no-repeat;
+}
 .react-calendar__year-view .react-calendar__tile:hover abbr,
 .react-calendar__century-view .react-calendar__tile:hover abbr,
 .react-calendar__decade-view .react-calendar__tile:hover abbr {
@@ -255,20 +260,49 @@ section.calendar {
 
   background: rgba(0, 0, 0, 0.9);
 }
-/* .react-calendar__year-view .react-calendar__tile,
-.react-calendar__century-view .react-calendar__tile,
-.react-calendar__decade-view .react-calendar__tile { */
 
 .react-calendar__year-view .react-calendar__tile--now abbr {
-  color: #4d002a !important;
-  text-shadow: 0px 0px 1px whitesmoke !important;
+  color: white !important;
+  text-shadow: 0px 0px 1px black !important;
   font-weight: bolder !important;
-  background: rgba(255, 255, 255) !important;
+  background: rgba(0, 0, 0, 0) !important;
 }
 
 .react-calendar__tile--now abbr {
   color: white !important;
   text-shadow: none !important;
   font-weight: bolder !important;
+  background: none !important;
+}
+
+button[has-event='true'] {
+  padding: 0px;
+}
+button[has-event='true'] abbr {
+  color: black;
+}
+
+button[has-event='true']:hover,
+button[has-event='true'] {
+  color: black;
+  font-weight: bolder;
+  background-image: url(../images/logowtf.png);
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.react-calendar__navigation__arrow[disabled] {
+  opacity: 0;
+}
+
+button.react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0;
+  cursor: auto !important;
+}
+
+button.react-calendar__navigation__label[disabled],
+button.react-calendar__navigation__label[disabled]:hover {
   background: none !important;
 }

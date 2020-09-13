@@ -19,6 +19,7 @@ export function addDays(dateFrom, days) {
 
 export function getDateTimeYMD(date_ob) {
   // adjust 0 before single digit date
+
   let date = ('0' + date_ob.getDate()).slice(-2);
   // current month
   let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
@@ -73,6 +74,13 @@ export function getMonthName(date) {
       monthName = 'NONE';
   }
   return monthName;
+}
+
+export function getCalendarDate(date) {
+  let monthName = getMonthName(date);
+  let calendarDate = monthName.split(' ');
+  calendarDate = calendarDate[0] + ' ' + parseInt(date.split('-')[2]) + ', ' + calendarDate[1];
+  return calendarDate;
 }
 
 export const getEncodedString = data => {

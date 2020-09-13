@@ -38,7 +38,6 @@ function EventsList(props) {
           </table>
           {!filteredEvents.loading && !filteredEvents.error && filteredEvents.data && filteredEvents.data.length ? (
             <>
-              {console.log('hola')}
               <MonthTag />
             </>
           ) : null}
