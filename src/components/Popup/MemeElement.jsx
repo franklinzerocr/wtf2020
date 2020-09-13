@@ -6,9 +6,13 @@ function MemeElement(props) {
   return (
     <div className='single_news row'>
       <h5 className='title col-md-12 align-self-center'>
-        <Link to={{ pathname: backendURL + props.meme.url }} target='_blank'>
-          <img src={backendURL + props.meme.formats.small.url} alt='---' />
-        </Link>
+        {props.meme ? (
+          <Link to={{ pathname: backendURL + props.meme.url }} target='_blank'>
+            <img src={backendURL + props.meme.formats.small.url} alt='---' />
+          </Link>
+        ) : (
+          <></>
+        )}
       </h5>
     </div>
   );

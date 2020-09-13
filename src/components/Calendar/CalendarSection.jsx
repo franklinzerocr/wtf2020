@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 
 import useCalendar from '../../hooks/useCalendar';
 
-import { getDateTimeYMD, getMonthName } from '../../utils';
+import { getDateTimeYMD, getMonthName, sleep } from '../../utils';
 import CalendarList from './CalendarList';
 
 import { filterEventsByCalendarDate, getFeaturedEvents, getDaysWithEvents } from '../../hooks/useEventList';
@@ -46,8 +46,16 @@ export function changeBackgroundOfButtons() {
 
         if (!button.getAttribute('watched')) {
           button.setAttribute('watched', 'watched');
-          let observer = new MutationObserver(function (event) {
-            if (dayFound && dayFound.length > 0) button.setAttribute('has-event', 'true');
+          let observer = new MutationObserver(async function (e) {
+            if (dayFound && dayFound.length > 0) {
+              button.setAttribute('has-event', 'true');
+            }
+
+            var event = document.createEvent('HTMLEvents');
+            event.initEvent('click', true, false);
+            await sleep(10000);
+            document.querySelector('body').dispatchEvent(event);
+            console.log('click');
           });
 
           observer.observe(button, {
