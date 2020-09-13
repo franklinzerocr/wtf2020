@@ -8,6 +8,7 @@ let searchBar = {},
 
 export const updateSearchBar = async input => {
   await setSearchBar(input);
+  if (!document.querySelector('#eventList')) return null;
 
   let searchInput = input.split(/,| |-|\/|;/);
   //   console.log(searchInput);

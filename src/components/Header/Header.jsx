@@ -10,6 +10,19 @@ import '../../assets/styles/Header.css';
 var flagStickyMenu = false;
 
 function stickyMenu() {
+  // PRIVACY || DONATE
+  setTimeout(function () {
+    if (document.querySelector('body.Privacy') || document.querySelector('body.Donate')) {
+      let headerElement = document.querySelector('header.main-header');
+      headerElement.style.position = 'fixed';
+      headerElement.style.top = '0px';
+      headerElement.classList.add('sticky-menu');
+      headerElement.classList.add('fixed-menu');
+      headerElement.classList.remove('static-menu');
+      headerElement.classList.remove('absolute-menu');
+    }
+  }, 0);
+
   if (!flagStickyMenu && document.querySelector('body.Home'))
     window.addEventListener('scroll', function (event) {
       flagStickyMenu = true;

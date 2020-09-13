@@ -74,7 +74,7 @@
 }
 
 .fixed-menu {
-  width: calc(100vw - 15px);
+  width: calc(100vw);
 }
 .fixed-menu .container {
   padding: 0px 22px;
@@ -138,7 +138,25 @@
   display: inline-block;
   float: right;
 }
-.sticky-menu .menu .hidden {
+
+.sticky-menu .menu ul {
+  display: flex;
+}
+
+body.Home .sticky-menu .menu ul,
+footer .menu ul {
+  display: unset;
+}
+.sticky-menu .menu .privacyLink {
+  display: none;
+}
+.sticky-menu .menu .donateLink,
+.sticky-menu .menu .homeLink {
+  display: inline-block;
+  margin-left: 30px;
+}
+/* .sticky-menu .menu .homeLink, */
+.sticky-menu .menu .privacyLink {
   display: none;
 }
 

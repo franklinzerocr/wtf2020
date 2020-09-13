@@ -5,13 +5,13 @@ function Menu() {
   return (
     <nav className='menu'>
       <ul>
-        <li className='hidden'>
-          <Link to='/'>Home</Link>
+        <li className='homeLink'>
+          <Link to='/'>WTF 2020</Link>
         </li>
-        <li>
+        <li className='donateLink'>
           <Link to='/Donate'>Donate</Link>
         </li>
-        <li className='hidden'>
+        <li className='privacyLink'>
           <Link to='/Privacy'>Privacy Policy</Link>
         </li>
       </ul>

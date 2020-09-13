@@ -117,3 +117,13 @@ a:hover {
 .single_news {
   margin: 5px 0px;
 }
+
+.page-content {
+  margin-top: 100px;
+}
+
+.page-content .container {
+  background: white;
+  padding: 15px 20px;
+  text-align: justify;
+}

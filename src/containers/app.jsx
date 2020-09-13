@@ -6,11 +6,13 @@ import NotFound from '../components/Layout/NotFound';
 import Home from '../pages/Home';
 import Donate from '../pages/Donate';
 import Privacy from '../pages/Privacy';
+import ScrollToTop from '../components/Layout/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
       <Layout>
+        <ScrollToTop />
         <Switch>
           <Route path='/event/:eventTitle' render={props => <Home eventTitle={props.match.params.eventTitle} title=' - WTF 2020' bodyClass='Home' />} />
           <Route exact path='/Donate' render={props => <Donate title='Donate to WTF 2020' bodyClass='Donate' />} />
