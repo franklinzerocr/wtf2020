@@ -13,20 +13,22 @@ function checkState(calendarList) {
       {calendarList.map(event => (
         <EventElement event={event} i={i++} key={event.id} parent='calendar' />
       ))}
-      {difArray.map(index => (
-        <EventElement event={false} i={i++} key={index} parent='calendar' />
-      ))}
     </>
   );
 }
 
 function CalendarList(props) {
+  console.log(props.events);
   return (
     <>
       <div className='calendarList_inner_container'>
-        <table className='calendarList table table-striped'>
-          <tbody>{checkState(props.events)}</tbody>
-        </table>
+        {props.events.length ? (
+          <table className='calendarList table table-striped table-responsive w-100 d-block d-md-table'>
+            <tbody>{checkState(props.events)}</tbody>
+          </table>
+        ) : (
+          <p className='text-center'>NO EVENTS</p>
+        )}
       </div>
     </>
   );

@@ -18,7 +18,7 @@ function checkState(events) {
     return (
       <>
         {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i--} parent='list' />
+          <EventElement event={event} key={event.id} i={i--} parent='calendar' />
         ))}
       </>
     );
@@ -30,10 +30,10 @@ function EventsList(props) {
   let [filteredEvents] = useFilteredEvents();
   return (
     <section id='eventList' className='list'>
-      <h1 className='text-center'>Check WTF has happened</h1>
+      <h1 className='text-center'>Check WTF has happened this year</h1>
       <div className='container '>
         <div className='list_inner_container'>
-          <table className='table table-striped eventsList'>
+          <table className='table table-striped eventsList table-responsive w-100 d-block d-md-table'>
             <tbody>{checkState(filteredEvents)}</tbody>
           </table>
           {!filteredEvents.loading && !filteredEvents.error && filteredEvents.data && filteredEvents.data.length ? (

@@ -155,3 +155,7 @@ section.list:after {
   writing-mode: unset;
   line-height: 23px;
 }
+
+.eventsList tbody {
+  min-width: 100%;
+}

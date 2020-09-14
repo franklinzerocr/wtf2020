@@ -266,14 +266,21 @@ a:hover,
     height: auto !important;
   }
   .list_inner_container {
-    margin-left: 10px;
-    margin-right: 60px;
+    margin-left: 0px;
+    margin-right: 50px;
   }
   .calendar_inner_container {
     padding-top: 20px !important;
   }
   .calendar_inner_container .spring {
     top: 2.5px !important;
+  }
+  footer .menu {
+    margin-top: 0px !important;
+  }
+
+  footer .menu li {
+    text-align: center !important;
   }
 }
 

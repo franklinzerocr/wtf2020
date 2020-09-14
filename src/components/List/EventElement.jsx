@@ -131,18 +131,3 @@ function EventElement(props) {
 }
 
 export default EventElement;
-
-/* <li className='FeaturedImage'>
-            FeaturedImage=
-            <Link to={{ pathname: backendURL + event.FeaturedImage.url }} target='_blank'>
-              <img src={backendURL + event.FeaturedImage.formats.small.url} alt={event.Keywords} />
-            </Link>
-          </li>
-          <li className='Memes'>
-            Memes=
-            {event.Memes.map(meme => (
-              <Link to={{ pathname: backendURL + meme.url }} target='_blank' key={meme.id}>
-                <img src={backendURL + meme.formats.small.url} alt={event.Keywords} />
-              </Link>
-            ))}
-          </li> */
