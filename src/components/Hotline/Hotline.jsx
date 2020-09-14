@@ -4,9 +4,11 @@ import useEventTop from '../../hooks/useEventTop';
 
 import '../../assets/styles/HotLine.css';
 import EventTop from './EventTop';
+import { useHistory } from 'react-router-dom';
 
 function Hotline(props) {
-  let [event] = useEventTop();
+  let history = useHistory();
+  let [event] = useEventTop([props.eventTitle, history]);
   return (
     <section id='hotline' className='eventTop'>
       <div className='container'>

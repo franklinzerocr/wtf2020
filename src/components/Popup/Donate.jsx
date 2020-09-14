@@ -1,13 +1,11 @@
 import React from 'react';
 import { paypalMe, tippingLN, btcAddress, roisdigital } from '../../globals';
-import Iframe from 'react-iframe';
 import { Link } from 'react-router-dom';
 import paypalButton from '../../assets/images/paypal.png';
 import bitcoinButton from '../../assets/images/bitcoin_PNG48.png';
 import bitcoinAddress from '../../assets/images/btcaddress.png';
 import lnButton from '../../assets/images/LN.png';
 import roisLogo from '../../assets/images/roisdigital_logo.png';
-import wtfLogo from '../../assets/images/logowtf.png';
 
 function copyClipboard() {
   var copyText = document.querySelector('.btcAddress');

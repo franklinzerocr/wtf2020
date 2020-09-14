@@ -14,7 +14,7 @@ function Home(props) {
   return (
     <>
       <Header />
-      <Hotline />
+      <Hotline eventTitle={props.eventTitle} />
       <CalendarSection />
       <EventsList />
       <Footer />

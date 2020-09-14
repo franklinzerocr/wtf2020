@@ -5,6 +5,7 @@ import Footer from '../components/Footer/Footer';
 import Content from '../components/Layout/Content';
 
 import '../assets/styles/Privacy.css';
+import Popup from '../components/Popup/Popup';
 
 function privacyPolicy() {
   return (
@@ -92,6 +93,7 @@ function Privacy(props) {
       <Header />
       <Content content={content} />
       <Footer />
+      <Popup />
     </>
   );
 }

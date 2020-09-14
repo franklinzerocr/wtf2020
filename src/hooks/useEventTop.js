@@ -18,6 +18,7 @@ export const setEventTop = async eventTop => {
 export const useEventTop = (eventTop = null) => {
   [event, setEvent] = useState({ loading: true, error: null, data: eventTop });
   useEffect(() => {
+    if (!event.data[0]) setEvent({ loading: true, error: null, data: null });
     return;
   }, []);
   return [event];

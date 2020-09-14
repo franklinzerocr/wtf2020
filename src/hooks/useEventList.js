@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { backendURL } from '../globals';
-import { setEventTop } from './useEventTop';
+import { setEventTop, getEventTop } from './useEventTop';
 import { sortList, sleep, getCalendarDate } from '../utils';
 import { getNews } from '../externalApis/news';
 import { updateMonthTags } from './usetMonthTags';
 import { updateFilteredEvents } from './useFilteredEvents';
 import { changeBackgroundOfButtons } from '../components/Calendar/CalendarSection';
+import { updateLayout } from './useLayout';
 
 let events = {},
   setEvents;
@@ -60,6 +62,13 @@ export const filterEventsByCalendarDate = (date = null) => {
   return filteredEvents;
 };
 
+function getEventByTitle(title) {
+  let eventByTitle = events.data.filter(function (itm) {
+    return itm.Title.toUpperCase() === title.toUpperCase();
+  });
+  return eventByTitle[0];
+}
+
 export const fetchEventList = async (loading = true) => {
   let eventsAux = Object.assign({}, events);
   eventsAux.loading = loading;
@@ -81,7 +90,19 @@ export const fetchEventList = async (loading = true) => {
   eventsAux.data = await sortList(eventsAux.data, 'DateInit');
   await checkEventNewsList(eventsAux.data);
   await setEvents(eventsAux);
-  if (events && events.data) await setEventTop(events.data[0]);
+  if (events && events.data && !getEventTop().data) await setEventTop(events.data[0]);
+  else {
+    let title = getEventTop().data[0];
+    title = title.split('-').join(' ');
+    let eventTop = getEventByTitle(title);
+    if (eventTop) {
+      await setEventTop(eventTop);
+      updateLayout(eventTop.Title + ' - WTF 2020', 'Home');
+    } else {
+      getEventTop().data[1].push('/Dead-Link');
+    }
+  }
+
   await updateFilteredEvents(events);
 
   updateMonthTags();
@@ -102,6 +123,7 @@ export const useEventList = () => {
   [events, setEvents] = useState({ loading: true, error: null, data: events.data });
   useEffect(() => {
     fetchEventList();
+
     return;
   }, []);
   return [events];
