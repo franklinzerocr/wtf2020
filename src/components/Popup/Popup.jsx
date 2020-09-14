@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import usePopup, { updatePopup } from '../../hooks/usePopup';
+import '../../assets/styles/Popup.css';
 
 function Popup() {
   let [popup] = usePopup();

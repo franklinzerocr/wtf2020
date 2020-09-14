@@ -2,7 +2,7 @@ import React from 'react';
 import { updateLayout } from '../hooks/useLayout';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
-import Content from '../components/Pages/Content';
+import Content from '../components/Layout/Content';
 
 import '../assets/styles/Privacy.css';
 
