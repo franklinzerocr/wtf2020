@@ -10,7 +10,7 @@
 .main-header .logo {
   max-width: 36%;
   min-width: 300px;
-  margin-left: 10%;
+  /* margin-left: 10%; */
   margin-top: 60px;
 }
 
@@ -180,4 +180,8 @@ footer .menu ul {
   border: none;
   padding: 0px;
   font-size: 19px !important;
+}
+
+.sticky {
+  display: none;
 }

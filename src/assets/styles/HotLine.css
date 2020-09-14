@@ -1,32 +1,41 @@
 section.eventTop {
   position: relative;
+  height: 56.25vw;
+  max-height: 700px;
+}
+
+section.eventTop > .container {
   background-attachment: scroll;
   background-repeat: no-repeat;
   background-image: url('../images/hotline.png');
   background-size: contain;
-  height: 56.25vw;
-  max-height: 700px;
+  height: 100%;
+  position: relative;
+  max-width: 1500px;
 }
 
 .title-container {
   position: absolute;
   top: 450px;
   left: 0px;
-  width: calc(100vw + 15px);
+  width: calc(100% + 15px);
   height: 150px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.65);
 }
 .title-container .eventTop-title,
 .title-container .eventTop-meta {
   position: relative;
   color: white;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 0px;
-  max-width: 600px;
+  max-width: 800px;
+}
+.title-container .eventTop-title {
+  font-size: 30px;
 }
 
 .title-container .eventTop-meta {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .title-container .eventTop-meta:after {
@@ -41,6 +50,7 @@ section.eventTop {
 
 .title-container .container {
   padding-bottom: 40px;
+  padding-left: 30px;
 }
 
 .slogan {

@@ -30,7 +30,7 @@ function EventsList(props) {
   let [filteredEvents] = useFilteredEvents();
   return (
     <section id='eventList' className='list'>
-      <h1 className='text-center'>Check WTF Happened</h1>
+      <h1 className='text-center'>Check WTF has happened</h1>
       <div className='container '>
         <div className='list_inner_container'>
           <table className='table table-striped eventsList'>

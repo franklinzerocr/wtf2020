@@ -1,6 +1,6 @@
 section.calendar {
   padding-top: 100px;
-  height: 56.25vw;
+  min-height: 56.25vw;
   max-height: 700px;
 }
 
@@ -25,12 +25,12 @@ section.calendar {
   background-repeat: no-repeat;
   background-size: 175px;
   background-position: 0px bottom;
-  height: 450px;
-  padding-top: 100px;
+  height: 500px;
+  padding-top: 140px;
 }
 
 .calendar h1 {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .calendar_subtitle {
@@ -119,11 +119,6 @@ section.calendar {
   background-color: #4d002a !important;
 }
 
-.react-calendar__tile--active[hasEvent='true'],
-.react-calendar__tile--active {
-  background-color: #f87f06 !important;
-}
-
 .react-calendar__month-view__weekdays {
   display: none !important;
 }
@@ -171,6 +166,10 @@ section.calendar {
   background-color: #2387e4 !important;
 }
 
+.react-calendar__tile.react-calendar__tile--active[hasEvent='true'],
+.react-calendar__tile.react-calendar__tile--active {
+  background-color: #f87f06 !important;
+}
 .calendar_inner_container .spring {
   height: 25px;
   width: 10px;
@@ -290,9 +289,9 @@ button[has-event='true'] {
   font-weight: bolder;
   background-image: url(../images/logowtf_white.png) !important;
 
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .react-calendar__navigation__arrow[disabled] {
