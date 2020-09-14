@@ -124,3 +124,7 @@
   width: 100%;
   position: absolute;
 }
+
+body.open-popup {
+  overflow: hidden;
+}

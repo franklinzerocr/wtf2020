@@ -1,8 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-import useSearchBar from '../../hooks/useSearchBar';
-
 function keyCheck(e) {
   if (e.key === 'Enter' || e.keyCode === 13) {
     goToEventList();
