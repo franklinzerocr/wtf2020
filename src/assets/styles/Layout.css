@@ -11,6 +11,11 @@
   src: url(../fonts/sensations-and-qualities/Sensations\ and\ Qualities.ttf);
 }
 
+@font-face {
+  font-family: Lato;
+  src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
 body {
   width: 100%;
   overflow-x: hidden;
@@ -31,12 +36,12 @@ h3,
 h4,
 h5,
 .menu li {
-  font-family: HelveticaNeue;
+  font-family: Lato;
 }
 
-h1 {
-  font-weight: bold;
-}
+/* h1 { */
+/* font-weight: bold; */
+/* } */
 
 .slogan {
   font-family: SensationAndQualities;

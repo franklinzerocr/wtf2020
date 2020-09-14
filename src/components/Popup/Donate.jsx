@@ -25,7 +25,7 @@ function Donate() {
       <div className='donate-container'>
         <div className='row'>
           <div className='col-md-12 text-center'>
-            <h5 className='font-weight-bold'>WTF 2020 is developed and mantained by</h5>
+            <h5 className='font-weight-bold'>WTF 2020 is developed and maintained by</h5>
           </div>
           <div className='col-md-12 text-center'>
             <Link to={{ pathname: roisdigital }} target='_blank'>

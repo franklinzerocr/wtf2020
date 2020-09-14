@@ -9,7 +9,26 @@ export function memeButton(event) {
     <button
       className='pictures open_popup'
       onClick={() => {
-        updatePopup(true, <>{event.Memes.length > 0 ? event.Memes.map(meme => <MemeElement key={meme.id} meme={meme}></MemeElement>) : <MemeElement meme={null}></MemeElement>}</>);
+        updatePopup(
+          true,
+          <>
+            {event.Memes.length > 0 ? (
+              <>
+                <h3 className='text-center'>Memes</h3>
+                <h5 className='text-center'>{event.Title}</h5>
+                {event.Memes.map(meme => (
+                  <MemeElement key={meme.id} meme={meme}></MemeElement>
+                ))}
+              </>
+            ) : (
+              <>
+                <h3 className='text-center'>Memes</h3>
+                <h5 className='text-center'>{event.Title}</h5>
+                <MemeElement meme={null}></MemeElement>
+              </>
+            )}
+          </>
+        );
       }}
     >
       Check Memes
@@ -22,7 +41,26 @@ export function newsButton(event) {
     <button
       className='links open_popup'
       onClick={() => {
-        updatePopup(true, <>{event.event_news.length > 0 ? event.event_news.map(news => <NewsElement key={news.id} news={news}></NewsElement>) : <NewsElement news={null}></NewsElement>}</>);
+        updatePopup(
+          true,
+          <>
+            <h3 className='text-center'>Related News</h3>
+            <h5 className='text-center'>{event.Title}</h5>
+            {event.event_news.length > 0 ? (
+              <>
+                {event.event_news.map(news => (
+                  <NewsElement key={news.id} news={news}></NewsElement>
+                ))}
+              </>
+            ) : (
+              <>
+                <h3 className='text-center'>Related News</h3>
+                <h5 className='text-center'>{event.Title}</h5>
+                <NewsElement news={null}></NewsElement>
+              </>
+            )}
+          </>
+        );
       }}
     >
       Related News

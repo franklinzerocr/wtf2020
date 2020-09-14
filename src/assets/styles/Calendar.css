@@ -7,6 +7,7 @@ section.calendar {
 .react-calendar {
   margin: 0px auto;
   width: 350px;
+  padding: 5px;
 }
 
 .calendar_inner_container {
@@ -306,4 +307,35 @@ button.react-calendar__month-view__days__day--neighboringMonth {
 button.react-calendar__navigation__label[disabled],
 button.react-calendar__navigation__label[disabled]:hover {
   background: none !important;
+}
+
+[color='orange'] {
+  color: #f87f06;
+}
+.react-calendar__navigation__label {
+  position: relative;
+  min-width: 240px !important;
+}
+.react-calendar__navigation__label:after {
+  content: '⤴';
+  position: absolute;
+  left: 10px;
+  transform: scaleX(-1);
+  font-size: 45px;
+  top: 27.5px;
+  color: #d3d4d6;
+}
+
+.react-calendar__navigation__label:disabled:after {
+  content: '';
+}
+
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button {
+  display: none;
+}
+
+button.react-calendar__navigation__arrow {
+  color: #9b043b !important;
+  font-weight: bolder;
 }

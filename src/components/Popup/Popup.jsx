@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 import usePopup, { updatePopup } from '../../hooks/usePopup';
 import '../../assets/styles/Popup.css';
 
+function checkClickToClose() {
+  setTimeout(function () {
+    let popupContainer = document.querySelector('.popup_container');
+    document.body.addEventListener('click', function closeModal(event) {
+      if (!popupContainer.contains(event.target)) {
+        updatePopup(false, null);
+        document.body.removeEventListener('click', closeModal);
+      }
+    });
+  }, 0);
+}
+
 function Popup() {
   let [popup] = usePopup();
   if (!popup.show) return <></>;
@@ -26,6 +38,7 @@ function Popup() {
         </>,
         document.getElementById('popup')
       )}
+      {checkClickToClose()}
     </div>
   );
 }

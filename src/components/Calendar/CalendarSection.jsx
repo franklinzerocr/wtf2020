@@ -76,10 +76,12 @@ function CalendarSection() {
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
   return (
     <section id='calendarList' className='calendar'>
-      <h1 className='text-center'>Pick a Date</h1>
       <div className='container '>
         <div className='row'>
           <div className='calendar-container col-md-7'>
+            <h1 className='text-center'>
+              Pick a Month <span color='orange'>»</span> Pick a Date
+            </h1>
             <div className='calendar_inner_container'>
               <div className='spring spring1' />
               <div className='spring spring2' />
