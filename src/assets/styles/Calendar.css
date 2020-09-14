@@ -287,7 +287,7 @@ button[has-event='true']:hover,
 button[has-event='true'] {
   color: black;
   font-weight: bolder;
-  background-image: url(../images/logowtf.png) !important;
+  background-image: url(../images/logowtf_white.png) !important;
 
   background-position: center center;
   background-size: cover;

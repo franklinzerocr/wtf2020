@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 import { backendURL } from '../globals';
 import { setEventTop, getEventTop } from './useEventTop';
