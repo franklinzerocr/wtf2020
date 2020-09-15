@@ -5,6 +5,7 @@ import Error from '../Layout/Error';
 import { memeButton, newsButton } from '../List/EventElement';
 
 import '../../assets/styles/HotLine.css';
+import { setHotlineHeight } from '../Header/Header';
 
 function EventTop(props) {
   let event = props.event;
@@ -13,6 +14,7 @@ function EventTop(props) {
   else if (!event.data) return <Error error='EMPTY' />;
   else {
     event = event.data;
+    setHotlineHeight();
     return (
       <>
         <p className='eventTop-title'>{event.Title}</p>

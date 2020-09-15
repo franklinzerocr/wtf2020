@@ -1,7 +1,7 @@
 section.calendar {
   padding-top: 100px;
-  min-height: 56.25vw;
-  max-height: 700px;
+  height: 56.25vw;
+  max-height: 800px;
 }
 
 .react-calendar {
@@ -120,7 +120,7 @@ section.calendar {
 }
 
 .react-calendar__tile--now {
-  background-color: #4d002a !important;
+  background-color: #421e5f !important;
 }
 
 .react-calendar__month-view__weekdays {

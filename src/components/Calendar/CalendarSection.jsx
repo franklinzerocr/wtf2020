@@ -110,6 +110,7 @@ function CalendarSection() {
                 defaultView='year'
                 minDetail='year'
                 minDate={new Date('2020-01-02')}
+                locale='en-US'
               />
             </div>
           </div>

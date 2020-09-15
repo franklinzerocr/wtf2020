@@ -113,7 +113,6 @@ section.list:after {
 }
 
 .monthTag {
-  background: #f87f06;
   text-align: center;
   color: white;
   line-height: 70px;
@@ -127,6 +126,13 @@ section.list:after {
   writing-mode: vertical-lr;
   /* transform: rotate(180deg); */
   transform: rotate(0deg);
+}
+
+.monthTag.odd-tag {
+  background: #2558a4;
+}
+.monthTag.even-tag {
+  background: #9e0339;
 }
 
 .open_popup {
@@ -163,4 +169,8 @@ section.list:after {
 
 .eventsList tbody {
   min-width: 100%;
+}
+
+td.date {
+  min-width: 100px;
 }

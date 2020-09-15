@@ -70,24 +70,6 @@ export function newsButton(event) {
 
 function renderListElement(event) {
   return (
-    <>
-      <td className='location'>{event ? event.Location : null}</td>
-      <td className='date'>{event ? event.DateInit : null}</td>
-      <td className='actions'>
-        {event ? (
-          <>
-            <div className='actions_container'>
-              {memeButton(event)}&nbsp;/&nbsp;{newsButton(event)}
-            </div>
-          </>
-        ) : null}
-      </td>
-    </>
-  );
-}
-
-function renderCalendarElement(event) {
-  return (
     <tr className='eventElement-meta'>
       {event ? (
         <>
@@ -124,10 +106,9 @@ function EventElement(props) {
         <td className='title' colSpan='3'>
           {event ? event.Title : null}
         </td>
-        {/* {props.parent === 'list' ? renderListElement(event) : null} */}
       </tr>
       <tr className='none'></tr>
-      {renderCalendarElement(event)}
+      {renderListElement(event)}
     </>
   );
 }

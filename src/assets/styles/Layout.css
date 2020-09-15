@@ -194,6 +194,16 @@ a:hover,
   .list h1 {
     font-size: 28px;
   }
+
+  footer .roisdigital .footer-logo {
+    max-height: 100px !important;
+  }
+  footer .wtf2020logo .footer-logo {
+    max-height: 140px !important;
+  }
+  footer .rrss i {
+    margin: 6px 8px !important;
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -217,7 +227,7 @@ a:hover,
   }
 
   #hotline {
-    min-height: 550px;
+    min-height: 510px;
     max-height: none;
     position: relative;
     height: 98.5vh;
@@ -227,7 +237,7 @@ a:hover,
     position: absolute;
     width: 100%;
     height: 100%;
-    max-height: 700px;
+    min-height: 650px;
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-image: url('../images/Fondo\ calendario\ hd.png');
@@ -256,7 +266,7 @@ a:hover,
   #hotline .title-container {
     top: 310px;
     padding: 5px;
-    min-height: 150px;
+    /* min-height: 150px; */
   }
   #hotline .title-container .eventTop-title {
     font-size: 20px;
@@ -294,6 +304,21 @@ a:hover,
   }
   .footer-logo {
     max-height: 100px !important;
+  }
+
+  h1 {
+    padding: 0px 5px;
+  }
+  footer .wtf2020logo {
+    padding-top: 0px !important;
+  }
+  .popup_container {
+    height: 70vh !important;
+    top: 15vh !important;
+  }
+
+  .popup_container .single_news {
+    margin: 10px auto;
   }
 }
 
@@ -349,9 +374,5 @@ a:hover,
     transform: translate(-60%, 0px);
     width: fit-content !important;
     max-width: none !important;
-  }
-
-  #hotline .title-container .eventTop-title {
-    font-size: 17px;
   }
 }

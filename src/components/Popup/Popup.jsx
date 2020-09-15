@@ -24,15 +24,17 @@ function Popup() {
         <>
           <div className='popup_wrapper'>
             <div className='popup_container'>
-              <button
-                className='popup_close'
-                onClick={() => {
-                  updatePopup(false, null);
-                }}
-              >
-                X
-              </button>
-              {popup.content}
+              <div className='popup-top'>
+                <button
+                  className='popup_close'
+                  onClick={() => {
+                    updatePopup(false, null);
+                  }}
+                >
+                  X
+                </button>
+              </div>
+              <div className='popup_content'>{popup.content}</div>
             </div>
           </div>
         </>,

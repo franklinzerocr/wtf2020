@@ -92,7 +92,6 @@ export const fetchEventList = async (loading = true) => {
   if (events && events.data && !getEventTop().data) await setEventTop(events.data[0]);
   else {
     if (!getEventTop() || !getEventTop().length) {
-      console.log('nodthing top');
       return;
     }
     let title = getEventTop().data[0];
