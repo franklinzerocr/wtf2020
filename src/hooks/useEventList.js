@@ -91,15 +91,16 @@ export const fetchEventList = async (loading = true) => {
   await setEvents(eventsAux);
   if (events && events.data && !getEventTop().data) await setEventTop(events.data[0]);
   else {
-    if (!getEventTop() || !getEventTop().length) {
+    if (!getEventTop() || !getEventTop().data.length) {
+      console.log('enter');
       return;
     }
     let title = getEventTop().data[0];
     title = title.split('-').join(' ');
     let eventTop = getEventByTitle(title);
     if (eventTop) {
+      updateLayout(eventTop.Title + ' - WTF 2020', 'Home', 'https://back.wtf2020.help' + eventTop.FeaturedImage.url);
       await setEventTop(eventTop);
-      updateLayout(eventTop.Title + ' - WTF 2020', 'Home');
     } else {
       getEventTop().data[1].push('/Dead-Link');
     }

@@ -7,6 +7,7 @@ import Menu from './Menu';
 
 import '../../assets/styles/Header.css';
 import useSearchBar from '../../hooks/useSearchBar';
+import { Link } from 'react-router-dom';
 
 var flagStickyMenu = false;
 
@@ -90,7 +91,9 @@ function Header(props) {
       </header>
       <header className='main-header .container-fluid sticky'>
         <div className='container'>
-          <Logo />
+          <Link to='/'>
+            <Logo />
+          </Link>
           <Rrss />
           <SearchBar input={input} updateInput={updateInput} />
           <Menu />

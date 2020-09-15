@@ -120,7 +120,7 @@ a:hover,
   }
   .list_inner_container {
     margin-left: 0px;
-    margin-right: 55px;
+    margin-right: 30px;
   }
 }
 
@@ -320,6 +320,16 @@ a:hover,
   .popup_container .single_news {
     margin: 10px auto;
   }
+  .month_tags {
+    width: 35px !important;
+    right: -35px !important;
+  }
+  .monthTag {
+    line-height: 20px !important;
+    padding-left: 10px !important;
+    width: 35px !important;
+    font-size: 18px !important;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -374,5 +384,9 @@ a:hover,
     transform: translate(-60%, 0px);
     width: fit-content !important;
     max-width: none !important;
+  }
+  .calendar h1,
+  .list h1 {
+    font-size: 25px;
   }
 }

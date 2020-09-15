@@ -16,7 +16,6 @@ export function updateMonthTags() {
       let finalMonthTag = {};
       let separatedMonthTag = { index: index, month: tr.getAttribute('month'), offSetTop: tr.offsetTop, offsetBottom: tr.offsetTop + tr.offsetHeight };
       index--;
-      console.log(tr);
 
       if (finalMonthTags.length === 0) {
         finalMonthTag = { index: index2, month: separatedMonthTag.month, offsetTop: separatedMonthTag.offSetTop, offsetBottom: 0 };

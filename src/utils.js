@@ -114,3 +114,14 @@ export function sleep(ms) {
     setTimeout(resolve, ms);
   });
 }
+
+//Finds y value of given object
+export function findPos(obj) {
+  var curtop = 0;
+  if (obj.offsetParent) {
+    do {
+      curtop += obj.offsetTop;
+    } while ((obj = obj.offsetParent));
+    return [curtop];
+  }
+}

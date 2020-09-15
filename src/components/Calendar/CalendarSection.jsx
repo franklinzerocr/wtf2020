@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 
 import useCalendar from '../../hooks/useCalendar';
 
-import { getDateTimeYMD, getMonthName, sleep, getCalendarDate } from '../../utils';
+import { getDateTimeYMD, getMonthName, sleep, getCalendarDate, findPos } from '../../utils';
 import CalendarList from './CalendarList';
 
 import { filterEventsByCalendarDate, getFeaturedEvents, getDaysWithEvents } from '../../hooks/useEventList';
@@ -69,6 +69,14 @@ export function changeBackgroundOfButtons() {
     }
 }
 
+function goToCalendarList() {
+  var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+  if (width <= 768) {
+    window.scroll({ left: 0, top: findPos(document.querySelector('.calendarList_inner_container'))[0] - 150, behavior: 'smooth' });
+  }
+}
+
 function CalendarSection() {
   let [calendarState, setCalendar] = useCalendar();
   let selectedDate = null;
@@ -97,6 +105,7 @@ function CalendarSection() {
                 onChange={value => {
                   setCalendar(value);
                   changeBackgroundOfButtons();
+                  goToCalendarList();
                 }}
                 onViewChange={() => {
                   changeBackgroundOfButtons();
