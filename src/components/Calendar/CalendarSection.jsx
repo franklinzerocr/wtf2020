@@ -83,6 +83,7 @@ function CalendarSection() {
             <h1 className='text-center'>
               Pick a Month <span color='orange'>»</span> Pick a Date
             </h1>
+            <p className='text-center'>And look for days with explosive events!</p>
             <div className='calendar_inner_container'>
               <div className='spring spring1' />
               <div className='spring spring2' />

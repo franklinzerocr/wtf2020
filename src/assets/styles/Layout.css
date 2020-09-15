@@ -55,7 +55,6 @@ section {
   background: #fef1e8;
 }
 
-.open_popup,
 footer .menu a {
   text-decoration: underline !important;
   text-decoration-style: dashed !important;
@@ -89,16 +88,18 @@ a:hover,
 
 @media only screen and (max-width: 1200px) {
   #hotline .title-container {
-    top: 380px;
+    top: 360px;
   }
 
   #hotline .slogan {
-    top: 530px;
+    top: 545px;
+    width: auto !important;
   }
   .main-header.static .logo {
     width: 380px;
   }
 }
+
 @media only screen and (max-width: 1050px) {
   .main-header.static .logo {
     margin-top: 10px;
@@ -116,6 +117,10 @@ a:hover,
 
   #hotline .slogan {
     top: 490px;
+  }
+  .list_inner_container {
+    margin-left: 0px;
+    margin-right: 55px;
   }
 }
 
@@ -142,9 +147,10 @@ a:hover,
   }
 
   #hotline .slogan {
-    top: 425px;
-    margin-left: 12%;
-    font-size: 38px;
+    top: 480px;
+    margin-left: 10%;
+    font-size: 36px;
+    width: auto !important;
   }
   .main-header.sticky .donateLink {
     margin: 0px !important;
@@ -184,7 +190,8 @@ a:hover,
   .main-header.sticky .container {
     max-width: none !important;
   }
-  .calendar h1 {
+  .calendar h1,
+  .list h1 {
     font-size: 28px;
   }
 }
@@ -208,10 +215,12 @@ a:hover,
   .main-header.static .search_event {
     width: calc(100% - 50px);
   }
+
   #hotline {
     min-height: 550px;
-    max-height: 700px;
+    max-height: none;
     position: relative;
+    height: 98.5vh;
   }
   #hotline:after {
     content: '';
@@ -236,7 +245,7 @@ a:hover,
   #hotline .slogan {
     top: 250px;
     left: 50%;
-    transform: translate(-15%, 0px);
+    transform: translate(-60%, 0px);
     font-size: 40px;
     position: absolute;
     width: 100%;
@@ -270,10 +279,6 @@ a:hover,
     padding-top: 60px !important;
     height: auto !important;
   }
-  .list_inner_container {
-    margin-left: 0px;
-    margin-right: 50px;
-  }
   .calendar_inner_container {
     padding-top: 20px !important;
   }
@@ -287,11 +292,14 @@ a:hover,
   footer .menu li {
     text-align: center !important;
   }
+  .footer-logo {
+    max-height: 100px !important;
+  }
 }
 
 @media only screen and (max-width: 500px) {
   #hotline .slogan {
-    transform: translate(-25%, 0px);
+    transform: translate(-60%, 0px);
     font-size: 30px;
   }
   .main-header.static .logo {
@@ -338,6 +346,12 @@ a:hover,
 
 @media only screen and (max-width: 380px) {
   #hotline .slogan {
-    transform: translate(-33%, 0px);
+    transform: translate(-60%, 0px);
+    width: fit-content !important;
+    max-width: none !important;
+  }
+
+  #hotline .title-container .eventTop-title {
+    font-size: 17px;
   }
 }

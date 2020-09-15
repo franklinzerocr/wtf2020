@@ -18,7 +18,6 @@ function checkState(calendarList) {
 }
 
 function CalendarList(props) {
-  console.log(props.events);
   return (
     <>
       <div className='calendarList_inner_container'>
@@ -29,7 +28,7 @@ function CalendarList(props) {
         ) : (
           <>
             <h5 className='text-center'>{props.date} was a quiet day</h5>
-            <p className='text-center'>Try with an explosive Date</p>
+            <p className='text-center'>Try looking for an explosive Date</p>
           </>
         )}
       </div>

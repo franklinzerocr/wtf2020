@@ -7,10 +7,10 @@ function Error(props) {
     <>
       {props.parent === 'tbody' ? (
         <tr className='danger'>
-          <td>{props.error && props.error.message ? props.error + props.error.message : props.error}</td>
+          <td className='text-center'>{props.error && props.error.message ? props.error + props.error.message : props.error}</td>
         </tr>
       ) : (
-        <span className='danger'>{props.error && props.error.message ? props.error + props.error.message : props.error}</span>
+        <span className='danger text-center'>{props.error && props.error.message ? props.error + props.error.message : props.error}</span>
       )}
     </>
   );

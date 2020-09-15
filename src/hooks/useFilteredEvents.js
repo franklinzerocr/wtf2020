@@ -5,8 +5,11 @@ let filteredEvents = {},
   setFilteredEvents;
 
 export const updateFilteredEvents = events => {
-  events.data = sortListReverse(events.data, 'DateInit');
-  setFilteredEvents(events);
+  let eventsCopy = [];
+  eventsCopy = Object.assign({}, events);
+  eventsCopy.data = sortListReverse(eventsCopy.data, 'DateInit');
+  setFilteredEvents(eventsCopy);
+  return eventsCopy;
 };
 
 export const getFilteredEvents = () => {

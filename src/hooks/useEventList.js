@@ -91,6 +91,10 @@ export const fetchEventList = async (loading = true) => {
   await setEvents(eventsAux);
   if (events && events.data && !getEventTop().data) await setEventTop(events.data[0]);
   else {
+    if (!getEventTop() || !getEventTop().length) {
+      console.log('nodthing top');
+      return;
+    }
     let title = getEventTop().data[0];
     title = title.split('-').join(' ');
     let eventTop = getEventByTitle(title);

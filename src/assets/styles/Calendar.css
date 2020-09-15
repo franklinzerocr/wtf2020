@@ -26,11 +26,15 @@ section.calendar {
   background-size: 175px;
   background-position: 0px bottom;
   height: 500px;
-  padding-top: 140px;
+  padding-top: 150px;
 }
 
 .calendar h1 {
+  margin-bottom: 0px;
+}
+.calendar p {
   margin-bottom: 15px;
+  /* font-weight: bold; */
 }
 
 .calendar_subtitle {
@@ -341,4 +345,10 @@ button.react-calendar__navigation__label[disabled]:hover {
 button.react-calendar__navigation__arrow {
   color: #9b043b !important;
   font-weight: bolder;
+}
+
+.calendarList_inner_container p {
+  background: #f87f06;
+  color: white;
+  font-weight: bold;
 }

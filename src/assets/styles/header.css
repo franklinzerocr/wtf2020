@@ -9,7 +9,7 @@
 
 .main-header .logo {
   /* margin-left: 10%; */
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .main-header .search_bar {
@@ -80,10 +80,6 @@
 
 .fixed-menu.sticky-menu .search_bar {
   transform: translateX(-57.5%);
-}
-
-.absolute-menu {
-  /* transition: top 0.2s; */
 }
 
 .sticky-menu .logo {
