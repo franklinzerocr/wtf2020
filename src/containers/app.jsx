@@ -13,9 +13,9 @@ function App() {
       <Layout>
         <ScrollToTop />
         <Switch>
-          <Route path='/event/:eventTitle' render={props => <Home eventTitle={props.match.params.eventTitle} title=' - WTF 2020 - Nothing was ever the same' bodyClass='Home' />} />
+          <Route path='/event/:eventTitle' render={props => <Home eventTitle={props.match.params.eventTitle} title=' - WTF 2020' bodyClass='Home' />} />
           <Route exact path='/Privacy' render={props => <Privacy title='Privacy Policy of WTF 2020' bodyClass='Privacy' />} />
-          <Route exact path='/' render={props => <Home title='WTF 2020' bodyClass='Home' />} />
+          <Route exact path='/' render={props => <Home title='WTF 2020 - Nothing was ever the same' bodyClass='Home' />} />
           <Route render={props => <NotFound component={NotFound} title='Dead Link on WTF 2020' bodyClass='404' />} />
         </Switch>
       </Layout>

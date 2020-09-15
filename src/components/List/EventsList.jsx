@@ -14,11 +14,12 @@ function checkState(events) {
   else if (events.error) return <Error error={events.error} parent='tbody' />;
   else if (!events.data || !events.data.length) return <Error error='EMPTY' parent='tbody' />;
   else {
-    let i = events.data.length;
+    // let i = events.data.length;
+    let i = 1;
     return (
       <>
         {events.data.map(event => (
-          <EventElement event={event} key={event.id} i={i--} parent='calendar' />
+          <EventElement event={event} key={event.id} i={i++} parent='list' />
         ))}
       </>
     );

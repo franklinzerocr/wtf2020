@@ -95,10 +95,14 @@ a:hover,
   #hotline .slogan {
     top: 530px;
   }
+  .main-header.static .logo {
+    width: 380px;
+  }
 }
 @media only screen and (max-width: 1050px) {
   .main-header.static .logo {
     margin-top: 10px;
+    width: 320px;
   }
   #hotline .title-container {
     top: 300px;
@@ -121,6 +125,7 @@ a:hover,
   }
   .main-header.static .logo {
     margin-top: 10px;
+    width: 300px;
   }
   #hotline .title-container {
     top: 275px;

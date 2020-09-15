@@ -8,10 +8,8 @@
 }
 
 .main-header .logo {
-  max-width: 36%;
-  min-width: 300px;
   /* margin-left: 10%; */
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .main-header .search_bar {

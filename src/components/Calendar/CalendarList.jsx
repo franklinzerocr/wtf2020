@@ -27,7 +27,10 @@ function CalendarList(props) {
             <tbody>{checkState(props.events)}</tbody>
           </table>
         ) : (
-          <p className='text-center'>NO EVENTS</p>
+          <>
+            <h5 className='text-center'>{props.date} was a quiet day</h5>
+            <p className='text-center'>Try with an explosive Date</p>
+          </>
         )}
       </div>
     </>

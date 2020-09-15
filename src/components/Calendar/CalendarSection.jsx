@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 
 import useCalendar from '../../hooks/useCalendar';
 
-import { getDateTimeYMD, getMonthName, sleep } from '../../utils';
+import { getDateTimeYMD, getMonthName, sleep, getCalendarDate } from '../../utils';
 import CalendarList from './CalendarList';
 
 import { filterEventsByCalendarDate, getFeaturedEvents, getDaysWithEvents } from '../../hooks/useEventList';
@@ -74,6 +74,7 @@ function CalendarSection() {
   let selectedDate = null;
   if (calendarState) selectedDate = getDateTimeYMD(calendarState);
   let filteredEvents = filterEventsByCalendarDate(selectedDate);
+  selectedDate = getCalendarDate(selectedDate);
   return (
     <section id='calendarList' className='calendar'>
       <div className='container '>
@@ -112,7 +113,7 @@ function CalendarSection() {
             </div>
           </div>
           <div className='calendarList-container col-md-5'>
-            <CalendarList events={filteredEvents} />
+            <CalendarList events={filteredEvents} date={selectedDate} />
           </div>
         </div>
       </div>

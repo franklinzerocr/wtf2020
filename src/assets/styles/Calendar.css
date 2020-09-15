@@ -236,10 +236,11 @@ section.calendar {
   padding-bottom: 50px;
   height: 90px;
   /* background: rgba(0, 0, 0, 0.3); */
-  background: url(../images/logowtf.png);
+  /* background: url(../images/logowtf.png);
   background-position: center 15px;
   background-size: 70%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  background: rgb(202, 202, 202);
 }
 
 .react-calendar__year-view .react-calendar__tile:hover,
@@ -248,6 +249,7 @@ section.calendar {
   /* background: black !important; */
   background-position: center 15px;
 }
+.react-calendar__year-view .react-calendar__tile.react-calendar__tile--now,
 .react-calendar__year-view .react-calendar__tile.react-calendar__tile--now:hover {
   background: url(../images/logowtf.png);
   background-position: center 15px;
@@ -259,7 +261,9 @@ section.calendar {
 .react-calendar__decade-view .react-calendar__tile:hover abbr {
   /* background: black !important; */
 
-  background: rgba(0, 0, 0, 0.9);
+  background: white;
+  color: black;
+  text-shadow: none;
 }
 
 .react-calendar__year-view .react-calendar__tile--now abbr {

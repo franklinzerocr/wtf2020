@@ -112,20 +112,22 @@ function EventElement(props) {
   return (
     <>
       <tr className='eventElement' month={event ? getMonthName(event.DateInit) : null}>
-        <td className='index'>{event ? <span className='offtop'>{props.i}</span> : null}</td>
-        <td className='title' colSpan={props.parent === 'calendar' ? 3 : 1}>
+        <td className='index'>
+          {props.parent === 'list' ? (
+            <span className='offtop'>{props.i}</span>
+          ) : (
+            <span aria-label='explosion' role='img'>
+              🤯
+            </span>
+          )}
+        </td>
+        <td className='title' colSpan='3'>
           {event ? event.Title : null}
         </td>
-        {props.parent === 'list' ? renderListElement(event) : null}
+        {/* {props.parent === 'list' ? renderListElement(event) : null} */}
       </tr>
-      {props.parent === 'calendar' ? (
-        <>
-          <tr className='none'></tr>
-          {renderCalendarElement(event)}
-        </>
-      ) : (
-        <></>
-      )}
+      <tr className='none'></tr>
+      {renderCalendarElement(event)}
     </>
   );
 }

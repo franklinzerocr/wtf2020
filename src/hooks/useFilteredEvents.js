@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { sortListReverse } from '../utils';
 
 let filteredEvents = {},
   setFilteredEvents;
 
 export const updateFilteredEvents = events => {
+  events.data = sortListReverse(events.data, 'DateInit');
   setFilteredEvents(events);
 };
 

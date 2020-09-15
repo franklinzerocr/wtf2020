@@ -11,6 +11,19 @@ export function sortList(list, key) {
   return list;
 }
 
+export function sortListReverse(list, key) {
+  if (list)
+    list.sort(function (a, b) {
+      var keyA = new Date(a[key]),
+        keyB = new Date(b[key]);
+      // Compare the 2 dates
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
+  return list;
+}
+
 export function addDays(dateFrom, days) {
   var date = new Date(dateFrom.valueOf());
   date.setDate(date.getDate() + days);
