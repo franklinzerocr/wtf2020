@@ -1,6 +1,6 @@
 section.calendar {
   padding-top: 100px;
-  height: 56.25vw;
+  min-height: 56.25vw;
   max-height: 800px;
 }
 
@@ -100,10 +100,6 @@ section.calendar {
   font-size: 13px;
   vertical-align: top;
   padding-top: 0px;
-}
-
-.calendarList .eventElement .title {
-  font-weight: bold;
 }
 
 .react-calendar__tile {

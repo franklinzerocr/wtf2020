@@ -3,17 +3,20 @@ import { backendURL } from '../../globals';
 import { Link } from 'react-router-dom';
 
 function MemeElement(props) {
+  let picSrc = '';
+  console.log(props.meme);
+  if (props.meme.formats && 'small' in props.meme.formats) picSrc = props.meme.formats.small.url;
+  else if (props.meme.formats) picSrc = props.meme.formats.thumbnail.url;
+  else picSrc = props.meme.url;
   return (
-    <div className='single_news row'>
-      <h5 className='title col-md-12 align-self-center'>
-        {props.meme ? (
-          <Link to={{ pathname: backendURL + props.meme.url }} target='_blank'>
-            <img src={backendURL + props.meme.formats.small.url} alt='---' />
-          </Link>
-        ) : (
-          <></>
-        )}
-      </h5>
+    <div className='meme_single col-md-6 align-self-center'>
+      {props.meme ? (
+        <Link to={{ pathname: backendURL + props.meme.url }} target='_blank'>
+          <img src={backendURL + picSrc} alt='---' />
+        </Link>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

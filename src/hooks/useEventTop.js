@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { backendURL } from '../globals';
 
 let event = {},
   setEvent;
@@ -9,6 +10,24 @@ export const loaderTop = value => {
 
 export const getEventTop = () => {
   return event;
+};
+
+export const fetchEventByTitle = async title => {
+  let dataRes = {};
+  let query = 'Title=' + title;
+  try {
+    await fetch(backendURL + '/events?' + query)
+      .then(response => response.json())
+      .then(async function (data) {
+        dataRes = data;
+      })
+      .catch(async function (error) {
+        console.log(error);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+  return dataRes[0];
 };
 
 export const setEventTop = async eventTop => {

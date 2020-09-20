@@ -86,8 +86,9 @@ section.list:after {
   padding-top: 0px;
 }
 
-.eventsList .eventElement .title {
-  font-weight: bold;
+.eventsList .eventElement .title,
+.calendarList .eventElement .title {
+  font-family: Lato;
 }
 
 .list_inner_container {
@@ -173,4 +174,8 @@ section.list:after {
 
 td.date {
   min-width: 100px;
+}
+
+.mindblow_emoji {
+  width: 40px;
 }

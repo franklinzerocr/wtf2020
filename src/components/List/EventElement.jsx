@@ -1,8 +1,9 @@
 import React from 'react';
-import { getMonthName } from '../../utils';
+import { getMonthName, sortListReverse } from '../../utils';
 import { updatePopup } from '../../hooks/usePopup';
 import MemeElement from '../Popup/MemeElement';
 import NewsElement from '../Popup/NewsElement';
+import mindBlowEmoji from '../../assets/images/emoji mind blow.png';
 
 export function memeButton(event) {
   return (
@@ -12,21 +13,13 @@ export function memeButton(event) {
         updatePopup(
           true,
           <>
-            {event.Memes.length > 0 ? (
-              <>
-                <h3 className='text-center'>Memes</h3>
-                <h5 className='text-center'>{event.Title}</h5>
-                {event.Memes.map(meme => (
-                  <MemeElement key={meme.id} meme={meme}></MemeElement>
-                ))}
-              </>
-            ) : (
-              <>
-                <h3 className='text-center'>Memes</h3>
-                <h5 className='text-center'>{event.Title}</h5>
-                <MemeElement meme={null}></MemeElement>
-              </>
-            )}
+            <h3 className='text-center'>Memes about</h3>
+            <h5 className='text-center'>{event.Title}</h5>
+            <div className='row'>
+              {event.Memes.map(meme => (
+                <MemeElement key={meme.id} meme={meme}></MemeElement>
+              ))}
+            </div>
           </>
         );
       }}
@@ -44,7 +37,7 @@ export function newsButton(event) {
         updatePopup(
           true,
           <>
-            <h3 className='text-center'>Related News</h3>
+            <h3 className='text-center'>Related News about</h3>
             <h5 className='text-center'>{event.Title}</h5>
             {event.event_news.length > 0 ? (
               <>
@@ -54,7 +47,7 @@ export function newsButton(event) {
               </>
             ) : (
               <>
-                <h3 className='text-center'>Related News</h3>
+                <h3 className='text-center'>Related News about</h3>
                 <h5 className='text-center'>{event.Title}</h5>
                 <NewsElement news={null}></NewsElement>
               </>
@@ -90,19 +83,12 @@ function renderListElement(event) {
 }
 
 function EventElement(props) {
-  const event = props.event;
+  let event = props.event;
+  event.event_news = sortListReverse(event.event_news, 'DatePublished');
   return (
     <>
       <tr className='eventElement' month={event ? getMonthName(event.DateInit) : null}>
-        <td className='index'>
-          {props.parent === 'list' ? (
-            <span className='offtop'>{props.i}</span>
-          ) : (
-            <span aria-label='explosion' role='img'>
-              🤯
-            </span>
-          )}
-        </td>
+        <td className='index'>{props.parent === 'list' ? <span className='offtop'>{props.i}</span> : <img src={mindBlowEmoji} alt='emoji mind blow' className='mindblow_emoji'></img>}</td>
         <td className='title' colSpan='3'>
           {event ? event.Title : null}
         </td>

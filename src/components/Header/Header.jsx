@@ -27,28 +27,32 @@ export function setHotlineHeight() {
 }
 
 function stickyMenuAdjust() {
-  let sectionEventTop = document.querySelector('section.eventTop');
-  let headerElementStatic = document.querySelector('header.static');
-  let headerElementSticky = document.querySelector('header.sticky');
-  headerElementSticky.style.display = 'block';
-  if (!sectionEventTop || !headerElementStatic) return;
-  let limitOffSet = (sectionEventTop.offsetHeight * 0) / 100;
-  if (window.pageYOffset > sectionEventTop.offsetHeight) {
-    headerElementSticky.style.position = 'fixed';
-    headerElementSticky.style.top = '0px';
-    headerElementSticky.classList.add('sticky-menu');
-    headerElementSticky.classList.add('fixed-menu');
-    headerElementSticky.classList.remove('static-menu');
-    headerElementSticky.classList.remove('absolute-menu');
-  } else if (window.pageYOffset >= limitOffSet) {
+  setTimeout(function () {
+    let sectionEventTop = document.querySelector('section.eventTop');
+    let headerElementStatic = document.querySelector('header.static');
+    let headerElementSticky = document.querySelector('header.sticky');
+    if (!headerElementSticky) return;
+
     headerElementSticky.style.display = 'block';
-    headerElementSticky.style.position = 'absolute';
-    headerElementSticky.style.top = sectionEventTop.offsetHeight + 'px';
-    headerElementSticky.classList.add('sticky-menu');
-    headerElementSticky.classList.add('absolute-menu');
-    headerElementSticky.classList.remove('fixed-menu');
-    headerElementSticky.classList.remove('static-menu');
-  }
+    if (!sectionEventTop || !headerElementStatic) return;
+    let limitOffSet = (sectionEventTop.offsetHeight * 0) / 100;
+    if (window.pageYOffset > sectionEventTop.offsetHeight) {
+      headerElementSticky.style.position = 'fixed';
+      headerElementSticky.style.top = '0px';
+      headerElementSticky.classList.add('sticky-menu');
+      headerElementSticky.classList.add('fixed-menu');
+      headerElementSticky.classList.remove('static-menu');
+      headerElementSticky.classList.remove('absolute-menu');
+    } else if (window.pageYOffset >= limitOffSet) {
+      headerElementSticky.style.display = 'block';
+      headerElementSticky.style.position = 'absolute';
+      headerElementSticky.style.top = sectionEventTop.offsetHeight + 'px';
+      headerElementSticky.classList.add('sticky-menu');
+      headerElementSticky.classList.add('absolute-menu');
+      headerElementSticky.classList.remove('fixed-menu');
+      headerElementSticky.classList.remove('static-menu');
+    }
+  }, 0);
 }
 
 function stickyMenu() {

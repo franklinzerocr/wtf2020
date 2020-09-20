@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { backendURL } from '../globals';
-import { setEventTop, getEventTop } from './useEventTop';
+import { backendURL, pagination } from '../globals';
+import { setEventTop, getEventTop, fetchEventByTitle } from './useEventTop';
 import { sortList, sleep, getCalendarDate } from '../utils';
 import { getNews } from '../externalApis/news';
 import { updateMonthTags } from './usetMonthTags';
@@ -61,57 +61,65 @@ export const filterEventsByCalendarDate = (date = null) => {
   return filteredEvents;
 };
 
-function getEventByTitle(title) {
-  let eventByTitle = events.data.filter(function (itm) {
-    return itm.Title.toUpperCase() === title.toUpperCase();
-  });
-  return eventByTitle[0];
-}
+// function getEventByTitle(title) {
+//   let eventByTitle = events.data.filter(function (itm) {
+//     return itm.Title.toUpperCase() === title.toUpperCase();
+//   });
+//   return eventByTitle[0];
+// }
 
-export const fetchEventList = async (loading = true) => {
+export const fetchEventList = async (loading = true, recursive = false) => {
   let eventsAux = Object.assign({}, events);
+  let dataRes = {};
+  let query = '_sort=DateInit:desc,id:desc&_limit=1';
   eventsAux.loading = loading;
   await setEvents(eventsAux);
   eventsAux = Object.assign({}, events);
+  if (recursive) query = '_sort=DateInit:desc,id:desc&_start=' + recursive + '&_limit=' + pagination;
   try {
-    await fetch(backendURL + '/events?_limit=-1')
+    await fetch(backendURL + '/events?' + query)
       .then(response => response.json())
       .then(async function (data) {
         eventsAux.data = data;
+        dataRes = data;
       })
       .catch(async function (error) {
         eventsAux.error = error;
+        console.log(error);
       });
   } catch (error) {
     eventsAux.error = error;
   }
-  eventsAux.loading = false;
+  if (!recursive || dataRes.length === pagination) eventsAux.loading = true;
+  else eventsAux.loading = false;
   eventsAux.data = await sortList(eventsAux.data, 'DateInit');
   await checkEventNewsList(eventsAux.data);
+  if (events.data) {
+    eventsAux.data = eventsAux.data.concat(events.data);
+  }
   await setEvents(eventsAux);
   if (events && events.data && !getEventTop().data) await setEventTop(events.data[0]);
-  else {
-    if (!getEventTop() || !getEventTop().data.length) {
-      console.log('enter');
-      return;
-    }
+  else if (!getEventTop().data && !getEventTop().data.length) {
+    return null;
+  } else if (!recursive) {
     let title = getEventTop().data[0];
     title = title.split('-').join(' ');
-    let eventTop = getEventByTitle(title);
+    let eventTop = await fetchEventByTitle(title);
     if (eventTop) {
-      updateLayout(eventTop.Title + ' - WTF 2020', 'Home', 'https://back.wtf2020.help' + eventTop.FeaturedImage.url);
+      updateLayout(eventTop.Title + ' - WTF 2020', 'Home', backendURL + eventTop.FeaturedImage.url);
       await setEventTop(eventTop);
     } else {
       getEventTop().data[1].push('/Dead-Link');
+      return null;
     }
   }
 
   await updateFilteredEvents(events);
-
   updateMonthTags();
   changeBackgroundOfButtons();
-
-  // console.log(events);
+  if (!recursive || dataRes.length === pagination) {
+    await fetchEventList(true, events.data.length);
+  }
 };
 
 export const loaderList = value => {

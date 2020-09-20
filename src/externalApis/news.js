@@ -1,5 +1,5 @@
 import { newsAPIURL, xRapidapiHost, xRapidapiKey, backendURL } from '../globals';
-import { addDays, getDateTimeYMD, getEncodedString, sortList } from '../utils';
+import { addDays, getDateTimeYMD, getEncodedString, sleep, sortList } from '../utils';
 import { fetchEventList } from '../hooks/useEventList';
 
 function constructEncodedEvent(event, i = 1) {
@@ -27,7 +27,7 @@ function constructEventNews(fetchedNews, event) {
     eventNewsAux.FeaturedImage = newsItem.image.thumbnail;
     eventNewsAux.DatePublished = newsItem.datePublished;
     eventNews.push(eventNewsAux);
-    if (cont === 2) break;
+    if (cont === 5) break;
   }
   return eventNews;
 }
@@ -66,6 +66,7 @@ async function fetchNewsPage(event, maxNewsCountDifference, i) {
   let encodedEvent = constructEncodedEvent(event, i);
   let newsPage = {};
   try {
+    console.log(encodedEvent);
     await fetch(newsAPIURL + encodedEvent, {
       method: 'GET',
       headers: {
@@ -75,11 +76,12 @@ async function fetchNewsPage(event, maxNewsCountDifference, i) {
     })
       .then(res => res.json())
       .then(async function (data) {
-        // console.log('data API', encodedEvent, data);
+        console.log('data API', data);
         let eventNews = constructEventNews(data.value, event);
         newsPage = eventNews;
       })
       .catch(async error => {
+        console.log(error);
         newsPage.error = error;
       });
   } catch (error) {
@@ -94,13 +96,14 @@ export const getNews = async (event, elementLoader, recursive = true) => {
   let maxNewsCountDifference = 10 - event.event_news.length;
   if (maxNewsCountDifference > 0) {
     elementLoader(true);
-    await Promise.all(
-      [1, 2, 3, 4, 5].map(async (i, index) => {
-        let newsPage = await fetchNewsPage(event, maxNewsCountDifference, i);
-        if (!('error' in newsPage) && unsortedNews !== undefined) unsortedNews = unsortedNews.concat(newsPage);
-        else if (!('error' in newsPage)) unsortedNews = newsPage;
-      })
-    );
+    // await Promise.all(
+    //   [1, 2].map(async (i, index) => {
+    for (let i = 1; i <= 2; i++) {
+      let newsPage = await fetchNewsPage(event, maxNewsCountDifference, i);
+      if (!('error' in newsPage) && unsortedNews !== undefined) unsortedNews = unsortedNews.concat(newsPage);
+      else if (!('error' in newsPage)) unsortedNews = newsPage;
+      await sleep(1000);
+    }
     news = sortList(unsortedNews, 'DatePublished');
     await postNewsToBackend(news);
     if (recursive) await fetchEventList(false);

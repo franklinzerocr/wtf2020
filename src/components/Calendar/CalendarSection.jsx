@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 
 import useCalendar from '../../hooks/useCalendar';
 
-import { getDateTimeYMD, getMonthName, sleep, getCalendarDate, findPos } from '../../utils';
+import { getDateTimeYMD, getMonthName, getCalendarDate, findPos } from '../../utils';
 import CalendarList from './CalendarList';
 
 import { filterEventsByCalendarDate, getFeaturedEvents, getDaysWithEvents } from '../../hooks/useEventList';
@@ -24,7 +24,7 @@ export function changeBackgroundOfButtons() {
 
         for (let event of featuredEvents) {
           if (getMonthName(event.DateInit) === calendarMonth && event.FeaturedImage) {
-            button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.small.url + "') ";
+            button.style.backgroundImage = "url('" + backendURL + event.FeaturedImage.formats.thumbnail.url + "') ";
             button.style.backgroundSize = 'cover';
             button.style.backgroundPosition = 'center 0px';
           }
@@ -50,12 +50,6 @@ export function changeBackgroundOfButtons() {
             if (dayFound && dayFound.length > 0) {
               button.setAttribute('has-event', 'true');
             }
-
-            var event = document.createEvent('HTMLEvents');
-            event.initEvent('click', true, false);
-            await sleep(10000);
-            document.querySelector('body').dispatchEvent(event);
-            console.log('click');
           });
 
           observer.observe(button, {
