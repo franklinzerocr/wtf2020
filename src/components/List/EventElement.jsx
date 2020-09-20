@@ -4,6 +4,7 @@ import { updatePopup } from '../../hooks/usePopup';
 import MemeElement from '../Popup/MemeElement';
 import NewsElement from '../Popup/NewsElement';
 import mindBlowEmoji from '../../assets/images/emoji mind blow.png';
+import { backendURL } from '../../globals';
 
 export function memeButton(event) {
   return (
@@ -84,11 +85,21 @@ function renderListElement(event) {
 
 function EventElement(props) {
   let event = props.event;
+  let featuredImage = event.FeaturedImage.formats.thumbnail.url;
   event.event_news = sortListReverse(event.event_news, 'DatePublished');
   return (
     <>
       <tr className='eventElement' month={event ? getMonthName(event.DateInit) : null}>
-        <td className='index'>{props.parent === 'list' ? <span className='offtop'>{props.i}</span> : <img src={mindBlowEmoji} alt='emoji mind blow' className='mindblow_emoji'></img>}</td>
+        <td className='thumb'>
+          {props.parent === 'list' ? (
+            <>
+              <img className='featuredImage-thumb' src={backendURL + featuredImage} alt={event.Title} title={event.Title} />
+              <img className='featuredImage-zoom' src={backendURL + featuredImage} alt={event.Title} title={event.Title} />
+            </>
+          ) : (
+            <img src={mindBlowEmoji} alt='emoji mind blow' className='mindblow_emoji'></img>
+          )}
+        </td>
         <td className='title' colSpan='3'>
           {event ? event.Title : null}
         </td>

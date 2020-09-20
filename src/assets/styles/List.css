@@ -50,27 +50,31 @@ section.list:after {
   min-height: 40px;
 }
 
-.eventsList .eventElement .index,
+.eventsList .eventElement .thumb,
 .eventsList .eventElement .none {
-  width: 50px;
+  max-width: 60px;
+  max-height: 45px;
   text-align: right;
   vertical-align: middle;
   position: relative;
+  padding-right: 0px;
 }
 
-.eventsList .eventElement .index .offtop,
-.eventsList .eventElement .none .offtop {
-  position: relative;
-  display: inline-block;
-  background: #f87f06;
-  color: white;
-  font-weight: bold;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  border-radius: 100%;
-  line-height: 30px;
-  font-size: 12px;
+.eventsList .eventElement .thumb .featuredImage-thumb,
+.eventsList .eventElement .none .featuredImage-thumb {
+  width: 100%;
+  height: auto;
+}
+.eventsList .eventElement .thumb .featuredImage-zoom {
+  display: none;
+}
+
+.eventsList .eventElement .thumb:hover .featuredImage-zoom {
+  display: block;
+  position: absolute;
+  z-index: 10000;
+  top: 0px;
+  transform: translateY(-50%);
 }
 
 .eventsList .eventElement-meta td.none {
