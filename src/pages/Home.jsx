@@ -8,6 +8,14 @@ import Footer from '../components/Footer/Footer';
 import Popup from '../components/Popup/Popup';
 
 import { updateLayout } from '../hooks/useLayout';
+import { updatePopup } from '../hooks/usePopup';
+import Donate from '../components/Popup/Donate';
+
+function openDonate() {
+  setTimeout(function () {
+    updatePopup(true, <Donate />);
+  }, 90000);
+}
 
 function Home(props) {
   updateLayout(props.title, props.bodyClass);
@@ -19,6 +27,7 @@ function Home(props) {
       <EventsList />
       <Footer />
       <Popup />
+      {openDonate()}
     </>
   );
 }

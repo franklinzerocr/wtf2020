@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 function MemeElement(props) {
   let picSrc = '';
-  console.log(props.meme);
   if (props.meme.formats && 'small' in props.meme.formats) picSrc = props.meme.formats.small.url;
   else if (props.meme.formats) picSrc = props.meme.formats.thumbnail.url;
   else picSrc = props.meme.url;

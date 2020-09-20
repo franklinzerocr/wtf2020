@@ -136,11 +136,14 @@
 .donate-container .consideration {
   background: #f87f06;
   color: white;
-  font-weight: bold;
+  font-size: 21px;
+  padding: 5px 0px;
+  /* font-weight: bold; */
 }
 
 [color='black'] {
   color: black;
+  font-weight: bold;
 }
 
 #tipping-iframe {
@@ -190,4 +193,17 @@ body.open-popup {
 .meme_single img {
   max-width: 100%;
   width: auto;
+}
+
+.footer-donate {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  font-weight: normal;
+  background: #421e5f;
+}
+
+.footer-donate img {
+  max-height: 75px;
+  width: auto !important;
 }
