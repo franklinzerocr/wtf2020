@@ -74,7 +74,15 @@ section.list:after {
   position: absolute;
   z-index: 10000;
   top: 0px;
+  left: 50px;
   transform: translateY(-50%);
+}
+.eventsList .eventElement .thumb:hover .featuredImage-thumb {
+  opacity: 0.5;
+}
+
+.eventsList .eventElement .thumb:hover a:hover {
+  opacity: 1 !important;
 }
 
 .eventsList .eventElement-meta td.none {
@@ -89,10 +97,14 @@ section.list:after {
   vertical-align: top;
   padding-top: 0px;
 }
+.eventsList .eventElement-meta .location,
+.eventsList .eventElement-meta .date {
+}
 
 .eventsList .eventElement .title,
 .calendarList .eventElement .title {
   font-family: Lato;
+  font-size: 17px;
 }
 
 .list_inner_container {
@@ -104,6 +116,7 @@ section.list:after {
   box-shadow: 7px 7px 15px 0px rgba(0, 0, 0, 0.75);
   background: white;
   max-width: 950px;
+  margin: 0px auto;
 }
 
 .list > .container {
@@ -182,4 +195,15 @@ td.date {
 
 .mindblow_emoji {
   width: 40px;
+}
+
+.eventsList b.index {
+  font-weight: bolder;
+  color: white;
+  background-color: #f87f06;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 3px;
+  font-size: 14px;
+  vertical-align: top;
 }

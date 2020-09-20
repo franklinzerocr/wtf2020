@@ -14,7 +14,7 @@ import Donate from '../components/Popup/Donate';
 function openDonate() {
   setTimeout(function () {
     updatePopup(true, <Donate />);
-  }, 90000);
+  }, 150000);
 }
 
 function Home(props) {

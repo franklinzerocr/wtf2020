@@ -19,9 +19,9 @@ function EventTop(props) {
       <>
         <p className='eventTop-title'>{event.Title}</p>
         <p className='eventTop-meta'>
-          {event.Location}
-          &nbsp;&nbsp;&nbsp;
           {event.DateInit}
+          &nbsp;&nbsp;&nbsp;
+          {event.Location}
           <br />
           <span className='actions_container'>
             {memeButton(event)}&nbsp;/&nbsp;{newsButton(event)}
