@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getMonthName, sortListReverse } from '../../utils';
 import { updatePopup } from '../../hooks/usePopup';
 import MemeElement from '../Popup/MemeElement';
@@ -99,14 +99,40 @@ function EventElement(props) {
   let event = props.event;
   let featuredImageThumb = event.FeaturedImage.formats.thumbnail.url;
   event.event_news = sortListReverse(event.event_news, 'DatePublished');
+  let [zoom, setZoom] = useState();
   return (
     <>
       <tr className='eventElement' month={event ? getMonthName(event.DateInit) : null}>
         <td className='thumb'>
           {props.parent === 'list' ? (
             <>
-              <img className='featuredImage-thumb' src={backendURL + featuredImageThumb} alt={event.Title} title={event.Title} />
-              <img className='featuredImage-zoom' src={backendURL + featuredImageThumb} alt={event.Title} />
+              <span
+                className='zoom-icon'
+                onClick={() => {
+                  setZoom(!zoom);
+                }}
+              >
+                <i className='fa fa-search-plus'></i>
+              </span>
+              <img
+                className='featuredImage-thumb'
+                src={backendURL + featuredImageThumb}
+                alt={event.Title}
+                title={event.Title}
+                onClick={() => {
+                  setZoom(!zoom);
+                }}
+              />
+              {zoom === true ? (
+                <img
+                  className='featuredImage-zoom'
+                  src={backendURL + featuredImageThumb}
+                  alt={event.Title}
+                  onClick={() => {
+                    setZoom(!zoom);
+                  }}
+                />
+              ) : null}
             </>
           ) : (
             <img src={mindBlowEmoji} alt='emoji mind blow' className='mindblow_emoji'></img>

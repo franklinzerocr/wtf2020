@@ -29,9 +29,17 @@ function CalendarList(props) {
     <>
       <div className='calendarList_inner_container'>
         {props.events.length ? (
-          <table className='calendarList table table-striped table-responsive w-100 d-block d-md-table'>
-            <tbody>{checkState(props.events)}</tbody>
-          </table>
+          <>
+            <table className='calendarList table table-striped table-responsive w-100 d-block d-md-table'>
+              <tbody>{checkState(props.events)}</tbody>
+            </table>
+            <div className='backButton text-center' onClick={backButton}>
+              <span className='back-label'>Back</span>
+              <span className='back-icon'>
+                <i className='fa fa-arrow-left'></i>
+              </span>
+            </div>
+          </>
         ) : (
           <>
             <h4 className='text-center'>
@@ -46,12 +54,6 @@ function CalendarList(props) {
             <h5 className='text-center'>{props.date} was a quiet day</h5>
           </>
         )}
-        <div className='backButton text-center' onClick={backButton}>
-          <span className='back-label'>Back</span>
-          <span className='back-icon'>
-            <i className='fa fa-arrow-left'></i>
-          </span>
-        </div>
       </div>
     </>
   );

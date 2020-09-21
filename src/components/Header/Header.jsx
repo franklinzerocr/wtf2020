@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import useRecomendations from '../../hooks/useRecomendations';
 import Recomendations from './Recomendations';
 import { cumulativeOffset } from '../../utils';
+import { monthTagAdjust } from '../List/MonthTag';
 
 var flagStickyMenu = false;
 
@@ -26,6 +27,7 @@ export function setHotlineHeight() {
     }
 
     stickyMenuAdjust();
+    monthTagAdjust();
   }, 0);
 }
 
@@ -36,6 +38,9 @@ function stickyMenuAdjust() {
     let headerElementStatic = document.querySelector('header.static');
     let headerElementSticky = document.querySelector('header.sticky');
     let goToHomeButton = document.querySelector('.goToHome-button');
+    let goToFooter = document.querySelector('.goToFooter-button');
+    let goToPreviousMonth = document.querySelector('.previousMonth-button');
+    let goToNextMonth = document.querySelector('.nexMonth-button');
     if (!headerElementSticky || !checkWTF || !headerElementStatic) return;
 
     headerElementSticky.style.display = 'block';
@@ -50,8 +55,11 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.add('fixed-menu');
       headerElementSticky.classList.remove('static-menu');
       headerElementSticky.classList.remove('absolute-menu');
-      goToHomeButton.classList.remove('absolute-menu');
+
       goToHomeButton.classList.add('display');
+      goToFooter.classList.add('display');
+      goToPreviousMonth.classList.add('display');
+      goToNextMonth.classList.add('display');
     } else if (window.pageYOffset >= topLimitOffSet + 60) {
       headerElementSticky.style.display = 'block';
       headerElementSticky.style.position = 'absolute';
@@ -62,6 +70,9 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.remove('static-menu');
 
       goToHomeButton.classList.remove('display');
+      goToFooter.classList.remove('display');
+      goToPreviousMonth.classList.remove('display');
+      goToNextMonth.classList.remove('display');
     } else {
       headerElementSticky.style.display = 'block';
       headerElementSticky.style.position = 'absolute';
@@ -72,6 +83,9 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.remove('static-menu');
 
       goToHomeButton.classList.remove('display');
+      goToFooter.classList.remove('display');
+      goToPreviousMonth.classList.remove('display');
+      goToNextMonth.classList.remove('display');
     }
   }, 0);
 }
@@ -99,12 +113,22 @@ function stickyMenu() {
     window.addEventListener('scroll', function (event) {
       flagStickyMenu = true;
       stickyMenuAdjust();
+      monthTagAdjust();
     });
 }
 
 export function goToTop(history = null) {
   if (document.querySelector('#hotline')) {
     document.getElementById('hotline').scrollIntoView({
+      behavior: 'smooth',
+    });
+  } else {
+    history.push('/');
+  }
+}
+export function goToFooter(history = null) {
+  if (document.querySelector('#hotline')) {
+    document.querySelector('footer').scrollIntoView({
       behavior: 'smooth',
     });
   } else {

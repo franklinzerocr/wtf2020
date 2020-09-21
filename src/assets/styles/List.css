@@ -71,25 +71,16 @@ section.list:after {
   max-width: 60px !important;
   max-height: 45px !important;
   height: auto;
+  cursor: pointer;
 }
 .eventsList .eventElement .thumb .featuredImage-zoom {
-  display: none;
-}
-
-.eventsList .eventElement .thumb .featuredImage-zoom:hover {
-  display: none !important;
-}
-
-.eventsList .eventElement .thumb:hover .featuredImage-zoom {
   display: block;
   position: absolute;
   z-index: 10000;
   top: 0px;
   left: 82px;
   transform: translateY(-25%);
-}
-.eventsList .eventElement .thumb:hover .featuredImage-thumb {
-  opacity: 0.5;
+  cursor: pointer;
 }
 
 .eventsList .eventElement .thumb:hover a:hover {
@@ -141,7 +132,7 @@ section.list:after {
 }
 
 .monthTag {
-  text-align: center;
+  text-align: left;
   color: white;
   line-height: 70px;
   font-size: 22px;
@@ -154,6 +145,14 @@ section.list:after {
   writing-mode: vertical-lr;
   /* transform: rotate(180deg); */
   transform: rotate(0deg);
+}
+
+.monthTag-span {
+  position: absolute;
+  top: 10px;
+  /* position: fixed;
+  top: 60px; */
+  z-index: 100000;
 }
 
 .down .monthTag.odd-tag {
@@ -249,9 +248,7 @@ td.date {
   margin-bottom: 80px !important;
 }
 
-.list .thumb:after {
-  content: '\f00e';
-  font-family: 'FontAwesome';
+.list .thumb .zoom-icon {
   font-size: 18px;
   position: absolute;
   z-index: 1000;
@@ -261,9 +258,61 @@ td.date {
   color: white;
   opacity: 0.8;
   text-shadow: 0px 0px 5px black;
+  cursor: pointer;
 }
 
 .list .goToHome-button {
+  display: none;
+  position: fixed;
+  bottom: 150px;
+  right: 10px;
+  border-radius: 100%;
+  background: #f87f06;
+  color: white;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.list .previousMonth-button {
+  display: none;
+  position: fixed;
+  bottom: 115px;
+  right: 15px;
+  border-radius: 100%;
+  background: #f87f06;
+  color: white;
+  padding: 0px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.list .nexMonth-button {
+  display: none;
+  position: fixed;
+  bottom: 72.5px;
+  right: 15px;
+  border-radius: 100%;
+  background: #f87f06;
+  color: white;
+  padding: 0px;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.list .goToFooter-button {
   display: none;
   position: fixed;
   bottom: 25px;
@@ -280,6 +329,9 @@ td.date {
   cursor: pointer;
 }
 
-.goToHome-button.display {
+.goToHome-button.display,
+.goToFooter-button.display,
+.previousMonth-button.display,
+.nexMonth-button.display {
   display: block !important;
 }
