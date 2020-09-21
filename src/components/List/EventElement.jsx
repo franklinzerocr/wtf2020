@@ -6,23 +6,50 @@ import NewsElement from '../Popup/NewsElement';
 import mindBlowEmoji from '../../assets/images/emoji mind blow.png';
 import { backendURL } from '../../globals';
 
+function newsPopup(event) {
+  return (
+    <>
+      <h3 className='text-center'>Related News about</h3>
+      <h5 className='text-center'>{event.Title}</h5>
+      {memeButton(event)}
+      {event.event_news.length > 0 ? (
+        <>
+          {event.event_news.map(news => (
+            <NewsElement key={news.id} news={news}></NewsElement>
+          ))}
+        </>
+      ) : (
+        <>
+          <h3 className='text-center'>Related News about</h3>
+          <h5 className='text-center'>{event.Title}</h5>
+          <NewsElement news={null}></NewsElement>
+        </>
+      )}
+    </>
+  );
+}
+
+function memePopup(event) {
+  return (
+    <>
+      <h3 className='text-center'>Memes about</h3>
+      <h5 className='text-center'>{event.Title}</h5>
+      {newsButton(event)}
+      <div className='row'>
+        {event.Memes.map(meme => (
+          <MemeElement key={meme.id} meme={meme}></MemeElement>
+        ))}
+      </div>
+    </>
+  );
+}
+
 export function memeButton(event) {
   return (
     <button
       className='pictures open_popup'
       onClick={() => {
-        updatePopup(
-          true,
-          <>
-            <h3 className='text-center'>Memes about</h3>
-            <h5 className='text-center'>{event.Title}</h5>
-            <div className='row'>
-              {event.Memes.map(meme => (
-                <MemeElement key={meme.id} meme={meme}></MemeElement>
-              ))}
-            </div>
-          </>
-        );
+        updatePopup(true, memePopup(event));
       }}
     >
       Check Memes
@@ -35,26 +62,7 @@ export function newsButton(event) {
     <button
       className='links open_popup'
       onClick={() => {
-        updatePopup(
-          true,
-          <>
-            <h3 className='text-center'>Related News about</h3>
-            <h5 className='text-center'>{event.Title}</h5>
-            {event.event_news.length > 0 ? (
-              <>
-                {event.event_news.map(news => (
-                  <NewsElement key={news.id} news={news}></NewsElement>
-                ))}
-              </>
-            ) : (
-              <>
-                <h3 className='text-center'>Related News about</h3>
-                <h5 className='text-center'>{event.Title}</h5>
-                <NewsElement news={null}></NewsElement>
-              </>
-            )}
-          </>
-        );
+        updatePopup(true, newsPopup(event));
       }}
     >
       Related News
@@ -109,26 +117,7 @@ function EventElement(props) {
             <span
               className='open-popup-title'
               onClick={() => {
-                updatePopup(
-                  true,
-                  <>
-                    <h3 className='text-center'>Related News about</h3>
-                    <h5 className='text-center'>{event.Title}</h5>
-                    {event.event_news.length > 0 ? (
-                      <>
-                        {event.event_news.map(news => (
-                          <NewsElement key={news.id} news={news}></NewsElement>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        <h3 className='text-center'>Related News about</h3>
-                        <h5 className='text-center'>{event.Title}</h5>
-                        <NewsElement news={null}></NewsElement>
-                      </>
-                    )}
-                  </>
-                );
+                updatePopup(true, newsPopup(event));
               }}
             >
               {props.parent === 'list' ? (

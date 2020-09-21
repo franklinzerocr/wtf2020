@@ -224,3 +224,12 @@ body.open-popup {
   margin: 10px 6px;
   color: black;
 }
+.popup_container .open_popup {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+}
+
+.popup_content h3 {
+  font-weight: bold;
+}
