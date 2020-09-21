@@ -1,5 +1,5 @@
 section.calendar {
-  padding-top: 100px;
+  padding-top: 20px;
   min-height: 56.25vw;
   max-height: 800px;
 }
@@ -324,20 +324,20 @@ button.react-calendar__navigation__label[disabled]:hover {
   min-width: 240px !important;
 }
 .react-calendar__navigation__label:after {
-  content: '⤴';
+  content: '\f060';
+  font-family: 'FontAwesome';
   position: absolute;
   left: 20px;
-  transform: scaleX(-1);
-  font-size: 45px;
-  top: 27.5px;
+  font-size: 20px;
+  bottom: 12px;
   color: #2387e4;
 }
 .react-calendar__navigation__label:before {
   content: 'Back';
   position: absolute;
   left: 10px;
-  font-size: 15px;
-  top: 6px;
+  font-size: 13px;
+  top: 12px;
   color: #2387e4;
 }
 
@@ -363,5 +363,9 @@ button.react-calendar__navigation__arrow {
 }
 
 .up-arrow {
+  display: none;
+}
+
+.backButton {
   display: none;
 }

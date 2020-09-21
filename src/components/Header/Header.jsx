@@ -8,6 +8,9 @@ import Menu from './Menu';
 import '../../assets/styles/Header.css';
 import useSearchBar from '../../hooks/useSearchBar';
 import { Link } from 'react-router-dom';
+import useRecomendations from '../../hooks/useRecomendations';
+import Recomendations from './Recomendations';
+import { cumulativeOffset } from '../../utils';
 
 var flagStickyMenu = false;
 
@@ -18,7 +21,7 @@ export function setHotlineHeight() {
     if (width <= 768) {
       let hotLine = document.querySelector('#hotline');
       let titleContainer = document.querySelector('#hotline .title-container');
-      let hotlineHeight = titleContainer.offsetTop + titleContainer.offsetHeight + 50;
+      let hotlineHeight = titleContainer.offsetTop + titleContainer.offsetHeight;
       hotLine.style.height = hotlineHeight + 'px';
     }
 
@@ -28,25 +31,26 @@ export function setHotlineHeight() {
 
 function stickyMenuAdjust() {
   setTimeout(function () {
-    let sectionEventTop = document.querySelector('section.eventTop');
+    let sectionEventTop = document.querySelector('.checkWTF');
     let headerElementStatic = document.querySelector('header.static');
     let headerElementSticky = document.querySelector('header.sticky');
-    if (!headerElementSticky) return;
+    if (!headerElementSticky || !sectionEventTop || !headerElementStatic) return;
 
     headerElementSticky.style.display = 'block';
-    if (!sectionEventTop || !headerElementStatic) return;
-    let limitOffSet = (sectionEventTop.offsetHeight * 0) / 100;
-    if (window.pageYOffset > sectionEventTop.offsetHeight) {
+
+    let limitOffSet = cumulativeOffset(sectionEventTop).top + sectionEventTop.offsetHeight + 10;
+
+    if (window.pageYOffset > limitOffSet) {
       headerElementSticky.style.position = 'fixed';
       headerElementSticky.style.top = '0px';
       headerElementSticky.classList.add('sticky-menu');
       headerElementSticky.classList.add('fixed-menu');
       headerElementSticky.classList.remove('static-menu');
       headerElementSticky.classList.remove('absolute-menu');
-    } else if (window.pageYOffset >= limitOffSet) {
+    } /* if (window.pageYOffset >= limitOffSet)  */ else {
       headerElementSticky.style.display = 'block';
       headerElementSticky.style.position = 'absolute';
-      headerElementSticky.style.top = sectionEventTop.offsetHeight + 'px';
+      headerElementSticky.style.top = limitOffSet + 'px';
       headerElementSticky.classList.add('sticky-menu');
       headerElementSticky.classList.add('absolute-menu');
       headerElementSticky.classList.remove('fixed-menu');
@@ -83,6 +87,8 @@ function stickyMenu() {
 
 function Header(props) {
   let [input, updateInput] = useSearchBar();
+  let [recomendations] = useRecomendations();
+
   return (
     <>
       <header className='main-header .container-fluid static'>
@@ -99,7 +105,9 @@ function Header(props) {
             <Logo />
           </Link>
           <Rrss />
-          <SearchBar input={input} updateInput={updateInput} />
+          <SearchBar input={input} updateInput={updateInput} recomendations={recomendations} />
+
+          <Recomendations recomendations={recomendations} />
           <Menu />
         </div>
       </header>

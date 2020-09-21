@@ -1,5 +1,5 @@
 section.list {
-  padding-top: 100px;
+  padding-top: 20px;
   background-image: url(../images/Fondo\ 1.png);
   background-position: right top;
   background-repeat: no-repeat;
@@ -61,6 +61,10 @@ section.list:after {
   padding-right: 0px;
 }
 
+.calendarList .eventElement .thumb {
+  text-align: center;
+}
+
 .eventsList .eventElement .thumb .featuredImage-thumb,
 .eventsList .eventElement .none .featuredImage-thumb {
   width: 100%;
@@ -77,8 +81,8 @@ section.list:after {
   position: absolute;
   z-index: 10000;
   top: 0px;
-  left: 59px;
-  transform: translateY(-50%);
+  left: 75px;
+  transform: translateY(-25%);
 }
 .eventsList .eventElement .thumb:hover .featuredImage-thumb {
   opacity: 0.5;
@@ -197,10 +201,9 @@ section.list:after {
 }
 
 td.date {
-  min-width: 95px;
-}
-td.location {
-  min-width: 90px;
+  min-width: 82px;
+  padding-right: 0px;
+  padding-left: 5px;
 }
 
 .mindblow_emoji {
@@ -235,4 +238,22 @@ td.location {
   top: 0px;
   left: 50%;
   transform: translate(calc(-50% - 60px), 3px);
+}
+
+.checkWTF {
+  margin-bottom: 80px !important;
+}
+
+.list .thumb:after {
+  content: '\f00e';
+  font-family: 'FontAwesome';
+  font-size: 18px;
+  position: absolute;
+  z-index: 1000;
+  left: 45px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  opacity: 0.8;
+  text-shadow: 0px 0px 5px black;
 }

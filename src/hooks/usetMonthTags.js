@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { setPositionOfMonthTags } from '../components/List/MonthTag';
+import { getEventList } from './useEventList';
+import { getRecomendations, updateRecomendations } from './useRecomendations';
 
 let monthTags = {},
   setMonthTags;
@@ -33,9 +35,20 @@ export function updateMonthTags() {
     if (previousSeparatedMonthTag && finalMonthTags && finalMonthTags.length > 0) {
       finalMonthTags[finalMonthTags.length - 1].offsetBottom = previousSeparatedMonthTag.offsetBottom;
       await setMonthTags(finalMonthTags);
+
+      if (!getRecomendations().keywords.length) updateRecomendations(finalMonthTags, getEventList().data);
+
       setPositionOfMonthTags();
     }
   }, 0);
+}
+
+export function getMonthTags() {
+  let monthTagsAux = [];
+  setTimeout(() => {
+    monthTagsAux = monthTags;
+  }, 0);
+  return monthTagsAux;
 }
 
 export const useMonthTags = () => {

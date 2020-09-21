@@ -25,6 +25,7 @@
   width: 300px;
   padding-left: 10px;
   padding-right: 10px;
+  font-weight: bold;
 }
 
 .main-header .search_event:focus {
@@ -178,4 +179,57 @@ footer .menu ul {
 
 .sticky {
   display: none;
+}
+
+.recomendations {
+  display: none;
+  float: right;
+  margin-left: 20px;
+  margin-top: 0px;
+}
+
+.sticky .recomendations {
+  display: block;
+}
+.recomendations i {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* .absolute-menu .recomendations-box {
+  display: none;
+} */
+
+.recomendations-box {
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  width: 100%;
+  /* color: #2558a4;
+    color: #9e0339;
+    color: #421e5f; */
+  background: #f87f06;
+  text-align: center;
+}
+
+.recomendations-box span {
+  color: white;
+  margin: 2px 2px;
+  border: 1px solid white;
+  display: inline-block;
+  padding: 2px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.keyword-all {
+  background: #421e5f;
+}
+.keyword-month {
+  background: #2558a4;
+}
+.keyword-location {
+  background: #9e0339;
 }

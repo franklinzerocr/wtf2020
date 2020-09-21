@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { toggleRecomendations } from '../../hooks/useRecomendations';
 import { findPos } from '../../utils';
 
 function keyCheck(e) {
@@ -8,7 +9,7 @@ function keyCheck(e) {
   }
 }
 
-function goToEventList(history = null) {
+export function goToEventList(history = null) {
   if (document.querySelector('#eventList')) {
     document.getElementById('eventList').scrollIntoView({
       behavior: 'smooth',
@@ -27,6 +28,7 @@ function checkScrollToGoToEventList() {
 function SearchBar(props) {
   let input = props.input;
   let updateInput = props.updateInput;
+  let recomendations = props.recomendations;
   const history = useHistory();
   return (
     <div className='search_bar'>
@@ -40,11 +42,17 @@ function SearchBar(props) {
         }}
         onKeyDown={e => keyCheck(e)}
         name='search'
-        placeholder='Search Events by Keywords/Date'
+        placeholder='Filter Events by Keywords/Date'
       ></input>
       <span className='search_icon' onClick={e => goToEventList(history)}>
         <i className='fa fa-search'></i>
       </span>
+
+      <div className='recomendations'>
+        <span>
+          <i className={recomendations && recomendations.visible ? 'fa fa-remove' : 'fa fa-bars'} onClick={toggleRecomendations}></i>
+        </span>
+      </div>
     </div>
   );
 }

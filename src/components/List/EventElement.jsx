@@ -67,7 +67,6 @@ function renderListElement(event) {
     <tr className='eventElement-meta'>
       {event ? (
         <>
-          <td className='none' colSpan='1'></td>
           <td className='date' colSpan='1'>
             {event.DateInit}
           </td>
@@ -79,6 +78,7 @@ function renderListElement(event) {
               {memeButton(event)}&nbsp;/&nbsp;{newsButton(event)}
             </div>
           </td>
+          <td className='none' colSpan='1'></td>
         </>
       ) : (
         <td className='none' colSpan='4'></td>

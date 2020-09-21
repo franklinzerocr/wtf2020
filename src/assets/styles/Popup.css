@@ -171,12 +171,12 @@ body.open-popup {
   border-bottom: 1px solid #f87f06;
   border-right: 0.5px solid #f87f06;
   position: relative;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 /* width */
 .popup_container::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 /* Track */
@@ -187,7 +187,7 @@ body.open-popup {
 /* Handle */
 .popup_container::-webkit-scrollbar-thumb {
   background: #f87f06;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .meme_single a:hover {

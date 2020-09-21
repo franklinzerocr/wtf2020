@@ -44,7 +44,7 @@ function EventsList(props) {
   return (
     <section id='eventList' className='list'>
       <h1 className='text-center'>Use the search bar to filter the events</h1>
-      <p className='text-center'>And check WTF has happened since 2020!</p>
+      <p className='text-center checkWTF'>And check WTF has happened since 2020!</p>
       <div className='container '>
         <div className='sorting text-center'>
           <span className='sort-label'>Sort:</span>

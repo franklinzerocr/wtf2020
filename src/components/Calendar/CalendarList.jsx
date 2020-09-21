@@ -17,6 +17,13 @@ function checkState(calendarList) {
   );
 }
 
+function backButton() {
+  document.querySelector('.react-calendar__navigation__label').click();
+  document.getElementById('calendarList').scrollIntoView({
+    behavior: 'smooth',
+  });
+}
+
 function CalendarList(props) {
   return (
     <>
@@ -39,6 +46,12 @@ function CalendarList(props) {
             <h5 className='text-center'>{props.date} was a quiet day</h5>
           </>
         )}
+        <div className='backButton text-center' onClick={backButton}>
+          <span className='back-label'>Back</span>
+          <span className='back-icon'>
+            <i className='fa fa-arrow-left'></i>
+          </span>
+        </div>
       </div>
     </>
   );

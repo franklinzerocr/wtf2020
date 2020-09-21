@@ -41,3 +41,7 @@ footer .menu a {
   cursor: pointer;
   font-weight: normal;
 }
+
+[background='orange'] {
+  background: #f87f06;
+}

@@ -60,13 +60,6 @@ export const filterEventsByCalendarDate = (date = null) => {
   return filteredEvents;
 };
 
-// function getEventByTitle(title) {
-//   let eventByTitle = events.data.filter(function (itm) {
-//     return itm.Title.toUpperCase() === title.toUpperCase();
-//   });
-//   return eventByTitle[0];
-// }
-
 export const fetchEventList = async (loading = true, recursive = false) => {
   let eventsAux = Object.assign({}, events);
   let dataRes = {};

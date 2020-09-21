@@ -37,6 +37,9 @@ function Footer() {
               <img src={roisLogo} alt='ROIS Logo' title='ROIS Digital Team' className='footer-logo' />
             </Link>
             <RrssRois />
+            <p>
+              Any suggestion, issue or message. send it to <span background='orange'>franklin@roisdigital.com</span>
+            </p>
           </div>
           <div className='col-md-4 text-center menu-footer'>
             <Menu />

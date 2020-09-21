@@ -209,7 +209,7 @@ a:hover,
   }
 
   .main-header.sticky .search_bar .search_event {
-    width: calc(100% - 50px);
+    width: calc(100% - 85px);
   }
   .main-header.sticky .rrss {
     margin-left: 0px;
@@ -237,6 +237,8 @@ a:hover,
   }
   footer .rrss i {
     margin: 6px 8px !important;
+  }
+  .recomendations-box {
   }
 }
 
@@ -317,11 +319,38 @@ a:hover,
   #calendarList {
     height: auto;
     max-height: none;
+    padding-bottom: 30px;
   }
   .calendarList-container {
     padding: 20px !important;
     padding-top: 60px !important;
     height: auto !important;
+  }
+
+  .calendarList_inner_container {
+    position: relative;
+    padding-bottom: 20px !important;
+  }
+
+  .backButton {
+    display: block !important;
+    width: 50px;
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+
+  .backButton .back-label {
+    font-size: 14px;
+    color: #2387e4;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .backButton .back-icon {
+    font-size: 25px;
+    color: #2387e4;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: -10px;
   }
   .calendar_inner_container {
     padding-top: 20px !important;
@@ -376,6 +405,11 @@ a:hover,
   }
   .left-arrow {
     display: none !important;
+  }
+  td.location {
+    min-width: 80px;
+    width: 80px;
+    max-width: 80px;
   }
 }
 
