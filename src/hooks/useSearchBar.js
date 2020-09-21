@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { updateFilteredEvents } from './useFilteredEvents';
 import { getEventList } from './useEventList';
 import { getMonthName } from '../utils';
+import { getSort, updateSortFilteredEvents } from './useSort';
 
 let searchBar = {},
   setSearchBar;
@@ -36,7 +36,7 @@ export const updateSearchBar = async input => {
       return found;
     });
   }
-  updateFilteredEvents(events);
+  updateSortFilteredEvents(events, getSort());
 };
 
 export const getSearchBar = () => {

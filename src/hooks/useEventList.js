@@ -4,7 +4,6 @@ import { backendURL, pagination } from '../globals';
 import { setEventTop, getEventTop, fetchEventByTitle } from './useEventTop';
 import { sortList, sleep, getCalendarDate } from '../utils';
 import { getNews } from '../externalApis/news';
-import { updateMonthTags } from './usetMonthTags';
 import { updateFilteredEvents } from './useFilteredEvents';
 import { changeBackgroundOfButtons } from '../components/Calendar/CalendarSection';
 import { updateLayout } from './useLayout';
@@ -115,7 +114,6 @@ export const fetchEventList = async (loading = true, recursive = false) => {
   }
 
   await updateFilteredEvents(events);
-  updateMonthTags();
   changeBackgroundOfButtons();
   if (!recursive || dataRes.length === pagination) {
     await fetchEventList(true, events.data.length);

@@ -147,11 +147,17 @@ section.list:after {
   transform: rotate(0deg);
 }
 
-.monthTag.odd-tag {
+.down .monthTag.odd-tag {
   background: #2558a4;
 }
-.monthTag.even-tag {
+.down .monthTag.even-tag {
   background: #9e0339;
+}
+.up .monthTag.odd-tag {
+  background: #9e0339;
+}
+.up .monthTag.even-tag {
+  background: #2558a4;
 }
 
 .open_popup {
@@ -210,4 +216,12 @@ td.location {
   margin-right: 3px;
   font-size: 14px;
   vertical-align: top;
+}
+
+.sorting .down,
+.sorting .up {
+  font-size: 20px;
+  margin: 0px 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
 }

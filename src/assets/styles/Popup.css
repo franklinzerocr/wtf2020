@@ -64,8 +64,8 @@
 
 .single_news h5 a {
   color: black !important;
-  /* text-decoration: underline; */
-  /* text-decoration-style: dashed; */
+  text-decoration: underline;
+  text-decoration-style: dotted;
   font-weight: bold;
 }
 
@@ -206,9 +206,21 @@ body.open-popup {
   /* color: white; */
   font-weight: bold;
   /* background: #421e5f; */
+  /* border-top: 1px solid black; */
 }
 
 .footer-donate img {
   max-height: 75px;
   width: auto !important;
+  margin-top: 5px;
+}
+
+.footer-donate a:hover {
+  opacity: 1;
+}
+
+.footer-donate .rrss i {
+  font-size: 18px;
+  margin: 10px 6px;
+  color: black;
 }

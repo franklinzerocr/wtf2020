@@ -5,7 +5,6 @@ import MemeElement from '../Popup/MemeElement';
 import NewsElement from '../Popup/NewsElement';
 import mindBlowEmoji from '../../assets/images/emoji mind blow.png';
 import { backendURL } from '../../globals';
-import { Link } from 'react-router-dom';
 
 export function memeButton(event) {
   return (

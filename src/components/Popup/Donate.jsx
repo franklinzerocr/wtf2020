@@ -1,4 +1,6 @@
 import React from 'react';
+import RrssRois from '../Footer/RrssRois';
+import Rrss from '../Header/Rrss';
 import { paypalMe, tippingLN, btcAddress, roisdigital } from '../../globals';
 import { Link } from 'react-router-dom';
 import paypalButton from '../../assets/images/paypal.png';
@@ -79,9 +81,13 @@ function Donate() {
             <Link to={{ pathname: roisdigital }} target='_blank'>
               <img src={roisLogo} alt='ROIS Logo' title='ROIS Digital Team' className='rois-donate-logo' />
             </Link>
+            <RrssRois />
           </div>
           <div className='col-md-3 text-center mb-2'>
-            <img src={wtf2020logo} alt='WTF2020 Logo' title='WTF 2020' className='wtf-donate-logo' />
+            <Link to='/'>
+              <img src={wtf2020logo} alt='WTF2020 Logo' title='WTF 2020' className='wtf-donate-logo' />
+            </Link>
+            <Rrss />
           </div>
           <div className='col-md-3 text-center'></div>
         </div>
