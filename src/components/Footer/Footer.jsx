@@ -38,7 +38,7 @@ function Footer() {
             </Link>
             <RrssRois />
             <p>
-              Any suggestion, issue or message. send it to <span background='orange'>franklin@roisdigital.com</span>
+              Any suggestion, issue or message, send it to <span background='orange'>franklin@roisdigital.com</span>
             </p>
           </div>
           <div className='col-md-4 text-center menu-footer'>

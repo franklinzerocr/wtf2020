@@ -1,15 +1,28 @@
 import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import { toggleRecomendations } from '../../hooks/useRecomendations';
 import { updateSearchBar } from '../../hooks/useSearchBar';
+import { goToTop } from './Header';
 import { goToEventList } from './SearchBar';
 
 function Recomendations(props) {
   let recomendations = props.recomendations;
+  const history = useHistory();
+
   return (
     <>
       {recomendations.visible ? (
         <>
           <div className='recomendations-box'>
+            <span
+              className='recomendation-item Home-item'
+              onClick={() => {
+                goToTop(history);
+                toggleRecomendations();
+              }}
+            >
+              Home
+            </span>
             {recomendations.keywords.map((keyword, i) => (
               <span
                 key={i}

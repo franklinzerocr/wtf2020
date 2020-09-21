@@ -21,7 +21,7 @@ export function setHotlineHeight() {
     if (width <= 768) {
       let hotLine = document.querySelector('#hotline');
       let titleContainer = document.querySelector('#hotline .title-container');
-      let hotlineHeight = titleContainer.offsetTop + titleContainer.offsetHeight;
+      let hotlineHeight = titleContainer.offsetTop + titleContainer.offsetHeight + 50;
       hotLine.style.height = hotlineHeight + 'px';
     }
 
@@ -31,14 +31,16 @@ export function setHotlineHeight() {
 
 function stickyMenuAdjust() {
   setTimeout(function () {
-    let sectionEventTop = document.querySelector('.checkWTF');
+    let checkWTF = document.querySelector('.checkWTF');
+    let sectionEventTop = document.querySelector('section#hotline');
     let headerElementStatic = document.querySelector('header.static');
     let headerElementSticky = document.querySelector('header.sticky');
-    if (!headerElementSticky || !sectionEventTop || !headerElementStatic) return;
+    if (!headerElementSticky || !checkWTF || !headerElementStatic) return;
 
     headerElementSticky.style.display = 'block';
 
-    let limitOffSet = cumulativeOffset(sectionEventTop).top + sectionEventTop.offsetHeight + 10;
+    let limitOffSet = cumulativeOffset(checkWTF).top + checkWTF.offsetHeight + 10;
+    let topLimitOffSet = sectionEventTop.offsetTop + sectionEventTop.offsetHeight;
 
     if (window.pageYOffset > limitOffSet) {
       headerElementSticky.style.position = 'fixed';
@@ -47,10 +49,18 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.add('fixed-menu');
       headerElementSticky.classList.remove('static-menu');
       headerElementSticky.classList.remove('absolute-menu');
-    } /* if (window.pageYOffset >= limitOffSet)  */ else {
+    } else if (window.pageYOffset >= topLimitOffSet + 60) {
       headerElementSticky.style.display = 'block';
       headerElementSticky.style.position = 'absolute';
       headerElementSticky.style.top = limitOffSet + 'px';
+      headerElementSticky.classList.add('sticky-menu');
+      headerElementSticky.classList.add('absolute-menu');
+      headerElementSticky.classList.remove('fixed-menu');
+      headerElementSticky.classList.remove('static-menu');
+    } else {
+      headerElementSticky.style.display = 'block';
+      headerElementSticky.style.position = 'absolute';
+      headerElementSticky.style.top = topLimitOffSet + 'px';
       headerElementSticky.classList.add('sticky-menu');
       headerElementSticky.classList.add('absolute-menu');
       headerElementSticky.classList.remove('fixed-menu');
@@ -83,6 +93,16 @@ function stickyMenu() {
       flagStickyMenu = true;
       stickyMenuAdjust();
     });
+}
+
+export function goToTop(history) {
+  if (document.querySelector('#hotline')) {
+    document.getElementById('hotline').scrollIntoView({
+      behavior: 'smooth',
+    });
+  } else {
+    history.push('/');
+  }
 }
 
 function Header(props) {

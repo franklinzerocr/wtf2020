@@ -38,10 +38,10 @@
   right: 0;
   border: 0;
   background-color: #421e5f;
-  padding: 1px 5px;
+  padding: 2px 8px;
   color: white;
   font-weight: bolder;
-  font-size: 15px;
+  font-size: 18px;
   /* border: 1px solid black; */
   z-index: 10000000;
 }

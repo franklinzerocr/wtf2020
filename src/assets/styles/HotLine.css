@@ -41,16 +41,6 @@ section.eventTop > .container {
   font-size: 13px;
 }
 
-.title-container .eventTop-meta:after {
-  /* content: '';
-  height: 3px;
-  width: 100px;
-  background: #f87f06;
-  position: absolute;
-  bottom: -10px;
-  left: 0px; */
-}
-
 .title-container .container {
   padding-bottom: 15px;
   padding-left: 30px;

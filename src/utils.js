@@ -118,6 +118,7 @@ export function sleep(ms) {
 //Finds y value of given object
 export function findPos(obj) {
   var curtop = 0;
+  if (!obj) return null;
   if (obj.offsetParent) {
     do {
       curtop += obj.offsetTop;

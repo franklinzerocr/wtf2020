@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { toggleRecomendations } from '../../hooks/useRecomendations';
 import { findPos } from '../../utils';
 
-function keyCheck(e) {
+function keyCheck(e, history) {
   if (e.key === 'Enter' || e.keyCode === 13) {
-    goToEventList();
+    goToEventList(history);
   }
 }
 
@@ -22,7 +22,7 @@ export function goToEventList(history = null) {
 function checkScrollToGoToEventList() {
   let scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop;
   let listPos = findPos(document.querySelector('.list'));
-  if (scrollPos > listPos[0]) window.scroll({ left: 0, top: listPos[0], behavior: 'smooth' });
+  if (listPos && scrollPos > listPos[0]) window.scroll({ left: 0, top: listPos[0], behavior: 'smooth' });
 }
 
 function SearchBar(props) {
@@ -40,7 +40,7 @@ function SearchBar(props) {
           checkScrollToGoToEventList();
           updateInput(e.target.value);
         }}
-        onKeyDown={e => keyCheck(e)}
+        onKeyDown={e => keyCheck(e, history)}
         name='search'
         placeholder='Filter Events by Keywords/Date'
       ></input>

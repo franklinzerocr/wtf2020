@@ -105,18 +105,42 @@ function EventElement(props) {
           )}
         </td>
         <td className='title' colSpan='3'>
-          {props.parent === 'list' ? (
-            <>
-              {event ? (
+          {event ? (
+            <span
+              className='open-popup-title'
+              onClick={() => {
+                updatePopup(
+                  true,
+                  <>
+                    <h3 className='text-center'>Related News about</h3>
+                    <h5 className='text-center'>{event.Title}</h5>
+                    {event.event_news.length > 0 ? (
+                      <>
+                        {event.event_news.map(news => (
+                          <NewsElement key={news.id} news={news}></NewsElement>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <h3 className='text-center'>Related News about</h3>
+                        <h5 className='text-center'>{event.Title}</h5>
+                        <NewsElement news={null}></NewsElement>
+                      </>
+                    )}
+                  </>
+                );
+              }}
+            >
+              {props.parent === 'list' ? (
                 <>
                   <b className='index'>{props.i}</b>
                   {event.Title}
                 </>
-              ) : null}
-            </>
-          ) : (
-            <>{event ? event.Title : null}</>
-          )}
+              ) : (
+                event.Title
+              )}
+            </span>
+          ) : null}
         </td>
       </tr>
       <tr className='none'></tr>

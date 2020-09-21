@@ -105,11 +105,12 @@ section.list:after {
   padding-top: 0px;
 }
 
-.eventsList .eventElement .title,
-.calendarList .eventElement .title {
+.eventsList .eventElement .open-popup-title,
+.calendarList .eventElement .open-popup-title {
   font-family: Lato;
   font-size: 17px;
   width: 270px;
+  cursor: pointer;
 }
 
 .list_inner_container {
@@ -217,7 +218,7 @@ td.date {
   padding-left: 3px;
   padding-right: 3px;
   margin-right: 3px;
-  font-size: 14px;
+  font-size: 13px;
   vertical-align: top;
 }
 

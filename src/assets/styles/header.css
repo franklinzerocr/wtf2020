@@ -233,3 +233,14 @@ footer .menu ul {
 .keyword-location {
   background: #9e0339;
 }
+
+.Home-item {
+  background: white;
+  font-weight: bold;
+  color: #f87f06 !important;
+  font-size: 16px !important;
+  margin: 0px auto !important;
+  margin-bottom: 5px !important;
+  width: 160px !important;
+  display: block !important;
+}
