@@ -265,8 +265,8 @@ button.react-calendar__tile.react-calendar__month-view__days__day {
 .react-calendar__decade-view .react-calendar__tile:hover abbr {
   /* background: black !important; */
 
-  background: white;
-  color: black;
+  background: #f87f06;
+  color: white;
   text-shadow: none;
 }
 
@@ -326,14 +326,23 @@ button.react-calendar__navigation__label[disabled]:hover {
 .react-calendar__navigation__label:after {
   content: '⤴';
   position: absolute;
-  left: 10px;
+  left: 20px;
   transform: scaleX(-1);
   font-size: 45px;
   top: 27.5px;
-  color: #d3d4d6;
+  color: #2387e4;
+}
+.react-calendar__navigation__label:before {
+  content: 'Back';
+  position: absolute;
+  left: 10px;
+  font-size: 15px;
+  top: 6px;
+  color: #2387e4;
 }
 
-.react-calendar__navigation__label:disabled:after {
+.react-calendar__navigation__label:disabled:after,
+.react-calendar__navigation__label:disabled:before {
   content: '';
 }
 
@@ -351,4 +360,8 @@ button.react-calendar__navigation__arrow {
   background: #f87f06;
   color: white;
   font-weight: bold;
+}
+
+.up-arrow {
+  display: none;
 }

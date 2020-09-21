@@ -27,8 +27,16 @@ function CalendarList(props) {
           </table>
         ) : (
           <>
+            <h4 className='text-center'>
+              <span className='left-arrow'>
+                <i className='fa fa-arrow-left'></i>
+              </span>
+              <span className='up-arrow'>
+                <i className='fa fa-arrow-up'></i>
+              </span>
+            </h4>
+            <p className='text-center'>Select an explosive Date on the Calendar</p>
             <h5 className='text-center'>{props.date} was a quiet day</h5>
-            <p className='text-center'>Try looking for an explosive Date</p>
           </>
         )}
       </div>

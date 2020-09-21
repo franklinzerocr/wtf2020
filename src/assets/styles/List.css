@@ -220,8 +220,19 @@ td.location {
 
 .sorting .down,
 .sorting .up {
-  font-size: 20px;
+  font-size: 30px;
   margin: 0px 5px;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.sorting {
+  position: relative;
+}
+
+.sort-label {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(calc(-50% - 60px), 3px);
 }

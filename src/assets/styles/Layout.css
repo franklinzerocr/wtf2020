@@ -370,6 +370,13 @@ a:hover,
   .eventTop-span {
     width: 100% !important;
   }
+
+  .up-arrow {
+    display: inline !important;
+  }
+  .left-arrow {
+    display: none !important;
+  }
 }
 
 @media only screen and (max-width: 500px) {

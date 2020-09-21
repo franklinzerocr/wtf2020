@@ -47,6 +47,7 @@ function EventsList(props) {
       <p className='text-center'>And check WTF has happened since 2020!</p>
       <div className='container '>
         <div className='sorting text-center'>
+          <span className='sort-label'>Sort:</span>
           <span>
             {sort === 'down' ? (
               <>
