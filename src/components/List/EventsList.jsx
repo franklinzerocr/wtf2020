@@ -9,6 +9,8 @@ import '../../assets/styles/List.css';
 import MonthTag from './MonthTag';
 import useFilteredEvents from '../../hooks/useFilteredEvents';
 import useSort, { updateSortFilteredEvents } from '../../hooks/useSort';
+import { goToTop } from '../Header/Header';
+import { useHistory } from 'react-router-dom';
 
 function checkState(events, sort) {
   if (events.loading) return <Loader dots={3} color='black' parent='tbody' />;
@@ -41,6 +43,7 @@ function EventsList(props) {
   useEventList();
   let [filteredEvents] = useFilteredEvents();
   let [sort] = useSort('down');
+  let history = useHistory();
   return (
     <section id='eventList' className='list'>
       <h1 className='text-center'>Use the search bar to filter the events</h1>
@@ -95,6 +98,14 @@ function EventsList(props) {
           ) : null}
         </div>
       </div>
+      <span
+        className='goToHome-button'
+        onClick={() => {
+          goToTop(history);
+        }}
+      >
+        <i className='fa fa-arrow-up'></i>
+      </span>
     </section>
   );
 }

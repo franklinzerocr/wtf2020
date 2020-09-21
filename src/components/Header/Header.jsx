@@ -35,6 +35,7 @@ function stickyMenuAdjust() {
     let sectionEventTop = document.querySelector('section#hotline');
     let headerElementStatic = document.querySelector('header.static');
     let headerElementSticky = document.querySelector('header.sticky');
+    let goToHomeButton = document.querySelector('.goToHome-button');
     if (!headerElementSticky || !checkWTF || !headerElementStatic) return;
 
     headerElementSticky.style.display = 'block';
@@ -49,6 +50,8 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.add('fixed-menu');
       headerElementSticky.classList.remove('static-menu');
       headerElementSticky.classList.remove('absolute-menu');
+      goToHomeButton.classList.remove('absolute-menu');
+      goToHomeButton.classList.add('display');
     } else if (window.pageYOffset >= topLimitOffSet + 60) {
       headerElementSticky.style.display = 'block';
       headerElementSticky.style.position = 'absolute';
@@ -57,6 +60,8 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.add('absolute-menu');
       headerElementSticky.classList.remove('fixed-menu');
       headerElementSticky.classList.remove('static-menu');
+
+      goToHomeButton.classList.remove('display');
     } else {
       headerElementSticky.style.display = 'block';
       headerElementSticky.style.position = 'absolute';
@@ -65,6 +70,8 @@ function stickyMenuAdjust() {
       headerElementSticky.classList.add('absolute-menu');
       headerElementSticky.classList.remove('fixed-menu');
       headerElementSticky.classList.remove('static-menu');
+
+      goToHomeButton.classList.remove('display');
     }
   }, 0);
 }
@@ -95,7 +102,7 @@ function stickyMenu() {
     });
 }
 
-export function goToTop(history) {
+export function goToTop(history = null) {
   if (document.querySelector('#hotline')) {
     document.getElementById('hotline').scrollIntoView({
       behavior: 'smooth',

@@ -76,12 +76,16 @@ section.list:after {
   display: none;
 }
 
+.eventsList .eventElement .thumb .featuredImage-zoom:hover {
+  display: none !important;
+}
+
 .eventsList .eventElement .thumb:hover .featuredImage-zoom {
   display: block;
   position: absolute;
   z-index: 10000;
   top: 0px;
-  left: 75px;
+  left: 82px;
   transform: translateY(-25%);
 }
 .eventsList .eventElement .thumb:hover .featuredImage-thumb {
@@ -257,4 +261,25 @@ td.date {
   color: white;
   opacity: 0.8;
   text-shadow: 0px 0px 5px black;
+}
+
+.list .goToHome-button {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+  border-radius: 100%;
+  background: #f87f06;
+  color: white;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  line-height: 25px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.goToHome-button.display {
+  display: block !important;
 }

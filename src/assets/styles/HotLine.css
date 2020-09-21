@@ -60,11 +60,12 @@ section.eventTop > .container {
 }
 
 .eventTop-span {
-  width: calc(100% - 125px);
+  /* width: calc(100% - 125px); */
   display: inline-block;
 }
 
 .eventTop-thumbnail-container {
+  display: none !important;
   margin-top: 10px;
   max-width: 15%;
   width: 125px;

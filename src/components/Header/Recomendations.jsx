@@ -21,6 +21,7 @@ function Recomendations(props) {
                 toggleRecomendations();
               }}
             >
+              <i className='fa fa-home'></i>
               Home
             </span>
             {recomendations.keywords.map((keyword, i) => (
