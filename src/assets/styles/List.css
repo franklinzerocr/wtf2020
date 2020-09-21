@@ -41,7 +41,7 @@ section.list:after {
 
 .eventsList td {
   border: none !important;
-  padding: 10px 10px;
+  padding: 10px 7.5px;
   height: 30px !important;
 }
 
@@ -52,8 +52,9 @@ section.list:after {
 
 .eventsList .eventElement .thumb,
 .eventsList .eventElement .none {
-  max-width: 60px;
-  max-height: 45px;
+  max-width: 60px !important;
+  max-height: 45px !important;
+  width: 60px;
   text-align: right;
   vertical-align: middle;
   position: relative;
@@ -63,6 +64,8 @@ section.list:after {
 .eventsList .eventElement .thumb .featuredImage-thumb,
 .eventsList .eventElement .none .featuredImage-thumb {
   width: 100%;
+  max-width: 60px !important;
+  max-height: 45px !important;
   height: auto;
 }
 .eventsList .eventElement .thumb .featuredImage-zoom {
@@ -74,7 +77,7 @@ section.list:after {
   position: absolute;
   z-index: 10000;
   top: 0px;
-  left: 50px;
+  left: 59px;
   transform: translateY(-50%);
 }
 .eventsList .eventElement .thumb:hover .featuredImage-thumb {
@@ -97,14 +100,12 @@ section.list:after {
   vertical-align: top;
   padding-top: 0px;
 }
-.eventsList .eventElement-meta .location,
-.eventsList .eventElement-meta .date {
-}
 
 .eventsList .eventElement .title,
 .calendarList .eventElement .title {
   font-family: Lato;
   font-size: 17px;
+  width: 270px;
 }
 
 .list_inner_container {
@@ -190,7 +191,10 @@ section.list:after {
 }
 
 td.date {
-  min-width: 100px;
+  min-width: 95px;
+}
+td.location {
+  min-width: 90px;
 }
 
 .mindblow_emoji {

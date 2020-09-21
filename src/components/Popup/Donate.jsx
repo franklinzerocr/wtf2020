@@ -5,7 +5,7 @@ import paypalButton from '../../assets/images/paypal.png';
 import bitcoinButton from '../../assets/images/bitcoin_PNG48.png';
 import bitcoinAddress from '../../assets/images/btcaddress.png';
 import lnButton from '../../assets/images/LN.png';
-import roisLogo from '../../assets/images/roislogo.png';
+import roisLogo from '../../assets/images/roisdigital_logo.png';
 import wtf2020logo from '../../assets/images/logowtf.png';
 
 function copyClipboard() {
@@ -76,12 +76,12 @@ function Donate() {
           </div>
           <div className='col-md-3 text-center '></div>
           <div className='col-md-3 text-center mb-2'>
-            <img src={wtf2020logo} alt='WTF2020 Logo' title='WTF 2020' className='wtf-donate-logo' />
-          </div>
-          <div className='col-md-3 text-center mb-2'>
             <Link to={{ pathname: roisdigital }} target='_blank'>
               <img src={roisLogo} alt='ROIS Logo' title='ROIS Digital Team' className='rois-donate-logo' />
             </Link>
+          </div>
+          <div className='col-md-3 text-center mb-2'>
+            <img src={wtf2020logo} alt='WTF2020 Logo' title='WTF 2020' className='wtf-donate-logo' />
           </div>
           <div className='col-md-3 text-center'></div>
         </div>

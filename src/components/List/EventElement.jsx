@@ -90,7 +90,6 @@ function renderListElement(event) {
 
 function EventElement(props) {
   let event = props.event;
-  let featuredImage = event.FeaturedImage.url;
   let featuredImageThumb = event.FeaturedImage.formats.thumbnail.url;
   event.event_news = sortListReverse(event.event_news, 'DatePublished');
   return (
@@ -100,9 +99,7 @@ function EventElement(props) {
           {props.parent === 'list' ? (
             <>
               <img className='featuredImage-thumb' src={backendURL + featuredImageThumb} alt={event.Title} title={event.Title} />
-              <Link to={{ pathname: backendURL + featuredImage }} target='_blank'>
-                <img className='featuredImage-zoom' src={backendURL + featuredImageThumb} alt={event.Title} />
-              </Link>
+              <img className='featuredImage-zoom' src={backendURL + featuredImageThumb} alt={event.Title} />
             </>
           ) : (
             <img src={mindBlowEmoji} alt='emoji mind blow' className='mindblow_emoji'></img>

@@ -68,3 +68,33 @@ section.eventTop > .container {
 .eventTop .open_popup {
   color: white;
 }
+
+.eventTop-span {
+  width: calc(100% - 125px);
+  display: inline-block;
+}
+
+.eventTop-thumbnail-container {
+  margin-top: 10px;
+  max-width: 15%;
+  width: 125px;
+  max-height: 70px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+.eventTop-thumbnail {
+  max-width: 100%;
+  max-height: 70px;
+}
+
+.eventTop-zoom {
+  display: none;
+}
+
+.eventTop-thumbnail-container:hover .eventTop-zoom {
+  position: absolute;
+  bottom: 83px;
+  right: 0px;
+  display: block;
+}

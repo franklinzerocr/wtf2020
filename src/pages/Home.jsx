@@ -10,11 +10,12 @@ import Popup from '../components/Popup/Popup';
 import { updateLayout } from '../hooks/useLayout';
 import { updatePopup } from '../hooks/usePopup';
 import Donate from '../components/Popup/Donate';
+import PrivacyCheck from '../components/Layout/PrivacyCheck';
 
 function openDonate() {
   setTimeout(function () {
     updatePopup(true, <Donate />);
-  }, 150000);
+  }, 180000);
 }
 
 function Home(props) {
@@ -27,6 +28,7 @@ function Home(props) {
       <EventsList />
       <Footer />
       <Popup />
+      <PrivacyCheck />
       {openDonate()}
     </>
   );

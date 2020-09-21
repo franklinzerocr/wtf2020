@@ -214,6 +214,10 @@ section.calendar {
   transform: translateX(120px);
 }
 
+button.react-calendar__tile.react-calendar__month-view__days__day {
+  height: 50px !important;
+}
+
 .react-calendar__century-view .react-calendar__tile abbr,
 .react-calendar__decade-view .react-calendar__tile abbr,
 .react-calendar__year-view .react-calendar__tile abbr {

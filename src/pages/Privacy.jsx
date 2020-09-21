@@ -6,6 +6,7 @@ import Content from '../components/Layout/Content';
 
 import '../assets/styles/Privacy.css';
 import Popup from '../components/Popup/Popup';
+import PrivacyCheck from '../components/Layout/PrivacyCheck';
 
 function privacyPolicy() {
   return (
@@ -94,6 +95,7 @@ function Privacy(props) {
       <Content content={content} />
       <Footer />
       <Popup />
+      <PrivacyCheck />
     </>
   );
 }

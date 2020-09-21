@@ -190,17 +190,22 @@ body.open-popup {
   border-radius: 10px;
 }
 
+.meme_single a:hover {
+  opacity: 1;
+}
+
 .meme_single img {
   max-width: 100%;
   width: auto;
+  margin: 5px 0px;
 }
 
 .footer-donate {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: white;
-  font-weight: normal;
-  background: #421e5f;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  /* color: white; */
+  font-weight: bold;
+  /* background: #421e5f; */
 }
 
 .footer-donate img {

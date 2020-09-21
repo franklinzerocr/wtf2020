@@ -6,6 +6,7 @@ import { memeButton, newsButton } from '../List/EventElement';
 
 import '../../assets/styles/HotLine.css';
 import { setHotlineHeight } from '../Header/Header';
+import { backendURL } from '../../globals';
 
 function EventTop(props) {
   let event = props.event;
@@ -14,10 +15,18 @@ function EventTop(props) {
   else if (!event.data) return <Error error='EMPTY' />;
   else {
     event = event.data;
+    let featuredImageThumb = event.FeaturedImage.formats.thumbnail.url;
     setHotlineHeight();
+
     return (
       <>
-        <p className='eventTop-title'>{event.Title}</p>
+        <p className='eventTop-title'>
+          <span className='eventTop-span'>{event.Title}</span>
+          <span className='eventTop-thumbnail-container'>
+            <img src={backendURL + featuredImageThumb} className='eventTop-thumbnail' alt={event.Title} title={event.Title} />
+            <img src={backendURL + featuredImageThumb} className='eventTop-zoom' alt={event.Title} />
+          </span>
+        </p>
         <p className='eventTop-meta'>
           {event.DateInit}
           &nbsp;&nbsp;&nbsp;
