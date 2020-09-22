@@ -131,6 +131,10 @@ section.list:after {
   top: 20px;
 }
 
+.month_tags.fixed {
+  position: fixed !important;
+}
+
 .monthTag {
   text-align: left;
   color: white;
