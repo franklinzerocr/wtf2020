@@ -132,6 +132,9 @@ a:hover,
   .main-header.static .logo {
     width: 380px;
   }
+  .calendar_inner_container {
+    height: auto !important;
+  }
 }
 
 @media only screen and (max-width: 1050px) {

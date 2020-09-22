@@ -17,6 +17,7 @@ export function setPositionOfMonthTags() {
     else if (height <= 200) tag.classList.add('medium-tag-size');
   }
 }
+
 // UNIFINISHED FOR KEEP THE MONTH TAG ON DISPLAY
 export function monthTagAdjust() {
   // let flag = null;
