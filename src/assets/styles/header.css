@@ -244,3 +244,7 @@ footer .menu ul {
   width: 160px !important;
   display: block !important;
 }
+
+.hidden-logo {
+  display: none;
+}

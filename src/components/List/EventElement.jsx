@@ -5,6 +5,7 @@ import MemeElement from '../Popup/MemeElement';
 import NewsElement from '../Popup/NewsElement';
 import mindBlowEmoji from '../../assets/images/emoji mind blow.png';
 import { backendURL } from '../../globals';
+import { Link } from 'react-router-dom';
 
 function newsPopup(event) {
   return (
@@ -97,6 +98,7 @@ function renderListElement(event) {
 
 function EventElement(props) {
   let event = props.event;
+  console.log(event.FeaturedImage);
   let featuredImageThumb = event.FeaturedImage.formats.thumbnail.url;
   event.event_news = sortListReverse(event.event_news, 'DatePublished');
   let [zoom, setZoom] = useState();
@@ -124,14 +126,16 @@ function EventElement(props) {
                 }}
               />
               {zoom === true ? (
-                <img
-                  className='featuredImage-zoom'
-                  src={backendURL + featuredImageThumb}
-                  alt={event.Title}
-                  onClick={() => {
-                    setZoom(!zoom);
-                  }}
-                />
+                <Link to={{ pathname: backendURL + event.FeaturedImage.url }} target='_blank'>
+                  <img
+                    className='featuredImage-zoom'
+                    src={backendURL + featuredImageThumb}
+                    alt={event.Title}
+                    onClick={() => {
+                      setZoom(!zoom);
+                    }}
+                  />
+                </Link>
               ) : null}
             </>
           ) : (
